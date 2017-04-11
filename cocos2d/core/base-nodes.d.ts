@@ -1,6 +1,6 @@
 /// <reference path="../cocos2d-lib.d.ts" />
 
-declare module cc {
+declare namespace cc {
 // +--------------------------------------------------------------------------------
 // + File: cocos2d/core/base-nodes/CCNode.js
 // +--------------------------------------------------------------------------------
@@ -993,7 +993,7 @@ declare module cc {
         public runAction (action: Action): Action
 
         /**
-         *Sets the additional transform.
+         * Sets the additional transform.
          *  The additional transform will be concatenated at the end of getNodeToParentTransform.
          *  It could be used to simulate `parent-child` relationship between two nodes (e.g. one is in BatchNode, another isn't).
          *
@@ -1053,7 +1053,7 @@ declare module cc {
          * @param {Number} delay     The amount of time that the first tick will wait before execution.
          * @param {String} key The only string identifying the callback
          */
-        public schedule (callback: (arg?: any) => void, interval: number, repeat: boolean, delay: number, key: String): void
+        public schedule (callback: (arg?: any) => void, interval: number, repeat: boolean, delay: number, key: string): void
 
         /**
          * Schedules a callback function that runs only once, with a delay of 0 or larger
@@ -1526,7 +1526,7 @@ declare module cc {
          * @see cc.Node#schedule
          * @param {function} callback_fn  A function wrapped as a selector
          */
-        public unschedule (callback_fn: (arg?: any) => void): void
+        public unschedule (callbackFn: (arg?: any) => void): void
 
         /**
          * unschedule all scheduled callback functions: custom callback functions, and the 'update' callback function.

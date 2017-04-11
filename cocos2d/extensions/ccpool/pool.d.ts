@@ -5,7 +5,7 @@ declare namespace cc {
   /**
    * To use cc.pool you must have a class with unuse and reuse functions
    */
-  export interface Poolable {
+  export interface IPoolable {
 
     /**
      * cc.pool will call unuse function when you put it into the pool
@@ -29,21 +29,21 @@ declare namespace cc {
    *      etc...
    * </p>
    *
-  * @example
-  * var sp = new cc.Sprite("a.png");
-  * this.addChild(sp);
-  * cc.pool.putInPool(sp);
-  *
-  * cc.pool.getFromPool(cc.Sprite, "a.png");
-  * @class
-  * @name cc.pool
-  */
+   * @example
+   * var sp = new cc.Sprite("a.png");
+   * this.addChild(sp);
+   * cc.pool.putInPool(sp);
+   *
+   * cc.pool.getFromPool(cc.Sprite, "a.png");
+   * @class
+   * @name cc.pool
+   */
   export namespace pool {
     /**
      * Put the obj in pool
-     * @param {cc.Poolable} obj
+     * @param {cc.IPoolable} obj
      */
-    function putInPool (obj: Poolable): void
+    function putInPool (obj: IPoolable): void
 
     /**
      * Check if this kind of obj has already in pool
@@ -54,9 +54,9 @@ declare namespace cc {
 
     /**
      * Remove the obj if you want to delete it;
-     * @param {cc.Poolable} obj
+     * @param {cc.IPoolable} obj
      */
-    function removeObject (obj: Poolable): void
+    function removeObject (obj: IPoolable): void
 
     /**
      * Get the obj from pool

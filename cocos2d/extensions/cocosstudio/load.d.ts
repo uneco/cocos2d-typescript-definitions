@@ -10,7 +10,7 @@ declare namespace ccs {
   /**
    * Parsed out object from studio JSON file
    */
-  export interface Loadable {
+  export interface ILoadable {
     node: cc.Node
     action: cc.Action
   }
@@ -27,7 +27,7 @@ declare namespace ccs {
    * @param {string} [path=] Resource path
    * @returns {{node: cc.Node, action: cc.Action}}
    */
-  export function load (file: string, path?: string): Loadable
+  export function load (file: string, path?: string): ILoadable
 
   /**
    * Analysis of studio JSON file and layout ui widgets by visible size.
@@ -41,5 +41,5 @@ declare namespace ccs {
    * @param {string} [path=] Resource path
    * @returns {{node: cc.Node, action: cc.Action}}
    */
-  export function loadWithVisibleSize (file: string, path?: string): Loadable
+  export function loadWithVisibleSize (file: string, path?: string): ILoadable
 }

@@ -106,7 +106,7 @@ declare namespace cc {
          *
          * menu.alignItemsInColumns(3,3)//this creates 2 columns, each have 3 items
          */
-        public alignItemsInColumns (...args: Number[]): void
+        public alignItemsInColumns (...args: number[]): void
 
         /**
          * align menu items in rows
@@ -117,7 +117,7 @@ declare namespace cc {
          *
          * menu.alignItemsInRows(4,4,4,4)//this creates 4 rows each have 4 items
          */
-        public alignItemsInRows (...args: Number[]): void
+        public alignItemsInRows (...args: number[]): void
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -369,7 +369,7 @@ declare namespace cc {
         public setFontSize (size: number): void
 
         /**
-         *return the font size of cc.MenuItemFont
+         * return the font size of cc.MenuItemFont
          * @return {Number}
          */
         public getFontSize (): number
@@ -561,7 +561,7 @@ declare namespace cc {
      * @property {Array}    subItems        - Sub items
      * @property {Number}   selectedIndex   - Index of selected sub item
      *
-     *@example
+     * @example
      * // Example
      * //create a toggle item with 2 menu items (which you can then toggle between them later)
      * var toggler = new cc.MenuItemToggle( new cc.MenuItemFont("On"), new cc.MenuItemFont("Off"), this.callback, this)

@@ -34,7 +34,7 @@ declare namespace cc {
 
     type LoadJsonCallback = (error: Error, json: {}) => void
 
-    export interface ConfigKey {
+    export interface IConfigKey {
         engineDir: string
         dependencies: string
         debugMode: string
@@ -151,11 +151,11 @@ declare namespace cc {
     export class AsyncPool {
         constructor (srcObj: any, limit: number, iterator: () => void, onEnd: () => void, target: any);
 
-        onIterator (iterator: any, target: any): void
+        public onIterator (iterator: any, target: any): void
 
-        onEnd (endCb: any, endCbTarget: any): void
+        public onEnd (endCb: any, endCbTarget: any): void
 
-        flow (): void
+        public flow (): void
     }
 
     /**
@@ -221,11 +221,11 @@ declare namespace cc {
         /**
          * Join strings to be a path.
          * @example
-         cc.path.join("a", "b.png");//-->"a/b.png"
-         cc.path.join("a", "b", "c.png");//-->"a/b/c.png"
-         cc.path.join("a", "b");//-->"a/b"
-         cc.path.join("a", "b", "/");//-->"a/b/"
-         cc.path.join("a", "b/", "/");//-->"a/b/"
+         * cc.path.join("a", "b.png");//-->"a/b.png"
+         * cc.path.join("a", "b", "c.png");//-->"a/b/c.png"
+         * cc.path.join("a", "b");//-->"a/b"
+         * cc.path.join("a", "b", "/");//-->"a/b/"
+         * cc.path.join("a", "b/", "/");//-->"a/b/"
          * @returns {string}
          */
         export function join (): string
@@ -233,10 +233,10 @@ declare namespace cc {
         /**
          * Get the ext name of a path.
          * @example
-         cc.path.extname("a/b.png");//-->".png"
-         cc.path.extname("a/b.png?a=1&b=2");//-->".png"
-         cc.path.extname("a/b");//-->null
-         cc.path.extname("a/b?a=1&b=2");//-->null
+         * cc.path.extname("a/b.png");//-->".png"
+         * cc.path.extname("a/b.png?a=1&b=2");//-->".png"
+         * cc.path.extname("a/b");//-->null
+         * cc.path.extname("a/b?a=1&b=2");//-->null
          * @param {string} pathStr
          * @returns {*}
          */
@@ -252,11 +252,11 @@ declare namespace cc {
         /**
          * Get the file name of a file path.
          * @example
-         cc.path.basename("a/b.png");//-->"b.png"
-         cc.path.basename("a/b.png?a=1&b=2");//-->"b.png"
-         cc.path.basename("a/b.png", ".png");//-->"b"
-         cc.path.basename("a/b.png?a=1&b=2", ".png");//-->"b"
-         cc.path.basename("a/b.png", ".txt");//-->"b.png"
+         * cc.path.basename("a/b.png");//-->"b.png"
+         * cc.path.basename("a/b.png?a=1&b=2");//-->"b.png"
+         * cc.path.basename("a/b.png", ".png");//-->"b"
+         * cc.path.basename("a/b.png?a=1&b=2", ".png");//-->"b"
+         * cc.path.basename("a/b.png", ".txt");//-->"b.png"
          * @param {string} pathStr
          * @param {string} [extname]
          * @returns {*}
@@ -267,13 +267,13 @@ declare namespace cc {
          * Get dirname of a file path.
          * @example
          * unix
-         cc.path.driname("a/b/c.png");//-->"a/b"
-         cc.path.driname("a/b/c.png?a=1&b=2");//-->"a/b"
-         cc.path.dirname("a/b/");//-->"a/b"
-         cc.path.dirname("c.png");//-->""
+         * cc.path.driname("a/b/c.png");//-->"a/b"
+         * cc.path.driname("a/b/c.png?a=1&b=2");//-->"a/b"
+         * cc.path.dirname("a/b/");//-->"a/b"
+         * cc.path.dirname("c.png");//-->""
          * windows
-         cc.path.driname("a\\b\\c.png");//-->"a\b"
-         cc.path.driname("a\\b\\c.png?a=1&b=2");//-->"a\b"
+         * cc.path.driname("a\\b\\c.png");//-->"a\b"
+         * cc.path.driname("a\\b\\c.png?a=1&b=2");//-->"a\b"
          * @param {string} pathStr
          * @returns {*}
          */
@@ -282,8 +282,8 @@ declare namespace cc {
         /**
          * Change extname of a file path.
          * @example
-         cc.path.changeExtname("a/b.png", ".plist");//-->"a/b.plist"
-         cc.path.changeExtname("a/b.png?a=1&b=2", ".plist");//-->"a/b.plist?a=1&b=2"
+         * cc.path.changeExtname("a/b.png", ".plist");//-->"a/b.plist"
+         * cc.path.changeExtname("a/b.png?a=1&b=2", ".plist");//-->"a/b.plist?a=1&b=2"
          * @param {string} pathStr
          * @param {string} [extname]
          * @returns {string}
@@ -293,11 +293,11 @@ declare namespace cc {
         /**
          * Change file name of a file path.
          * @example
-         cc.path.changeBasename("a/b/c.plist", "b.plist");//-->"a/b/b.plist"
-         cc.path.changeBasename("a/b/c.plist?a=1&b=2", "b.plist");//-->"a/b/b.plist?a=1&b=2"
-         cc.path.changeBasename("a/b/c.plist", ".png");//-->"a/b/c.png"
-         cc.path.changeBasename("a/b/c.plist", "b");//-->"a/b/b"
-         cc.path.changeBasename("a/b/c.plist", "b", true);//-->"a/b/b.plist"
+         * cc.path.changeBasename("a/b/c.plist", "b.plist");//-->"a/b/b.plist"
+         * cc.path.changeBasename("a/b/c.plist?a=1&b=2", "b.plist");//-->"a/b/b.plist?a=1&b=2"
+         * cc.path.changeBasename("a/b/c.plist", ".png");//-->"a/b/c.png"
+         * cc.path.changeBasename("a/b/c.plist", "b");//-->"a/b/b"
+         * cc.path.changeBasename("a/b/c.plist", "b", true);//-->"a/b/b.plist"
          * @param {String} pathStr
          * @param {String} basename
          * @param {Boolean} [isSameExt]
@@ -455,7 +455,7 @@ declare namespace cc {
      * @param {Object} opt_attribs
      * @return {WebGLRenderingContext}
      */
-    export function create3DContext (canvas: HTMLCanvasElement, opt_attribs: any): WebGLRenderingContext
+    export function create3DContext (canvas: HTMLCanvasElement, options: any): WebGLRenderingContext
 
     /**
      * System variables
@@ -1101,7 +1101,7 @@ declare namespace cc {
         // * @constant
         // * @type {Object}
         // */
-        export const CONFIG_KEY: ConfigKey
+        export const CONFIG_KEY: IConfigKey
 
         ///**
         // * Config of game
@@ -1143,8 +1143,8 @@ declare namespace cc {
         export function restart (): void
 
         /**
-        * Resume the game from pause.
-        */
+         * Resume the game from pause.
+         */
         export function resume (): void
 
         /**

@@ -22,7 +22,7 @@ declare namespace cc {
 
     export function convertDistanceFromPointToInch (pointDis: number): number
 
-    export interface ScrollViewDelegate extends Class {
+    export interface IScrollViewDelegate extends Class {
         scrollViewDidScroll (view: ScrollView): void
         scrollViewDidZoom (view: ScrollView): void
     }
@@ -39,7 +39,7 @@ declare namespace cc {
      * @property {cc.Size}                  viewSize    - The size of the scroll view
      * @property {cc.Layer}                 container   - The inside container of the scroll view
      * @property {Number}                   direction   - The direction allowed to scroll: cc.SCROLLVIEW_DIRECTION_BOTH by default, or cc.SCROLLVIEW_DIRECTION_NONE | cc.SCROLLVIEW_DIRECTION_HORIZONTAL | cc.SCROLLVIEW_DIRECTION_VERTICAL
-     * @property {cc.ScrollViewDelegate}    delegate    - The inside container of the scroll view
+     * @property {cc.IScrollViewDelegate}    delegate    - The inside container of the scroll view
      * @property {Boolean}                  clippingToBounds   - Indicate whether the scroll view clips its children
      */
     export class ScrollView extends Layer {
@@ -49,7 +49,7 @@ declare namespace cc {
         public viewSize: Size
         public container: Node
         public direction: number
-        public delegate: ScrollViewDelegate
+        public delegate: IScrollViewDelegate
         public clippingToBounds: boolean
 
         /**
@@ -168,9 +168,9 @@ declare namespace cc {
 
         public setDirection (direction: number): void
 
-        public getDelegate (): ScrollViewDelegate
+        public getDelegate (): IScrollViewDelegate
 
-        public setDelegate (delegate: ScrollViewDelegate): void
+        public setDelegate (delegate: IScrollViewDelegate): void
 
         /** override functions */
         // optional
@@ -205,8 +205,8 @@ declare namespace cc {
      * @extends cc.Class
      */
     export class SortableObject extends Class {
-        setObjectID (objectId: number): void
-        getObjectID (): number
+        public setObjectID (objectId: number): void
+        public getObjectID (): number
     }
 
     /**
@@ -387,7 +387,7 @@ declare namespace cc {
     /**
      * Sole purpose of this delegate is to single touch event in this version.
      */
-    export interface TableViewDelegate extends ScrollViewDelegate {
+    export interface ITableViewDelegate extends IScrollViewDelegate {
         /**
          * Delegate to respond touch event
          *
@@ -468,13 +468,13 @@ declare namespace cc {
      * @extends cc.ScrollView
      *
      * @property {cc.TableViewDataSource}   dataSource          - The data source of the table view
-     * @property {cc.TableViewDelegate}     delegate            - The event delegate of the table view
+     * @property {cc.ITableViewDelegate}     delegate            - The event delegate of the table view
      * @property {Number}                   verticalFillOrder   - The index to determine how cell is ordered and filled in the view
      *
      */
     export class TableView extends ScrollView {
         public dataSource: TableViewDataSource
-        public delegate: TableViewDelegate
+        public delegate: ITableViewDelegate
         public verticalFillOrder: number
 
         /**
@@ -496,9 +496,9 @@ declare namespace cc {
         /**
          * delegate
          */
-        public getDelegate (): TableViewDelegate
+        public getDelegate (): ITableViewDelegate
 
-        public setDelegate (delegate: TableViewDelegate): void
+        public setDelegate (delegate: ITableViewDelegate): void
 
         /**
          * determines how cell is ordered and filled in the view.

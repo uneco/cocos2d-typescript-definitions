@@ -1,5 +1,5 @@
 
-declare module cc {
+declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/cocoa/CCAffineTransform.js
     ////////////////////////////////////////////////////////////////////////////////
@@ -69,7 +69,7 @@ declare module cc {
      * @return {cc.AffineTransform}
      */
     export function affineTransformMake (a: number, b: number, c: number, d: number,
-                                        tx: number, ty: number): AffineTransform
+                                         tx: number, ty: number): AffineTransform
 
     /**
      * Create a identity transformation matrix:

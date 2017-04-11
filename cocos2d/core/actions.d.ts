@@ -406,7 +406,7 @@ declare namespace cc {
         public reverse (): ActionCamera
     }
 
-    export interface SphericalCoordinates {
+    export interface ISphericalCoordinates {
         newRadius: number
         zenith: number
         azimuth: number
@@ -439,12 +439,12 @@ declare namespace cc {
          * @param {Number} deltaAngleX
          */
         public ctor (t: number,
-                    radius: number,
-                    deltaRadius: number,
-                    angleZ: number,
-                    deltaAngleZ: number,
-                    angleX: number,
-                    deltaAngleX: number): void
+                     radius: number,
+                     deltaRadius: number,
+                     angleZ: number,
+                     deltaAngleZ: number,
+                     angleX: number,
+                     deltaAngleX: number): void
         public ctor (): void
 
         /**
@@ -459,19 +459,19 @@ declare namespace cc {
          * @return {Boolean}
          */
         public initWithDuration (t: number,
-                                radius: number,
-                                deltaRadius: number,
-                                angleZ: number,
-                                deltaAngleZ: number,
-                                angleX: number,
-                                deltaAngleX: number): boolean
+                                 radius: number,
+                                 deltaRadius: number,
+                                 angleZ: number,
+                                 deltaAngleZ: number,
+                                 angleX: number,
+                                 deltaAngleX: number): boolean
         public initWithDuration (d: number): boolean
 
         /**
          * positions the camera according to spherical coordinates
          * @return {Object}
          */
-        public sphericalRadius (): SphericalCoordinates
+        public sphericalRadius (): ISphericalCoordinates
 
         /**
          * called before the action start. It will also set the target.
@@ -502,12 +502,12 @@ declare namespace cc {
      * @return {cc.OrbitCamera}
      */
     export function orbitCamera (t: number,
-                                radius: number,
-                                deltaRadius: number,
-                                angleZ: number,
-                                deltaAngleZ: number,
-                                angleX: number,
-                                deltaAngleX: number): OrbitCamera
+                                 radius: number,
+                                 deltaRadius: number,
+                                 angleZ: number,
+                                 deltaAngleZ: number,
+                                 angleX: number,
+                                 deltaAngleX: number): OrbitCamera
 
     // +--------------------------------------------------------------------------------
     // + File: cocos2d/core/base-nodes/CCActionCatmullRom.js
@@ -527,11 +527,11 @@ declare namespace cc {
      * @return {cc.Point}
      */
     export function cardinalSplineAt (p0: cc.Point,
-                                     p1: cc.Point,
-                                     p2: cc.Point,
-                                     p3: cc.Point,
-                                     tension: number,
-                                     t: number): cc.Point
+                                      p1: cc.Point,
+                                      p2: cc.Point,
+                                      p3: cc.Point,
+                                      tension: number,
+                                      t: number): cc.Point
 
     /**
      * returns a new copy of the array reversed.
@@ -2946,7 +2946,7 @@ declare namespace cc {
          * @param isNeedCleanUp
          * @returns {boolean}
          */
-        init (isNeedCleanUp?: boolean): boolean
+        public init (isNeedCleanUp?: boolean): boolean
 
         /**
          * returns a reversed action.
@@ -2998,7 +2998,7 @@ declare namespace cc {
          * @param {Boolean} flip
          * @return {Boolean}
          */
-        initWithFlipX (flip: boolean): void
+        public initWithFlipX (flip: boolean): void
 
         /**
          * returns a reversed action.
@@ -3945,10 +3945,10 @@ declare namespace cc {
          * actionBy.initWithDuration(2, 300, 0, 50, 4);
          */
         public initWithDuration (duration: number,
-                                position: number|cc.Point,
-                                y?: number,
-                                height?: number,
-                                jumps?: number): boolean
+                                 position: number|cc.Point,
+                                 y?: number,
+                                 height?: number,
+                                 jumps?: number): boolean
         public initWithDuration (duration: number): boolean
 
         /**
@@ -4020,10 +4020,10 @@ declare namespace cc {
          * actionTo.initWithDuration(2, 300, 0, 50, 4);
          */
         public initWithDuration (duration: number,
-                                position: number|cc.Point,
-                                y?: number,
-                                height?: number,
-                                jumps?: number): boolean
+                                 position: number|cc.Point,
+                                 y?: number,
+                                 height?: number,
+                                 jumps?: number): boolean
         public initWithDuration (duration: number): boolean
 
         /**

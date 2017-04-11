@@ -18,13 +18,13 @@ declare namespace cc {
      * Properties from the group. They can be added using tilemap editors
      * @member {any[]} properties
      */
-    properties: any[]
+    public properties: any[]
 
     /**
      * Name of the group
      * @member {string} groupName
      */
-    groupName: string
+    public groupName: string
 
     /**
      * <p>The cc.TMXObjectGroup's constructor. <br/>
@@ -37,26 +37,26 @@ declare namespace cc {
      * Offset position of child objects
      * @return {cc.Point}
      */
-    getPositionOffset (): Point
+    public getPositionOffset (): Point
 
     /**
      * Offset position of child objects
      * @param {cc.Point} offset
      */
-    setPositionOffset (offset: Point): void
+    public setPositionOffset (offset: Point): void
 
     /**
      * List of properties stored in a dictionary
      * @param {any} Var
      */
-    setProperties (Var: any): void
+    public setProperties (Var: any): void
 
     /**
      * Return the value for the specific property name
      * @param {string} propertyName
      * @return {any}
      */
-    propertyNamed (propertyName: string): any
+    public propertyNamed (propertyName: string): any
 
     /**
      * <p>Return the dictionary for the specific object name. <br />
@@ -64,18 +64,18 @@ declare namespace cc {
      * @param {string} objectName
      * @return {any|null}
      */
-    getObject (objectName: string): any
+    public getObject (objectName: string): any
 
     /**
      * Gets the objects.
      * @return {any[]}
      */
-    getObjects (): any[]
+    public getObjects (): any[]
 
     /**
      * Set the objects.
      * @param {any} objects
      */
-    setObjects (objects: any): void
+    public setObjects (objects: any): void
   }
 }

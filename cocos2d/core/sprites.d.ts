@@ -843,7 +843,7 @@ declare namespace cc {
          * @param {Number} [capacity]
          * @return {Boolean}
          */
-        init (fileImage?: string, capacity?: number): boolean
+        public init (fileImage?: string, capacity?: number): boolean
 
         /**
          * Increase Atlas Capacity

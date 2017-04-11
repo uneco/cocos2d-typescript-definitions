@@ -41,13 +41,13 @@ declare namespace cc {
    * @class
    * @extends cc.Node
    *
-  * @property {cc.Sprite}    sprite          - The sprite.
-  * @property {cc.Sprite}    clearFlags      - Code for "auto" update.
-  * @property {number}       clearDepthVal   - Clear depth value.
-  * @property {boolean}      autoDraw        - Indicate auto draw mode activate or not.
-  * @property {number}       clearStencilVal - Clear stencil value.
-  * @property {cc.Color}     clearColorVal   - Clear color value, valid only when "autoDraw" is true.
-  */
+   * @property {cc.Sprite}    sprite          - The sprite.
+   * @property {cc.Sprite}    clearFlags      - Code for "auto" update.
+   * @property {number}       clearDepthVal   - Clear depth value.
+   * @property {boolean}      autoDraw        - Indicate auto draw mode activate or not.
+   * @property {number}       clearStencilVal - Clear stencil value.
+   * @property {cc.Color}     clearColorVal   - Clear color value, valid only when "autoDraw" is true.
+   */
   export class RenderTexture extends Node {
     /**
      * The sprite

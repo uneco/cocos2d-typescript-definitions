@@ -703,7 +703,7 @@ declare namespace cc {
          * Description
          * @return {String}
          */
-        description (): string
+        public description (): string
 
         /**
          * Initializes a TextureAtlas with a filename and with a certain capacity for Quads.
@@ -790,7 +790,7 @@ declare namespace cc {
          * The TextureAtlas capacity remains untouched. No memory is freed.
          * The total number of quads to be drawn will be 0
          */
-        removeAllQuads (): void
+        public removeAllQuads (): void
 
         /**
          * Resize the capacity of the CCTextureAtlas.

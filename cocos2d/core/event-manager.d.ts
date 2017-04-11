@@ -302,7 +302,7 @@ declare namespace cc {
     //    ENDED = 2,
     //    CANCELLED = 3
     // }
-    export interface EventCodeMap {
+    export interface IEventCodeMap {
             BEGAN: number
         MOVED: number
         ENDED: number
@@ -317,7 +317,7 @@ declare namespace cc {
          */
         public static MAX_TOUCHES: number
 
-        public static EventCode: EventCodeMap
+        public static EventCode: IEventCodeMap
 
         public constructor (arr: Touch[]);
 
@@ -547,7 +547,7 @@ declare namespace cc {
          * @function
          * @see cc.EventListener#release
          */
-        retain (): void
+        public retain (): void
 
         /**
          * Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,

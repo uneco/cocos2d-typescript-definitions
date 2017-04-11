@@ -971,7 +971,7 @@ declare namespace cc {
 
         public shadowEnabled: boolean
         public shadowOffsetX: number
-        public shadowOffsetY: number; 
+        public shadowOffsetY: number
         public shadowBlur: number
         public shadowOpacity: number
 
@@ -1284,7 +1284,7 @@ declare namespace cc {
     // File: cocos2d/core/platform/CCEGLView.js
     ////////////////////////////////////////////////////////////////////////////////
     // TODO: Figure out where the fuck the cc.View class is defined
-    export interface View extends Class {}
+    export interface IView extends Class {}
 
     /**
      * @ignore
@@ -1312,7 +1312,7 @@ declare namespace cc {
      * @name cc.view
      * @extend cc.Class
      */
-    export class EGLView extends Class implements View {
+    export class EGLView extends Class implements IView {
         /**
          * Constructor of cc.EGLView
          */
@@ -1639,35 +1639,35 @@ declare namespace cc {
         /**
          * Strategy that scale proportionally the container's size to frame's size
          */
-        static PROPORTION_TO_FRAME: ContainerStrategy
+        public static PROPORTION_TO_FRAME: ContainerStrategy
 
         /**
          * Strategy that makes the container's size equals to the frame's size
          */
-        static EQUAL_TO_FRAME: ContainerStrategy
+        public static EQUAL_TO_FRAME: ContainerStrategy
 
         /**
          * Strategy that keeps the original container's size
          */
-        static ORIGINAL_CONTAINER: ContainerStrategy
+        public static ORIGINAL_CONTAINER: ContainerStrategy
         /**
          * Manipulation before appling the strategy
          * @param {cc.view} view The target view
          */
-        public preApply (view: View): void
+        public preApply (view: IView): void
 
         /**
          * Function to apply this strategy
          * @param {cc.view} view
          * @param {cc.Size} designedResolution
          */
-        public apply (view: View, designedResolution: Size): void
+        public apply (view: IView, designedResolution: Size): void
 
         /**
          * Manipulation after applying the strategy
          * @param {cc.view} view  The target view
          */
-        public postApply (view: View): void
+        public postApply (view: IView): void
     }
 
     /**
@@ -1682,33 +1682,33 @@ declare namespace cc {
         /**
          * Strategy to scale the content's size to container's size, non proportional
          */
-        static EXACT_FIT: ContentStrategy
+        public static EXACT_FIT: ContentStrategy
 
         /**
          * Strategy to scale the content's size proportionally to maximum size and keeps the whole content area to be visible
          */
-        static SHOW_ALL: ContentStrategy
+        public static SHOW_ALL: ContentStrategy
 
         /**
          * Strategy to scale the content's size proportionally to fill the whole container area
          */
-        static NO_BORDER: ContentStrategy
+        public static NO_BORDER: ContentStrategy
 
         /**
          * Strategy to scale the content's height to container's height and proportionally scale its width
          */
-        static FIXED_HEIGHT: ContentStrategy
+        public static FIXED_HEIGHT: ContentStrategy
 
         /**
          * Strategy to scale the content's width to container's width and proportionally scale its height
          */
-        static FIXED_WIDTH: ContentStrategy
+        public static FIXED_WIDTH: ContentStrategy
 
         /**
          * Manipulation before applying the strategy
          * @param {cc.view} view The target view
          */
-        public preApply (view: View): void
+        public preApply (view: IView): void
 
         /**
          * Function to apply this strategy
@@ -1719,13 +1719,13 @@ declare namespace cc {
          * @return {object} scaleAndViewportRect
          */
         // TODO: Figure out what return value is
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
 
         /**
          * Manipulation after applying the strategy
          * @param {cc.view} view The target view
          */
-        public postApply (view: View): void
+        public postApply (view: IView): void
     }
 
 // Container scale strategies
@@ -1734,7 +1734,7 @@ declare namespace cc {
      * @extends cc.ContainerStrategy
      */
     export class EqualToFrame extends ContainerStrategy {
-        public apply (view: View, designedResolution?: Size): void
+        public apply (view: IView, designedResolution?: Size): void
     }
 
     /**
@@ -1742,7 +1742,7 @@ declare namespace cc {
      * @extends cc.ContainerStrategy
      */
     export class ProportionalToFrame extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): void
+        public apply (view: IView, designedResolution: Size): void
     }
 
     /**
@@ -1750,8 +1750,8 @@ declare namespace cc {
      * @extends EqualToFrame
      */
     export class EqualToWindow extends EqualToFrame {
-        public preApply (view: View): void
-        public apply (view: View, designedResolution: Size): any
+        public preApply (view: IView): void
+        public apply (view: IView, designedResolution: Size): any
     }
 
     /**
@@ -1759,9 +1759,9 @@ declare namespace cc {
      * @extends ProportionalToFrame
      */
     export class ProportionalToWindow extends ProportionalToFrame {
-        public preApply (view: View): void
+        public preApply (view: IView): void
 
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
     }
 
     /**
@@ -1769,7 +1769,7 @@ declare namespace cc {
      * @extends cc.ContainerStrategy
      */
     export class OriginalContainer extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
     }
 
 //// #NOT STABLE on Android# Alias: Strategy that makes the container's size equals to the window's size
@@ -1786,25 +1786,25 @@ declare namespace cc {
 
 // Content scale strategies
     export class ExactFit extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
     }
 
     export class ShowAll extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
     }
 
     export class NoBorder extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
     }
 
     export class FixedHeight extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): any
-        public postApply (view: View): void
+        public apply (view: IView, designedResolution: Size): any
+        public postApply (view: IView): void
     }
 
     export class FixedWidth extends ContainerStrategy {
-        public apply (view: View, designedResolution: Size): any
-        public postApply (view: View): void
+        public apply (view: IView, designedResolution: Size): any
+        public postApply (view: IView): void
     }
 
 //// Alias: Strategy to scale the content's size to container's size, non proportional
@@ -1910,7 +1910,7 @@ declare namespace cc {
          * Manipulation before applying the resolution policy
          * @param {cc.view} view The target view
          */
-        public preApply (view: View): void
+        public preApply (view: IView): void
 
         /**
          * Function to apply this resolution policy
@@ -1920,13 +1920,13 @@ declare namespace cc {
          * @param {cc.Size} designedResolution The user defined design resolution
          * @return {object} An object contains the scale X/Y values and the viewport rect
          */
-        public apply (view: View, designedResolution: Size): any
+        public apply (view: IView, designedResolution: Size): any
 
         /**
          * Manipulation after appyling the strategy
          * @param {cc.view} view The target view
          */
-        public postApply (view: View): void
+        public postApply (view: IView): void
 
         /**
          * Setup the container's scale strategy

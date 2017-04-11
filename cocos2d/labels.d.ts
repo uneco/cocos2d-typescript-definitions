@@ -4,13 +4,13 @@ declare namespace cc {
     // Interface, consolidate all properties/methods common across cc2d label types here.
     // TODO: Fill this out completely. I don't have time to scour through the code and do this,
     //       so the interface will have to grow on an as-needed basis.
-    interface Label extends Node {
+    interface ILabel extends Node {
         // Properties
         string: string
 
         // Methods
         getString (): string
-        setString (string: string): void
+        setString (str: string): void
     }
 
     // +--------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ declare namespace cc {
      * //creates the cc.LabelAtlas with a string, a fnt file
      * var myLabel = new cc.LabelAtlas('Text to display', 'CharMapFile.plist‘);
      */
-    export class LabelAtlas extends AtlasNode implements Label {
+    export class LabelAtlas extends AtlasNode implements ILabel {
 
         // public opacity:number;
         // public color:Color;
@@ -162,7 +162,7 @@ declare namespace cc {
      * // Example 03
      * var label3 = new cc.LabelBMFont("This is a \n test case", "test.fnt", 200, cc.TEXT_ALIGNMENT_LEFT, cc.p(0,0));
      */
-    export class LabelBMFont extends SpriteBatchNode implements Label {
+    export class LabelBMFont extends SpriteBatchNode implements ILabel {
         public string: string
         public boundingWidth: number
         public textAlign: number

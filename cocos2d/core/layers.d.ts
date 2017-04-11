@@ -1,6 +1,6 @@
 /// <reference path="../cocos2d-lib.d.ts" />
 
-declare module cc {
+declare namespace cc {
 
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/layers/CCLayer.js
@@ -69,7 +69,7 @@ declare module cc {
          * @param {Number} [height=]
          */
         constructor (color: Color, width?: number, height?: number);
-        ctor (color?: Color, width?: number, height?: number): void
+        public ctor (color?: Color, width?: number, height?: number): void
 
         /**
          * Returns the blend function
@@ -143,6 +143,6 @@ declare module cc {
          *
          */
         constructor (start: Color, end: Color, v: Point, stops?: any[]);
-        ctor (start?: Color, end?: Color|number, v?: Point|number, stops?: any[]): void
+        public ctor (start?: Color, end?: Color|number, v?: Point|number, stops?: any[]): void
     }
 }

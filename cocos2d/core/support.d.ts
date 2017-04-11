@@ -147,7 +147,7 @@ declare namespace cc {
     /**
      * Calculates the square length of a cc.Point (not calling sqrt() )
      * @param  {cc.Point} point
-     *@return {number}
+     * @return {number}
      */
     // cc.pLengthSQ = function (v) {
     //    return cc.pDot(v, v);
@@ -232,7 +232,7 @@ declare namespace cc {
     //    }
     //    return value < min_inclusive ? min_inclusive : value < max_inclusive ? value : max_inclusive;
     // };
-    export function clampf (value: number, min_inclusive: number, max_inclusive: number): number
+    export function clampf (value: number, minInclusive: number, maxInclusive: number): number
 
     /**
      * Clamp a point between from and to.
@@ -244,7 +244,7 @@ declare namespace cc {
     // cc.pClamp = function (p, min_inclusive, max_inclusive) {
     //    return cc.p(cc.clampf(p.x, min_inclusive.x, max_inclusive.x), cc.clampf(p.y, min_inclusive.y, max_inclusive.y));
     // };
-    export function pClamp (point: Point, min_inclusive: Point, max_inclusive: Point): Point
+    export function pClamp (point: Point, minInclusive: Point, maxInclusive: Point): Point
 
     /**
      * Quickly convert cc.Size to a cc.Point
