@@ -105,7 +105,7 @@ declare namespace cc {
          * TODO: Restricting the target to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        removeActionByTag(tag: number, target: Node);
+        removeActionByTag(tag: number, target: Node):void;
 
         /**
          * Removes all actions from all the targets.
@@ -789,7 +789,7 @@ declare namespace cc {
          * You should only call this with kCCPriorityNonSystemMin or higher.
          * @param {Number} minPriority
          */
-        pauseAllTargetsWithMinPriority(minPriority):void;
+        pauseAllTargetsWithMinPriority(minPriority:number):void;
 
         /**
          * <p>

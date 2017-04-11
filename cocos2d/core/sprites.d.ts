@@ -785,7 +785,7 @@ declare namespace cc {
         public texture:Texture2D;
         public textureAtlas:TextureAtlas;
 
-        public ctor(fileImage?:string|Texture2D, capacity?:number);
+        public ctor(fileImage?:string|Texture2D, capacity?:number):void;
 
         /**
          *
@@ -797,7 +797,7 @@ declare namespace cc {
          * @param {Number} aTag
          * @return {cc.SpriteBatchNode}
          */
-        public addSpriteWithoutQuad(child:Sprite, z:number, aTag:number);
+        public addSpriteWithoutQuad(child:Sprite, z:number, aTag:number):cc.SpriteBatchNode;
 
         // property
         /**

@@ -61,7 +61,7 @@ declare namespace cc {
          */
         public constructor(size:Size, container?:Node);
 
-        public ctor(size?:Size, container?:Node);
+        public ctor(size?:Size, container?:Node):void;
 
         public init():boolean;
 
@@ -217,7 +217,7 @@ declare namespace cc {
      */
     export class SortedObject extends SortableObject {
         public constructor();
-        public ctor();
+        public ctor():void;
         public getObjectID():number;
         public setObjectID(objectID:number):void;
     }
@@ -228,7 +228,7 @@ declare namespace cc {
      * @extend cc.Class
      */
     export class ArrayForObjectSorting extends Class {
-        public ctor();
+        public ctor():void;
 
         public constructor();
 

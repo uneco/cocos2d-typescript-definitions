@@ -69,7 +69,7 @@ declare namespace cc {
 
     export function assert(test:boolean, msg:string):void;
 
-    export function newElement(x);
+    export function newElement(x:string):HTMLElement;
 
     // export function _addEventListener(element, type, listener, useCapture);
 
@@ -1116,13 +1116,13 @@ declare namespace cc {
          * Callback when the scripts of engine have been load.
          * @type {Function}
          */
-        export function onStart();
+        export function onStart():void;
 
         /**
          * Callback when game exits.
          * @type {Function}
          */
-        export function onStop();
+        export function onStop():void;
 
         /**
          * Set frameRate of game.

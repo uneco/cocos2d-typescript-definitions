@@ -55,13 +55,13 @@ declare namespace cc {
          * In the medium term: it will allocate more resources
          * In the long term: it will be the same
          */
-        removeAllTextures();
+        removeAllTextures():void;
 
         /**
          * Deletes a texture from the cache given a texture
          * @param texture 
          */
-        removeTexture(texture: Image);
+        removeTexture(texture: Image):void;
 
         /**
          * Deletes a texture from the cache given a its key name
@@ -69,6 +69,6 @@ declare namespace cc {
          * @example
          * `cc.textureCache.removeTexture("hello.png");`
          */
-        removeTextureForKey(textureKeyName: string);
+        removeTextureForKey(textureKeyName: string):void;
     }
 }

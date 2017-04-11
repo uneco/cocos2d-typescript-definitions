@@ -14,7 +14,7 @@ declare module cc {
      * @param {cc.AffineTransform} rhs The transform object to concatenate
      * @return {cc.AffineTransform} The result of concatenation
      */
-    export function affineTransformConcat(lhs, rhs):AffineTransform;
+    export function affineTransformConcat(lhs:AffineTransform, rhs:AffineTransform):AffineTransform;
 
     /**
      * Concatenate a transform matrix to another
@@ -25,7 +25,7 @@ declare module cc {
      * @param {cc.AffineTransform} rhs The transform object to concatenate
      * @return {cc.AffineTransform} The result of concatenation
      */
-    export function affineTransformConcatIn(lhs, rhs):AffineTransform;
+    export function affineTransformConcatIn(lhs:AffineTransform, rhs:AffineTransform):AffineTransform;
 
     /**
      * Return true if an affine transform equals to another, false otherwise.
@@ -214,7 +214,7 @@ declare module cc {
      * var rect4 = cc.rect({x: 100, y: 100, width: 100, height: 100});
      */
     export function rect(x:Rect):Rect;
-    export function rect(number, y:number, width:number, height:number):Rect;
+    export function rect(x:number, y:number, width:number, height:number):Rect;
 
     /**
      * Check whether a rect contains a point
