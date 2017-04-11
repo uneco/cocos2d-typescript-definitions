@@ -1,0 +1,13 @@
+{
+  "name": "cocos2d-typescript-definitions",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cocos2d-js TypeScript ambient declarations",
+  "scripts": {
+    "lint": "tslint cocos2d/**/*.d.ts"
+  },
+  "devDependencies": {
+    "tslint": "^5.1.0",
+    "typescript": "^2.2.2"
+  }
+}
