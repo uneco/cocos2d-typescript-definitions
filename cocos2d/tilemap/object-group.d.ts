@@ -4,7 +4,7 @@ declare namespace cc {
   // +--------------------------------------------------------------------------------
   // + File: cocos2d/tilemap/CCTMXObjectGroup.js
   // +--------------------------------------------------------------------------------
-  
+
   /**
    * cc.TMXObjectGroup represents the TMX object group.
    * @class
@@ -19,7 +19,7 @@ declare namespace cc {
      * @member {any[]} properties
      */
     properties: any[]
-    
+
     /**
      * Name of the group
      * @member {string} groupName
@@ -31,32 +31,32 @@ declare namespace cc {
      * This function will automatically be invoked when you create a node using new construction: "var node = new cc.TMXObjectGroup()".<br/>
      * Override it to extend its behavior, remember to call "this._super()" in the extended "ctor" function.</p>
      */
-    constructor()
+    constructor ()
 
     /**
      * Offset position of child objects
      * @return {cc.Point}
      */
-    getPositionOffset(): Point
+    getPositionOffset (): Point
 
     /**
      * Offset position of child objects
      * @param {cc.Point} offset
      */
-    setPositionOffset(offset: Point): void
+    setPositionOffset (offset: Point): void
 
     /**
      * List of properties stored in a dictionary
      * @param {any} Var
      */
-    setProperties(Var: any): void
+    setProperties (Var: any): void
 
     /**
      * Return the value for the specific property name
      * @param {string} propertyName
      * @return {any}
      */
-    propertyNamed(propertyName: string): any
+    propertyNamed (propertyName: string): any
 
     /**
      * <p>Return the dictionary for the specific object name. <br />
@@ -64,18 +64,18 @@ declare namespace cc {
      * @param {string} objectName
      * @return {any|null}
      */
-    getObject(objectName: string): any
+    getObject (objectName: string): any
 
     /**
      * Gets the objects.
      * @return {any[]}
      */
-    getObjects(): any[]
+    getObjects (): any[]
 
     /**
      * Set the objects.
      * @param {any} objects
      */
-    setObjects(objects: any): void
+    setObjects (objects: any): void
   }
 }

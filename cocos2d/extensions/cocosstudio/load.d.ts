@@ -2,7 +2,7 @@
 /// <reference path="../../cocos2d-lib.d.ts" />
 
 declare namespace ccs {
-  
+
   ////////////////////////////////////////////////////////////////////////////////
   // File: cocos2d/extensions/cocosstudio/load.js
   ////////////////////////////////////////////////////////////////////////////////
@@ -11,10 +11,10 @@ declare namespace ccs {
    * Parsed out object from studio JSON file
    */
   export interface Loadable {
-    node: cc.Node;
-    action: cc.Action;
+    node: cc.Node
+    action: cc.Action
   }
-  
+
   /**
    * Analysis of studio JSON file
    * The incoming file name, parse out the corresponding object
@@ -27,8 +27,8 @@ declare namespace ccs {
    * @param {string} [path=] Resource path
    * @returns {{node: cc.Node, action: cc.Action}}
    */
-  export function load(file: string, path?: string): Loadable
-  
+  export function load (file: string, path?: string): Loadable
+
   /**
    * Analysis of studio JSON file and layout ui widgets by visible size.
    * The incoming file name, parse out the corresponding object
@@ -41,5 +41,5 @@ declare namespace ccs {
    * @param {string} [path=] Resource path
    * @returns {{node: cc.Node, action: cc.Action}}
    */
-  export function loadWithVisibleSize(file: string, path?: string): Loadable
+  export function loadWithVisibleSize (file: string, path?: string): Loadable
 }

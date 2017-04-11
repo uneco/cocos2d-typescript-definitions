@@ -19,38 +19,37 @@ declare namespace cc {
      * Encapsulate DOM and webAudio
      */
     export class Audio extends Class {
-        public volume:number;
-        public loop:boolean;
-        public src:any;
+        public volume: number
+        public loop: boolean
+        public src: any
 
         // TODO: Figure out what type context is supposed to be
-        public constructor(context:any, volume:number, url:string);
+        public constructor (context: any, volume: number, url: string);
 
-        public ctor(context:any, volume:number, url:string):void;
-        public ctor():void;
+        public ctor (context: any, volume: number, url: string): void
+        public ctor (): void
 
         // TODO: Figure out what type buffer is supposed to be
-        public setBuffer(buffer:any):void;
+        public setBuffer (buffer: any): void
 
         // TODO: Figure out what type element is supposed to be
-        public setElement(element:any):void;
+        public setElement (element: any): void
 
-        public play(offset:number, loop:boolean):void;
+        public play (offset: number, loop: boolean): void
 
-        public getPlaying():boolean;
+        public getPlaying (): boolean
 
+        public stop (): void
 
-        public stop():void;
+        public pause (): void
 
-        public pause():void;
+        public resume (): void
 
-        public resume():void;
+        public setVolume (volume: number): void
 
-        public setVolume(volume:number):void;
+        public getVolume (): number
 
-        public getVolume():number;
-
-        public cloneNode():Audio;
+        public cloneNode (): Audio
     }
 
     /**
@@ -62,7 +61,7 @@ declare namespace cc {
          * Indicates whether any background music can be played or not.
          * @returns {boolean} true if the background music is playing, otherwise false
          */
-        export function willPlayMusic():boolean;
+        export function willPlayMusic (): boolean
 
         /**
          * Play music.
@@ -72,7 +71,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.playMusic(path, false);
          */
-        export function playMusic(url:string, loop:boolean):void;
+        export function playMusic (url: string, loop: boolean): void
 
         /**
          * Stop playing music.
@@ -81,7 +80,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.stopMusic();
          */
-        export function stopMusic(releaseData?:boolean):void;
+        export function stopMusic (releaseData?: boolean): void
 
         /**
          * Pause playing music.
@@ -89,7 +88,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.pauseMusic();
          */
-        export function pauseMusic():void;
+        export function pauseMusic (): void
 
         /**
          * Resume playing music.
@@ -97,7 +96,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.resumeMusic();
          */
-        export function resumeMusic():void;
+        export function resumeMusic (): void
 
         /**
          * Rewind playing music.
@@ -105,7 +104,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.rewindMusic();
          */
-        export function rewindMusic():void;
+        export function rewindMusic (): void
 
         /**
          * The volume of the music max value is 1.0,the min value is 0.0 .
@@ -114,7 +113,7 @@ declare namespace cc {
          * //example
          * var volume = cc.audioEngine.getMusicVolume();
          */
-        export function getMusicVolume():number;
+        export function getMusicVolume (): number
 
         /**
          * Set the volume of music.
@@ -123,7 +122,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.setMusicVolume(0.5);
          */
-        export function setMusicVolume(volume:number):void;
+        export function setMusicVolume (volume: number): void
 
         /**
          * Whether the music is playing.
@@ -137,7 +136,7 @@ declare namespace cc {
          *      cc.log("music is not playing");
          *  }
          */
-        export function isMusicPlaying():boolean;
+        export function isMusicPlaying (): boolean
 
         /**
          * Play sound effect.
@@ -148,7 +147,7 @@ declare namespace cc {
          * //example
          * var soundId = cc.audioEngine.playEffect(path);
          */
-        export function playEffect(url:string, loop:boolean):void;
+        export function playEffect (url: string, loop: boolean): void
 
         /**
          * Set the volume of sound effects.
@@ -157,7 +156,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.setEffectsVolume(0.5);
          */
-        export function setEffectsVolume(volume:number):void;
+        export function setEffectsVolume (volume: number): void
 
         /**
          * The volume of the effects max value is 1.0,the min value is 0.0 .
@@ -166,7 +165,7 @@ declare namespace cc {
          * //example
          * var effectVolume = cc.audioEngine.getEffectsVolume();
          */
-        export function getEffectsVolume():number;
+        export function getEffectsVolume (): number
 
         /**
          * Pause playing sound effect.
@@ -175,7 +174,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.pauseEffect(audioID);
          */
-        export function pauseEffect(audio:Audio):void;
+        export function pauseEffect (audio: Audio): void
 
         /**
          * Pause all playing sound effect.
@@ -183,7 +182,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.pauseAllEffects();
          */
-        export function pauseAllEffects():void;
+        export function pauseAllEffects (): void
 
         /**
          * Resume playing sound effect.
@@ -192,7 +191,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.resumeEffect(audioID);
          */
-        export function resumeEffect(audio:Audio):void;
+        export function resumeEffect (audio: Audio): void
 
         /**
          * Resume all playing sound effect
@@ -200,7 +199,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.resumeAllEffects();
          */
-        export function resumeAllEffects():void;
+        export function resumeAllEffects (): void
 
         /**
          * Stop playing sound effect.
@@ -209,7 +208,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.stopEffect(audioID);
          */
-        export function stopEffect(audio:Audio):void;
+        export function stopEffect (audio: Audio): void
 
         /**
          * Stop all playing sound effects.
@@ -217,7 +216,7 @@ declare namespace cc {
          * //example
          * cc.audioEngine.stopAllEffects();
          */
-        export function stopAllEffects():void;
+        export function stopAllEffects (): void
 
         /**
          * Unload the preloaded effect from internal buffer
@@ -226,11 +225,11 @@ declare namespace cc {
          * //example
          * cc.audioEngine.unloadEffect(EFFECT_FILE);
          */
-        export function unloadEffect(url:string):void;
+        export function unloadEffect (url: string): void
 
         /**
          * End music and effects.
          */
-        export function end():void;
+        export function end (): void
     }
 }

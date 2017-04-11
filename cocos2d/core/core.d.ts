@@ -20,7 +20,7 @@ declare namespace cc {
      * var mgr = new cc.ActionManager();
      */
     export class ActionManager extends Class {
-        constructor();
+        constructor ();
 
         /** Adds an action with a target.
          * If the target is already present, then the action will be added to the existing target.
@@ -32,7 +32,7 @@ declare namespace cc {
          * @param {cc.Node} target
          * @param {Boolean} paused
          */
-        addAction(action: Action, target: Node, paused: boolean): void;
+        addAction (action: Action, target: Node, paused: boolean): void
 
         /** Gets an action given its tag an a target
          * @param {Number} tag
@@ -42,7 +42,7 @@ declare namespace cc {
          * TODO: Restricting the target to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        getActionByTag(tag: number, target: Node): Action;
+        getActionByTag (tag: number, target: Node): Action
 
         /** Returns the numbers of actions that are running in a certain target. <br/>
          * Composable actions are counted as 1 action. <br/>
@@ -55,13 +55,13 @@ declare namespace cc {
          * TODO: Restricting the target to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        numberOfRunningActionsInTarget(target: Node): number;
+        numberOfRunningActionsInTarget (target: Node): number
 
         /**
          * Pauses all running actions, returning a list of targets whose actions were paused.
          * @return {Array}  a list of targets whose actions were paused.
          */
-        pauseAllRunningActions(): void;
+        pauseAllRunningActions (): void
 
         /** Pauses the target: all running actions and newly added actions will be paused.
          * @param {object} target
@@ -69,12 +69,12 @@ declare namespace cc {
          * TODO: Restricting the target to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        pauseTarget(target: Node): void;
+        pauseTarget (target: Node): void
 
         /** purges the shared action manager. It releases the retained instance. <br/>
          * because it uses this, so it can not be static
          */
-        purgeSharedManager(): void;
+        purgeSharedManager (): void
 
         /** Resumes the target. All queued actions will be resumed.
          * @param {object} target
@@ -82,7 +82,7 @@ declare namespace cc {
          * TODO: Restricting the target to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        resumeTarget(target: Node): void;
+        resumeTarget (target: Node): void
 
         /**
          * Resume a set of targets (convenience function to reverse a pauseAllRunningActions call)
@@ -91,12 +91,12 @@ declare namespace cc {
          * TODO: Restricting the targets to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        resumeTargets(targetsToResume: Node[]): void;
+        resumeTargets (targetsToResume: Node[]): void
 
         /** Removes an action given an action reference.
          * @param {cc.Action} action The action to be removed.
          */
-        removeAction(action: Action): void;
+        removeAction (action: Action): void
 
         /** Removes an action given its tag and the target
          * @param {Number} tag
@@ -105,12 +105,12 @@ declare namespace cc {
          * TODO: Restricting the target to cc.Node. Figure out a better way to do this (while avoiding "any")
          *       if non cc.Node objects can have actions.
          */
-        removeActionByTag(tag: number, target: Node):void;
+        removeActionByTag (tag: number, target: Node): void
 
         /**
          * Removes all actions from all the targets.
          */
-        removeAllActions(): void;
+        removeAllActions (): void
 
         /** Removes all actions from a certain target. <br/>
          * All the actions that belongs to the target will be removed.
@@ -121,12 +121,12 @@ declare namespace cc {
          *       Is there some type of interface I can use so that this method doesn't have to take "any"?
          *       For now, I'm restricting this to only allowing cc.Node.
          */
-        removeAllActionsFromTarget(target: Node, forceDelete: boolean): void;
+        removeAllActionsFromTarget (target: Node, forceDelete: boolean): void
 
         /**
          * @param {Number} dt delta time in seconds
          */
-        update(dt: number): void;
+        update (dt: number): void
     }
 
     /**
@@ -142,8 +142,8 @@ declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
 
     // Variable Definitions
-    var g_NumberOfDraws: number;
-    var defaultFPS: number;
+    let g_NumberOfDraws: number
+    let defaultFPS: number
 
     // Function Definitions
     /**
@@ -152,8 +152,7 @@ declare namespace cc {
      * @function
      * @param {AffineTransform} xform The transformation matrix.
      */
-    export function GLToClipTransform(xform: AffineTransform): void;
-
+    export function GLToClipTransform (xform: AffineTransform): void
 
     /**
      * OpenGL projection protocol
@@ -164,9 +163,9 @@ declare namespace cc {
         /**
          * Called by CCDirector when the projection is updated, and "custom" projection is used
          */
-        updateProjection(): void;
+        updateProjection (): void
     }
-    
+
     // Class Definitions
     /**
      * <p>
@@ -213,7 +212,7 @@ declare namespace cc {
          *           cc.log("after draw event.");
          *       });
          */
-        public static EVENT_AFTER_DRAW: string;
+        public static EVENT_AFTER_DRAW: string
 
         /**
          * The event after update of cc.Director
@@ -224,7 +223,7 @@ declare namespace cc {
          *           cc.log("after update event.");
          *       });
          */
-        public static EVENT_AFTER_UPDATE: string;
+        public static EVENT_AFTER_UPDATE: string
 
         /**
          * The event after visit of cc.Director
@@ -235,7 +234,7 @@ declare namespace cc {
          *           cc.log("after visit event.");
          *       });
          */
-        public static EVENT_AFTER_VISIT: string;
+        public static EVENT_AFTER_VISIT: string
 
         /**
          * The event projection changed of cc.Director
@@ -246,49 +245,49 @@ declare namespace cc {
          *           cc.log("Projection changed.");
          *       });
          */
-        public static EVENT_PROJECTION_CHANGED: string;
+        public static EVENT_PROJECTION_CHANGED: string
 
-        //Possible OpenGL projections used by director
+        // Possible OpenGL projections used by director
         /**
          * Constant for 2D projection (orthogonal projection)
          * @constant
          * @type {Number}
          */
-        public static PROJECTION_2D: number;
+        public static PROJECTION_2D: number
 
         /**
          * Constant for 3D projection with a fovy=60, znear=0.5f and zfar=1500.
          * @constant
          * @type {Number}
          */
-        public static PROJECTION_3D: number;
+        public static PROJECTION_3D: number
 
         /**
          * Constant for custom projection, if cc.Director's projection set to it, it calls "updateProjection" on the projection delegate.
          * @constant
          * @type {Number}
          */
-        public static PROJECTION_CUSTOM: number;
+        public static PROJECTION_CUSTOM: number
 
         /**
          * Constant for default projection of cc.Director, default projection is 3D projection
          * @constant
          * @type {Number}
          */
-        public static PROJECTION_DEFAULT: number;
+        public static PROJECTION_DEFAULT: number
 
-        public sharedDirector: Director;
-        public firstUseDirector: boolean;
+        public sharedDirector: Director
+        public firstUseDirector: boolean
 
-        //pubic static _getInstance = function () {
+        // pubic static _getInstance = function () {
 
-        constructor();
-        init(): boolean;
+        constructor ();
+        init (): boolean
 
         /**
          * calculates delta time since last time it was called
          */
-        calculateDeltaTime(): number;
+        calculateDeltaTime (): number
 
         /**
          * Converts a view coordinate to an WebGL coordinate<br/>
@@ -298,7 +297,7 @@ declare namespace cc {
          * @param {cc.Point} uiPoint
          * @return {cc.Point}
          */
-        convertToGL(uiPoint: Point): Point;
+        convertToGL (uiPoint: Point): Point
 
         /**
          * Converts an WebGL coordinate to a view coordinate<br/>
@@ -308,48 +307,48 @@ declare namespace cc {
          * @param {cc.Point} glPoint
          * @return {cc.Point}
          */
-        convertToUI(glPoint: Point): Point;
+        convertToUI (glPoint: Point): Point
 
         /**
          *  Draw the scene. This method is called every frame. Don't call it manually.
          */
-        drawScene(): void;
+        drawScene (): void
 
         /**
          * End the life of director in the next frame
          */
-        end(): void;
+        end (): void
 
         /**
          * Returns the cc.ActionManager associated with this director
          * @return {cc.ActionManager}
          */
-        getActionManager(): ActionManager;
+        getActionManager (): ActionManager
 
         /**
          * Returns the FPS value
          * @return {Number}
          */
-        getAnimationInterval(): number;
+        getAnimationInterval (): number
 
         /**
          * Returns the size in pixels of the surface. It could be different than the screen size.<br/>
          * High-res devices might have a higher surface size than the screen size.
          * @return {Number}
          */
-        getContentScaleFactor(): number;
+        getContentScaleFactor (): number
 
         /**
          * Returns the cc.director delegate.
          * @return {cc.DirectorDelegate}
          */
-        getDelegate(): DirectorDelegate;
+        getDelegate (): DirectorDelegate
 
         /**
          * Returns the delta time since last frame
          * @return {Number}
          */
-        getDeltaTime(): number;
+        getDeltaTime (): number
 
         /**
          * This object will be visited after the main scene is visited.<br/>
@@ -357,7 +356,7 @@ declare namespace cc {
          * Useful to hook a notification object
          * @return {cc.Node}
          */
-        getNotificationNode(): Node;
+        getNotificationNode (): Node
 
         /**
          * Get the CCEGLView, where everything is rendered.<br/>
@@ -365,7 +364,7 @@ declare namespace cc {
          * @function
          * @return {cc.view}
          */
-        getOpenGLView(): View;
+        getOpenGLView (): View
 
         /**
          * Sets an OpenGL projection.<br/>
@@ -373,38 +372,38 @@ declare namespace cc {
          * @function
          * @return {Number}
          */
-        getProjection(): number;
+        getProjection (): number
 
         /**
          * Returns current running Scene. Director can only run one Scene at the time
          * @return {cc.Scene}
          */
-        getRunningScene(): Scene;
+        getRunningScene (): Scene
 
         /**
          * Returns the cc.Scheduler associated with this director
          * @return {cc.Scheduler}
          */
-        getScheduler(): Scheduler;
+        getScheduler (): Scheduler
 
         /**
          * Returns seconds per frame
          * @return {Number}
          */
-        getSecondsPerFrame(): number;
+        getSecondsPerFrame (): number
 
         /**
          * Returns how many frames were called since the director started
          * @return {Number}
          */
-        getTotalFrames(): number;
+        getTotalFrames (): number
 
         /**
          * Returns the size of the WebGL view in points.<br/>
          * It takes into account any possible rotation (device orientation) of the window
          * @return {cc.Size}
          */
-        getWinSize(): Size;
+        getWinSize (): Size
 
         /**
          * Returns the size of the OpenGL view in pixels.<br/>
@@ -412,46 +411,46 @@ declare namespace cc {
          * On Mac winSize and winSizeInPixels return the same value.
          * @return {cc.Size}
          */
-        getWinSizeInPixels(): Size;
+        getWinSizeInPixels (): Size
 
         /**
          * Returns the visible size of the running scene
          * @function
          * @return {cc.Size}
          */
-        getVisibleSize(): Size;
+        getVisibleSize (): Size
 
         /**
          * Returns the visible origin of the running scene
          * @function
          * @return {cc.Point}
          */
-        getVisibleOrigin(): Point;
+        getVisibleOrigin (): Point
 
         /**
          * Returns the z eye, only available in WebGL mode
          * @function
          * @return {Number}
          */
-        getZEye(): number;
+        getZEye (): number
 
         /**
          * Returns whether or not to display the FPS informations
          * @return {Boolean}
          */
-        isDisplayStats(): boolean;
+        isDisplayStats (): boolean
 
         /**
          * Returns whether next delta time equals to zero
          * @return {Boolean}
          */
-        isNextDeltaTimeZero(): boolean;
+        isNextDeltaTimeZero (): boolean
 
         /**
          * Returns whether or not the Director is paused
          * @return {Boolean}
          */
-        isPaused(): boolean;
+        isPaused (): boolean
 
         /**
          * Returns whether or not the replaced scene will receive the cleanup message.<br>
@@ -459,12 +458,12 @@ declare namespace cc {
          * If the new scene replaces the old one, the it will receive the "cleanup" message.
          * @return {Boolean}
          */
-        isSendCleanupToScene(): boolean;
+        isSendCleanupToScene (): boolean
 
         /**
          * Pause the director's ticker
          */
-        pause(): void;
+        pause (): void
 
         /**
          * Pops out a scene from the queue.<br/>
@@ -473,7 +472,7 @@ declare namespace cc {
          * ONLY call it if there is a running scene.
          * @function
          */
-        popScene(): void;
+        popScene (): void
 
         /**
          * Pops out all scenes from the queue until it reaches "level".                             <br/>
@@ -482,24 +481,24 @@ declare namespace cc {
          * If level is <= than the current stack level, it won't do anything.
          * @param {Number} level
          */
-        popToSceneStackLevel(level: number): void;
+        popToSceneStackLevel (level: number): void
 
         /**
          * Pops out all scenes from the queue until the root scene in the queue. <br/>
          * This scene will replace the running one.  <br/>
          * Internally it will call "popToSceneStackLevel(1)"
          */
-        popToRootScene(): void;
+        popToRootScene (): void
 
         /**
          * Removes cached all cocos2d cached data. It will purge the cc.textureCache, cc.spriteFrameCache, cc.animationCache
          */
-        purgeCachedData(): void;
+        purgeCachedData (): void
 
         /**
          * Purge the cc.director itself, including unschedule all schedule, remove all event listeners, clean up and exit the running scene, stops all animations, clear cached data.
          */
-        purgeDirector(): void;
+        purgeDirector (): void
 
         /**
          * Suspends the execution of the running scene, pushing it on the stack of suspended scenes.<br/>
@@ -508,24 +507,24 @@ declare namespace cc {
          * ONLY call it if there is a running scene.
          * @param {cc.Scene} scene
          */
-        pushScene(scene: Scene): void;
+        pushScene (scene: Scene): void
 
         /**
          * Resume director after pause, if the current scene is not paused, nothing will happen.
          */
-        resume(): void;
+        resume (): void
 
         /**
          * Run a scene. Replaces the running scene with a new one or enter the first scene.
          * @param {cc.Scene} scene
          */
-        runScene(scene: Scene): void;
+        runScene (scene: Scene): void
 
         /**
          * Sets the cc.ActionManager associated with this director
          * @param {cc.ActionManager} actionManager
          */
-        setActionManager(actionManager: ActionManager): void;
+        setActionManager (actionManager: ActionManager): void
 
         /**
          * Enables/disables OpenGL alpha blending.<br/>
@@ -533,7 +532,7 @@ declare namespace cc {
          * @function
          * @param {Boolean} on
          */
-        setAlphaBlending(newValue: boolean): void;
+        setAlphaBlending (newValue: boolean): void
 
         /**
          * set color for clear screen.<br/>
@@ -541,25 +540,25 @@ declare namespace cc {
          * @function
          * @param {cc.color} newValue
          */
-        setClearColor(newValue: Color): void;
+        setClearColor (newValue: Color): void
 
         /**
          * The size in pixels of the surface. It could be different than the screen size.<br/>
          * High-res devices might have a higher surface size than the screen size.
          * @param {Number} newValue
          */
-        setContentScaleFactor(newValue: number): void;
+        setContentScaleFactor (newValue: number): void
 
         /**
          * Sets the cc.director delegate. It shall implement the CCDirectorDelegate protocol
          * @return {cc.DirectorDelegate}
          */
-        setDelegate(delegate: DirectorDelegate): void;
+        setDelegate (delegate: DirectorDelegate): void
 
         /**
          * Sets the default values based on the CCConfiguration info
          */
-        setDefaultValues(): void;
+        setDefaultValues (): void
 
         /**
          * Enables or disables WebGL depth test.<br/>
@@ -567,30 +566,30 @@ declare namespace cc {
          * @function
          * @param {Boolean} newValue
          */
-        setDepthTest(newValue: boolean): void;
+        setDepthTest (newValue: boolean): void
 
         /**
          * Sets whether display the FPS on the bottom-left corner
          * @param {Boolean} displayStats
          */
-        setDisplayStats(newValue: boolean): void;
+        setDisplayStats (newValue: boolean): void
 
         /**
          * Sets whether next delta time equals to zero
          * @param {Boolean} newValue
          */
-        setNextDeltaTimeZero(newValue: boolean): void;
+        setNextDeltaTimeZero (newValue: boolean): void
 
         /**
          * Starts the registered next scene
          */
-        setNextScene(): void;
+        setNextScene (): void
 
         /**
          * Sets Notification Node
          * @param {cc.Node} node
          */
-        setNotificationNode(node: Node): void;
+        setNotificationNode (node: Node): void
 
         /**
          * Sets the view, where everything is rendered, do not call this function.<br/>
@@ -598,7 +597,7 @@ declare namespace cc {
          * @function
          * @param {cc.view} openGLView
          */
-        setOpenGLView(newValue: View): void;
+        setOpenGLView (newValue: View): void
 
         /**
          * Sets an OpenGL projection.<br/>
@@ -606,48 +605,47 @@ declare namespace cc {
          * @function
          * @param {Number} projection
          */
-        setProjection(newValue: number): void;
+        setProjection (newValue: number): void
 
         /**
          * Sets the cc.Scheduler associated with this director
          * @param {cc.Scheduler} scheduler
          */
-        setScheduler(scheduler: Scheduler): void;
+        setScheduler (scheduler: Scheduler): void
 
         /**
          * Update the view port.<br/>
          * Implementation can be found in CCDirectorCanvas.js/CCDirectorWebGL.js.
          * @function
          */
-        setViewport(): void;
+        setViewport (): void
     }
-
 
     /***************************************************
      * implementation of DisplayLinkDirector
      **************************************************/
-        //cc.DisplayLinkDirector = cc.Director.extend(/** @lends cc.Director# */{
+        // cc.DisplayLinkDirector = cc.Director.extend(/** @lends cc.Director# */{
     export class DisplayLinkDirector extends Director {
         /**
          * Run main loop of director
          */
-        mainLoop(): void;
+        mainLoop (): void
 
         /**
          * Sets animation interval
          * @param {Number} value the animation interval desired
          */
-        setAnimationInterval(value: number): void;
+        setAnimationInterval (value: number): void
 
         /**
          * Starts Animation
          */
-        startAnimation(): void;
+        startAnimation (): void
 
         /**
          * Stops animation
          */
-        stopAnimation(): void;
+        stopAnimation (): void
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -655,7 +653,7 @@ declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
 
     // Variable Definitions
-    var PRIORITY_NON_SYSTEM: number;
+    let PRIORITY_NON_SYSTEM: number
 
     // Function Definitions
 
@@ -671,8 +669,8 @@ declare namespace cc {
      * @param {Array} hh
      * @see cc.HashTimerEntry;
      */
-    export function hashSelectorEntry(timers: any[], target: Class, timerIndex: number, currentTimer: Timer,
-                                      currentTimerSalvaged: boolean, paused: boolean, hh: any[]): HashTimerEntry;
+    export function hashSelectorEntry (timers: any[], target: Class, timerIndex: number, currentTimer: Timer,
+                                      currentTimerSalvaged: boolean, paused: boolean, hh: any[]): HashTimerEntry
 
     // Class Definitions
 
@@ -688,7 +686,7 @@ declare namespace cc {
      * @param {Array} hh
      */
     export class HashTimerEntry {
-        constructor(timers: any[], target: Class, timerIndex: number, currentTimer: Timer,
+        constructor (timers: any[], target: Class, timerIndex: number, currentTimer: Timer,
                     currentTimerSalvaged: boolean, paused: boolean, hh: any[]);
     }
 
@@ -705,7 +703,7 @@ declare namespace cc {
      * TODO: What kind of arrays for the list and hh params, can we specify a type here?
      */
     export class HashUpdateEntry {
-        constructor(list: any[], entry: ListEntry, target: Class, callback: (arg?: any) => void, hh: any[]);
+        constructor (list: any[], entry: ListEntry, target: Class, callback: (arg?: any) => void, hh: any[]);
     }
 
     /**
@@ -723,7 +721,7 @@ declare namespace cc {
      * TODO: What's the signature for the callback param, can we specify a type here?
      */
     export class ListEntry {
-        constructor(prev: ListEntry, next: ListEntry, callback: (arg?:any) => void, target: Class,
+        constructor (prev: ListEntry, next: ListEntry, callback: (arg?: any) => void, target: Class,
                     priority: number, paused: boolean, markedForDeletion: boolean);
     }
 
@@ -751,15 +749,15 @@ declare namespace cc {
          * @constant
          * @type Number
          */
-        public static PRIORITY_SYSTEM:number;
+        public static PRIORITY_SYSTEM: number
 
-        constructor();
+        constructor ();
 
         /**
          * Returns time scale of scheduler
          * @return {Number}
          */
-        getTimeScale():number;
+        getTimeScale (): number
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
@@ -767,14 +765,14 @@ declare namespace cc {
          * @param {any} key ???
          * @param {Class} target
          */
-        isScheduled(key:any, target:Class):void;
+        isScheduled (key: any, target: Class): void
 
         /**
          * Returns whether or not the target is paused
          * @param {cc.Class} target
          * @return {Boolean}
          */
-        isTargetPaused(target:Class):boolean;
+        isTargetPaused (target: Class): boolean
 
         /**
          * <p>
@@ -782,14 +780,14 @@ declare namespace cc {
          *  You should NEVER call this method, unless you know what you are doing.
          * </p>
          */
-        pauseAllTargets():void;
+        pauseAllTargets (): void
 
         /**
          * Pause all selectors from all targets with a minimum priority. <br/>
          * You should only call this with kCCPriorityNonSystemMin or higher.
          * @param {Number} minPriority
          */
-        pauseAllTargetsWithMinPriority(minPriority:number):void;
+        pauseAllTargetsWithMinPriority (minPriority: number): void
 
         /**
          * <p>
@@ -799,7 +797,7 @@ declare namespace cc {
          * </p>
          * @param {cc.Class} target
          */
-        pauseTarget(target:Class):void;
+        pauseTarget (target: Class): void
 
         /**
          * Resumes the target.<br/>
@@ -807,14 +805,14 @@ declare namespace cc {
          * If the target is not present, nothing happens.
          * @param {cc.Class} target
          */
-        resumeTarget(target:Class):void;
+        resumeTarget (target: Class): void
 
         /**
          * Resume selectors on a set of targets.<br/>
          * This can be useful for undoing a call to pauseAllCallbacks.
          * @param {Array} targetsToResume
          */
-        resumeTargets(targetsToResume:Class[]):void;
+        resumeTargets (targetsToResume: Class[]): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
@@ -829,8 +827,8 @@ declare namespace cc {
          * @param {any} key
          * @example
          */
-        schedule(callback:(arg?:any) => void, target:Class,
-                 interval:number, repeat:number, delay:number, paused:boolean, key:any):void;
+        schedule (callback: (arg?: any) => void, target: Class,
+                 interval: number, repeat: number, delay: number, paused: boolean, key: any): void
 
         /**
          * <p>
@@ -852,8 +850,8 @@ declare namespace cc {
          * //register a schedule to scheduler
          * cc.director.getScheduler().scheduleCallbackForTarget(this, function, interval, repeat, delay, !this._isRunning );
          */
-        scheduleCallbackForTarget(target:Class, callback_fn:(arg?:any) => void,
-                                  interval:number, repeat:number, delay:number, paused:boolean):void;
+        scheduleCallbackForTarget (target: Class, callback_fn: (arg?: any) => void,
+                                  interval: number, repeat: number, delay: number, paused: boolean): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
@@ -864,7 +862,7 @@ declare namespace cc {
          * @param {Boolean} paused
          * @example
          */
-        scheduleUpdate(target:Class, priority:number, paused:boolean):void;
+        scheduleUpdate (target: Class, priority: number, paused: boolean): void
 
         /**
          * <p>
@@ -880,7 +878,7 @@ declare namespace cc {
          * //register this object to scheduler
          * cc.director.getScheduler().scheduleUpdateForTarget(this, priority, !this._isRunning );
          */
-        scheduleUpdateForTarget(target:Class, priority:number, paused:boolean):void;
+        scheduleUpdateForTarget (target: Class, priority: number, paused: boolean): void
 
         /**
          * <p>
@@ -892,7 +890,7 @@ declare namespace cc {
          * </p>
          * @param {Number} timeScale
          */
-        setTimeScale(timeScale:number):void;
+        setTimeScale (timeScale: number): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
@@ -900,12 +898,12 @@ declare namespace cc {
          * @param {any} key ???
          * @param {Class} target
          */
-        unschedule(key:any, target:Class):void;
+        unschedule (key: any, target: Class): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
          */
-        unscheduleAll():void;
+        unscheduleAll (): void
 
         /**
          *  <p>
@@ -914,14 +912,14 @@ declare namespace cc {
          *  </p>
          * @deprecated since v3.4 please use .unscheduleAllWithMinPriority
          */
-        unscheduleAllCallbacks():void;
+        unscheduleAllCallbacks (): void
 
         /**
          * Unschedules all function callbacks for a given target. This also includes the "update" callback function.
          * @deprecated since v3.4 please use .unscheduleAll
          * @param {cc.Class} target
          */
-        unscheduleAllCallbacksForTarget(target:Class):void;
+        unscheduleAllCallbacksForTarget (target: Class): void
 
         /**
          * <p>
@@ -931,19 +929,19 @@ declare namespace cc {
          * @deprecated since v3.4 please use .unscheduleAllWithMinPriority
          * @param {Number} minPriority
          */
-        unscheduleAllCallbacksWithMinPriority(minPriority:number):void;
+        unscheduleAllCallbacksWithMinPriority (minPriority: number): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
          * @param {Class} target
          */
-        unscheduleAllForTarget(target:Class):void;
+        unscheduleAllForTarget (target: Class): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
          * @param {Number} minPriority ???
          */
-        unscheduleAllWithMinPriority(minPriority:number):void;
+        unscheduleAllWithMinPriority (minPriority: number): void
 
         /**
          * <p>
@@ -957,13 +955,13 @@ declare namespace cc {
          * //unschedule a callback of target
          * cc.director.getScheduler().unscheduleCallbackForTarget(function, this);
          */
-        unscheduleCallbackForTarget(target:Class, callback:(arg?:any) => void):void;
+        unscheduleCallbackForTarget (target: Class, callback: (arg?: any) => void): void
 
         /**
          * TODO: Put an explanation here for this method's purpose/functionality.
          * @param {Class} target
          */
-        unscheduleUpdate(target:Class):void;
+        unscheduleUpdate (target: Class): void
 
         /**
          * Unschedules the update callback function for a given target
@@ -973,13 +971,13 @@ declare namespace cc {
          * //unschedules the "update" method.
          * cc.director.getScheduler().unscheduleUpdateForTarget(this);
          */
-        unscheduleUpdateForTarget(target:Class):void;
+        unscheduleUpdateForTarget (target: Class): void
 
         /**
          * 'update' the scheduler. (You should NEVER call this method, unless you know what you are doing.)
          * @param {Number} dt delta time
          */
-        update(dt:number):void;
+        update (dt: number): void
     }
 
     /**
@@ -988,7 +986,7 @@ declare namespace cc {
      * @extends cc.Class
      */
     export class Timer extends Class {
-        constructor();
+        constructor ();
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
@@ -996,21 +994,21 @@ declare namespace cc {
          *       I see no use for this anywhere, as all concrete implementations return nothing.
          *       So I'm making this, as well as all overridden methods, return void.
          */
-        cancel():void;
+        cancel (): void
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
          *
          * @return {Number} returns interval of timer
          */
-        getInterval():number;
+        getInterval (): number
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
          *
          * @param {Number} interval set interval in seconds
          */
-        setInterval(interval:number):void;
+        setInterval (interval: number): void
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
@@ -1019,7 +1017,7 @@ declare namespace cc {
          * @param {Number} repeat ???
          * @param {Number} delay ???
          */
-        setupTimerWithInterval(seconds:number, repeat:boolean, delay:number):void;
+        setupTimerWithInterval (seconds: number, repeat: boolean, delay: number): void
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
@@ -1028,13 +1026,13 @@ declare namespace cc {
          *       I see no use for this anywhere, as all concrete implementations return nothing.
          *       So I'm making this, as well as all overridden methods, return void.
          */
-        trigger():void;
+        trigger (): void
 
         /**
          * triggers the timer
          * @param {Number} dt delta time
          */
-        update(dt:number):void;
+        update (dt: number): void
     }
 
     /**
@@ -1042,10 +1040,10 @@ declare namespace cc {
      *
      * @class cc.TimerTargetCallback
      */
-        //cc.TimerTargetCallback = cc.Timer.extend({
+        // cc.TimerTargetCallback = cc.Timer.extend({
     export class TimerTargetCallback extends Timer {
 
-        constructor();
+        constructor ();
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
@@ -1060,16 +1058,16 @@ declare namespace cc {
          * @param {Number} delay ???
          * @return {boolean} ???
          */
-        initWithCallback(scheduler:Scheduler, callback:(arg?:any) => void, target:Class,
-                         key:any, seconds:number, repeat:boolean, delay:number):boolean;
+        initWithCallback (scheduler: Scheduler, callback: (arg?: any) => void, target: Class,
+                         key: any, seconds: number, repeat: boolean, delay: number): boolean
 
-        getCallback():((arg?:any) => void);
+        getCallback (): ((arg?: any) => void)
 
-        getKey():any;
+        getKey (): any
 
-        trigger():void;
+        trigger (): void
 
-        cancel():void;
+        cancel (): void
     }
 
     /**
@@ -1079,20 +1077,20 @@ declare namespace cc {
      */
     export class TimerTargetSelector extends Timer {
 
-        constructor();
+        constructor ();
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
          *
          */
-        cancel():void;
+        cancel (): void
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
          *
          * @return {Function} ???
          */
-        getSelector():((arg?:any) => void);
+        getSelector (): ((arg?: any) => void)
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
@@ -1105,27 +1103,26 @@ declare namespace cc {
          * @param {Number} delay ???
          * @return {boolean} ???
          */
-        initWithSelector(scheduler:Scheduler, selector:(arg?:any) => void, target:Class,
-                         seconds:number, repeat:boolean, delay:number):boolean;
+        initWithSelector (scheduler: Scheduler, selector: (arg?: any) => void, target: Class,
+                         seconds: number, repeat: boolean, delay: number): boolean
 
         /**
          * TODO: Comment this with an explanation of this method's purpose / functionality
          *
          */
-        trigger():void;
+        trigger (): void
     }
-
 
     // Module definitions
     export module Node {
-        //+-------------------- Function Definitions --------------------+//
+        // +-------------------- Function Definitions --------------------+//
         ///**
         // * Allocates and initializes a node.
         // * @deprecated since v3.0, please use new construction instead.
         // * @see cc.Node
         // * @return {cc.Node}
         // */
-        //export function create():Node;
+        // export function create():Node;
 
         // Class Definitions
         export class RenderCmd{}

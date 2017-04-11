@@ -27,7 +27,7 @@ declare module cc {
                cc.director.runScene(new HelloWorldScene());
            }, this);
          */
-        static preload(resources:any[], cb:(target:Class) => void, target:Class):LoaderScene;
+        static preload (resources: any[], cb: (target: Class) => void, target: Class): LoaderScene
 
         /**
          * init with resources
@@ -35,7 +35,7 @@ declare module cc {
          * @param {Function|String} cb
          * @param {Object} target
          */
-        initWithResources(resources:any[], cb:(target:Class) => void|string, target:Class):boolean;
+        initWithResources (resources: any[], cb: (target: Class) => void|string, target: Class): boolean
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -57,4 +57,3 @@ declare module cc {
      */
     export class Scene extends Node {}
 }
-

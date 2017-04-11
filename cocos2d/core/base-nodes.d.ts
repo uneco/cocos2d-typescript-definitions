@@ -100,53 +100,53 @@ declare module cc {
      */
     export class Node extends Class {
         // TODO: Properly declare these things below, they are unknown or as-yet undeclared types:
-        //public grid:GridBase;
-        //public shaderProgram:GLProgram;
+        // public grid:GridBase;
+        // public shaderProgram:GLProgram;
 
-        public actionManager:ActionManager;
-        public anchorX:number;
-        public anchorY:number;
-        public arrivalOrder:number;
+        public actionManager: ActionManager
+        public anchorX: number
+        public anchorY: number
+        public arrivalOrder: number
 
-        public cascadeColor:boolean;
-        public cascadeOpacity:boolean;
-        public children:Node[];
-        public childrenCount:number;
-        public color:Color;
-        public glServerState:number;
-        public height:number;
-        public ignoreAnchor:boolean;
-        public opacity:number;
-        public opacityModifyRGB:boolean;
-        public parent:Node;
-        public rotation:number;
-        public rotationX:number;
-        public rotationY:number;
-        public running:boolean;
-        public scale:number;
-        public scaleX:number;
-        public scaleY:number;
-        public scheduler:Scheduler;
-        public skewX:number;
-        public skewY:number;
-        public tag:number;
-        public userData:any;
-        public userObject:Class; // <-- is this return type of cc.Class correct?!? Not sure ...
-        public vertexZ:number;
-        public width:number;
-        public x:number;
-        public y:number;
-        public visible:boolean;
-        public zIndex:number;
+        public cascadeColor: boolean
+        public cascadeOpacity: boolean
+        public children: Node[]
+        public childrenCount: number
+        public color: Color
+        public glServerState: number
+        public height: number
+        public ignoreAnchor: boolean
+        public opacity: number
+        public opacityModifyRGB: boolean
+        public parent: Node
+        public rotation: number
+        public rotationX: number
+        public rotationY: number
+        public running: boolean
+        public scale: number
+        public scaleX: number
+        public scaleY: number
+        public scheduler: Scheduler
+        public skewX: number
+        public skewY: number
+        public tag: number
+        public userData: any
+        public userObject: Class // <-- is this return type of cc.Class correct?!? Not sure ...
+        public vertexZ: number
+        public width: number
+        public x: number
+        public y: number
+        public visible: boolean
+        public zIndex: number
 
-        public constructor();
+        public constructor ();
 
         /**
          * Initializes the instance of cc.Node
          * @function
          * @returns {boolean} Whether the initialization was successful.
          */
-        public init():boolean;
+        public init (): boolean
 
         /** "add" logic MUST only be in this method
          *
@@ -156,7 +156,7 @@ declare module cc {
          * @param {number} [localZOrder]  Z order for drawing priority. Please refer to setZOrder(int)
          * @param {number|string} [tag]  An integer or a name to identify the node easily. Please refer to setTag(int) and setName(string)
          */
-        public addChild(child:Node, localZOrder?:number, tag?:number|string):void;
+        public addChild (child: Node, localZOrder?: number, tag?: number|string): void
 
         /**
          * Adds a component to the node's component container.
@@ -165,20 +165,20 @@ declare module cc {
          *
          * TODO: Uncomment once Component is defined.
          */
-        //addComponent(component:Component):void;
+        // addComponent(component:Component):void;
 
         /**
          * Returns a "local" axis aligned bounding box of the node.
          * @deprecated since v3.0, please use getBoundingBox instead
          * @return {cc.Rect}
          */
-        public boundingBox():Rect;
+        public boundingBox (): Rect
 
         /**
          * Stops all running actions and schedulers
          * @function
          */
-        public cleanup():void;
+        public cleanup (): void
 
         /**
          * Converts a Point to node (local) space coordinates. The result is in Points.
@@ -186,7 +186,7 @@ declare module cc {
          * @param {cc.Point} worldPoint
          * @return {cc.Point}
          */
-        public convertToNodeSpace(worldPoint:Point):Point;
+        public convertToNodeSpace (worldPoint: Point): Point
 
         /**
          * Converts a Point to node (local) space coordinates. The result is in Points.
@@ -195,14 +195,14 @@ declare module cc {
          * @param {cc.Point} worldPoint
          * @return {cc.Point}
          */
-        public convertToNodeSpaceAR(worldPoint:Point):Point;
+        public convertToNodeSpaceAR (worldPoint: Point): Point
 
         /** convenience methods which take a cc.Touch instead of cc.Point
          * @function
          * @param {cc.Touch} touch The touch object
          * @return {cc.Point}
          */
-        public convertTouchToNodeSpace(touch:Touch):Point;
+        public convertTouchToNodeSpace (touch: Touch): Point
 
         /**
          * converts a cc.Touch (world coordinates) into a local coordinate. This method is AR (Anchor Relative).
@@ -210,7 +210,7 @@ declare module cc {
          * @param {cc.Touch} touch The touch object
          * @return {cc.Point}
          */
-        public convertTouchToNodeSpaceAR(touch:Touch):Point;
+        public convertTouchToNodeSpaceAR (touch: Touch): Point
 
         /**
          * Converts a Point to world space coordinates. The result is in Points.
@@ -218,7 +218,7 @@ declare module cc {
          * @param {cc.Point} nodePoint
          * @return {cc.Point}
          */
-        public convertToWorldSpace(nodePoint:Point):Point;
+        public convertToWorldSpace (nodePoint: Point): Point
 
         /**
          * Converts a local Point to world space coordinates.The result is in Points.
@@ -227,9 +227,9 @@ declare module cc {
          * @param {cc.Point} nodePoint
          * @return {cc.Point}
          */
-        public convertToWorldSpaceAR(nodePoint:Point):Point;
+        public convertToWorldSpaceAR (nodePoint: Point): Point
 
-        public doEnumerate(name:string, callback:(arg:Node) => boolean):void;
+        public doEnumerate (name: string, callback: (arg: Node) => boolean): void
 
         /**
          * TODO: Fill this out with an explanation of this method's purpose/functionality.
@@ -239,21 +239,21 @@ declare module cc {
          * @param {string} name ???
          * @param {function} callback ???
          */
-        public doEnumerateRecursive(node:Node, name:string, callback:(arg:Node) => boolean):void;
+        public doEnumerateRecursive (node: Node, name: string, callback: (arg: Node) => boolean): void
 
         /**
          * Render function using the canvas 2d context or WebGL context, internal usage only, please do not call this function
          * @function
          * @param {CanvasRenderingContext2D} ctx The render context
          */
-        public draw(ctx:CanvasRenderingContext2D):void;
+        public draw (ctx: CanvasRenderingContext2D): void
 
         /**
          * Render function using the canvas 2d context or WebGL context, internal usage only, please do not call this function
          * @function
          * @param {WebGLRenderingContext} ctx The render context
          */
-        public draw(ctx:WebGLRenderingContext):void;
+        public draw (ctx: WebGLRenderingContext): void
 
         /** Search the children of the receiving node to perform processing for nodes which share a name.
          *
@@ -281,7 +281,7 @@ declare module cc {
          *  And returns a boolean result. Your callback can return `true` to terminate the enumeration.
          *
          */
-        public enumerateChildren(name:string, callback:(arg:Node) => boolean):void;
+        public enumerateChildren (name: string, callback: (arg: Node) => boolean): void
 
         ///**
         // * Properties configuration function
@@ -292,7 +292,7 @@ declare module cc {
         // * @function
         // * @param {Object} attrs Properties to be set to node
         // */
-        //attr(attrs);
+        // attr(attrs);
 
         /**
          * Returns an action from the running action list by its tag.
@@ -301,7 +301,7 @@ declare module cc {
          * @param {Number} tag
          * @return {cc.Action} The action object with the given tag.
          */
-        public getActionByTag(tag:number):Action;
+        public getActionByTag (tag: number): Action
 
         /**
          * Returns the CCActionManager object that is used by all actions.
@@ -310,7 +310,7 @@ declare module cc {
          * @see cc.Node#setActionManager
          * @return {cc.ActionManager} A CCActionManager object.
          */
-        public getActionManager():ActionManager;
+        public getActionManager (): ActionManager
 
         /**
          *  Returns a copy of the anchor point.
@@ -322,7 +322,7 @@ declare module cc {
          * @function
          * @return {cc.Point}  The anchor point of node.
          */
-        public getAnchorPoint():Point;
+        public getAnchorPoint (): Point
 
         /**
          * Returns a copy of the anchor point in absolute pixels.
@@ -331,7 +331,7 @@ declare module cc {
          * @function
          * @return {cc.Point} The anchor point in absolute pixels.
          */
-        public getAnchorPointInPoints():Point;
+        public getAnchorPointInPoints (): Point
 
         /**
          * Returns a "local" axis aligned bounding box of the node.
@@ -339,14 +339,14 @@ declare module cc {
          * @function
          * @return {cc.Rect} The calculated bounding box of the node
          */
-        public getBoundingBox():Rect;
+        public getBoundingBox (): Rect
 
         /**
          * Returns a "world" axis aligned bounding box of the node.
          * @function
          * @return {cc.Rect}
          */
-        public getBoundingBoxToWorld():Rect;
+        public getBoundingBoxToWorld (): Rect
 
         /**
          * Returns a camera object that lets you move the node using a gluLookAt
@@ -360,7 +360,7 @@ declare module cc {
          *
          * TODO: Uncomment once Camera is defined.
          */
-        //getCamera():Camera;
+        // getCamera():Camera;
 
         /**
          * Returns a child from the container given its name
@@ -368,7 +368,7 @@ declare module cc {
          * @param {String} name A name to find the child node.
          * @return {cc.Node} a CCNode object whose name equals to the input parameter
          */
-        public getChildByName(name:string):Node;
+        public getChildByName (name: string): Node
 
         /**
          * Returns a child from the container given its tag
@@ -376,7 +376,7 @@ declare module cc {
          * @param {Number} tag An identifier to find the child node.
          * @return {cc.Node} a CCNode object whose tag equals to the input parameter
          */
-        public getChildByTag(tag:number):Node;
+        public getChildByTag (tag: number): Node
 
         /**
          * Returns an array of all children
@@ -390,21 +390,21 @@ declare module cc {
          *      allChildren[i].setPosition(0, 0);
          *  }
          */
-        public getChildren():Node[];
+        public getChildren (): Node[]
 
         /**
          * Returns the amount of children.
          * @function
          * @return {Number} The amount of children.
          */
-        public getChildrenCount():number;
+        public getChildrenCount (): number
 
         /**
          * Returns the color of Node
          * @function
          * @returns {cc.Color}
          */
-        public getColor():Color;
+        public getColor (): Color
 
         /**
          * Returns a component identified by the name given.
@@ -414,7 +414,7 @@ declare module cc {
          *
          * TODO: Uncomment once Component is defined.
          */
-        //getComponent(name:string):Component;
+        // getComponent(name:string):Component;
 
         /**
          * Returns a copy the untransformed size of the node.
@@ -423,7 +423,7 @@ declare module cc {
          * @function
          * @return {cc.Size} The untransformed size of the node.
          */
-        public getContentSize():Size;
+        public getContentSize (): Size
 
         /**
          * Returns the displayed color of Node,
@@ -431,7 +431,7 @@ declare module cc {
          * @function
          * @returns {cc.Color}
          */
-        public getDisplayedColor():Color;
+        public getDisplayedColor (): Color
 
         /**
          * Returns the displayed opacity of Node,
@@ -439,14 +439,14 @@ declare module cc {
          * @function
          * @returns {number} displayed opacity
          */
-        public getDisplayedOpacity():number;
+        public getDisplayedOpacity (): number
 
         /**
          * Return the Node's Global Z Order.
          * @function
          * @returns {number} The node's global Z order
          */
-        public getGlobalZOrder():number;
+        public getGlobalZOrder (): number
 
         /**
          * Returns the state of OpenGL server side.
@@ -454,21 +454,21 @@ declare module cc {
          * @return {Number} The state of OpenGL server side.
          * @deprecated since v3.0, no need anymore
          */
-        public getGLServerState():number;
+        public getGLServerState (): number
 
         /**
          * Returns the local Z order of this node.
          * @function
          * @returns {Number} The local (relative to its siblings) Z order.
          */
-        public getLocalZOrder():number;
+        public getLocalZOrder (): number
 
         /**
          * Returns a string that is used to identify the node.
          * @function
          * @returns {string} A string that identifies the node.
          */
-        public getName():string;
+        public getName (): string
 
         /**
          * TODO: Fill this out with an explanation of the method's purpose/function.
@@ -476,7 +476,7 @@ declare module cc {
          * @param {cc.Node} ancester An ancestor of the target node
          * @return {cc.AffineTransform} The affine transform object
          */
-        public getNodeToParentAffineTransform(ancestor:Node):AffineTransform;
+        public getNodeToParentAffineTransform (ancestor: Node): AffineTransform
 
         /**
          * Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates.
@@ -485,20 +485,20 @@ declare module cc {
          * @param {cc.Node} ancester An ancestor of the target node
          * @return {cc.AffineTransform} The affine transform object
          */
-        public getNodeToParentTransform(ancestor:Node):AffineTransform;
+        public getNodeToParentTransform (ancestor: Node): AffineTransform
 
         /**
          * Returns the world affine transform matrix. The matrix is in Pixels.
          * @function
          * @return {cc.AffineTransform}
          */
-        public getNodeToWorldTransform():AffineTransform;
+        public getNodeToWorldTransform (): AffineTransform
 
         /**
          * returns the normalized position
          * @returns {cc.Point}
          */
-        public getNormalizedPosition():Point;
+        public getNormalizedPosition (): Point
 
         /** Returns the numbers of actions that are running plus the ones that are schedule to run (actions in actionsToAdd and actions arrays).
          *    Composable actions are counted as 1 action. Example:
@@ -507,28 +507,28 @@ declare module cc {
          * @function
          * @return {Number} The number of actions that are running plus the ones that are schedule to run
          */
-        public getNumberOfRunningActions():number;
+        public getNumberOfRunningActions (): number
 
         /**
          * Returns the opacity of Node
          * @function
          * @returns {number} opacity
          */
-        public getOpacity():number;
+        public getOpacity (): number
 
         /**
          * Returns the arrival order, indicates which children should be added previously.
          * @function
          * @return {Number} The arrival order.
          */
-        public getOrderOfArrival():number;
+        public getOrderOfArrival (): number
 
         /**
          * Returns a reference to the parent node
          * @function
          * @return {cc.Node} A reference to the parent node
          */
-        public getParent():Node;
+        public getParent (): Node
 
         /**
          * Returns the matrix that transform parent's space coordinates to the node's (local) space coordinates.
@@ -536,35 +536,35 @@ declare module cc {
          * @function
          * @return {cc.AffineTransform}
          */
-        public getParentToNodeTransform():AffineTransform;
+        public getParentToNodeTransform (): AffineTransform
 
         /**
          * Returns a copy of the position (x,y) of the node in cocos2d coordinates. (0,0) is the left-bottom corner.
          * @function
          * @return {cc.Point} The position (x,y) of the node in OpenGL coordinates
          */
-        public getPosition():Point;
+        public getPosition (): Point
 
         /**
          * Returns the x axis position of the node in cocos2d coordinates.
          * @function
          * @return {Number}
          */
-        public getPositionX():number;
+        public getPositionX (): number
 
         /**
          * Returns the y axis position of the node in cocos2d coordinates.
          * @function
          * @return {Number}
          */
-        public getPositionY():number;
+        public getPositionY (): number
 
         /**
          * Returns the rotation (angle) of the node in degrees. 0 is the default rotation angle. Positive values rotate node clockwise.
          * @function
          * @return {Number} The rotation of the node in degrees.
          */
-        public getRotation():number;
+        public getRotation (): number
 
         /**
          * Returns the X axis rotation (angle) which represent a horizontal rotational skew of the node in degrees.
@@ -573,7 +573,7 @@ declare module cc {
          * @function
          * @return {Number} The X rotation in degrees.
          */
-        public getRotationX():number;
+        public getRotationX (): number
 
         /**
          * Returns the Y axis rotation (angle) which represent a vertical rotational skew of the node in degrees.
@@ -582,7 +582,7 @@ declare module cc {
          * @function
          * @return {Number} The Y rotation in degrees.
          */
-        public getRotationY():number;
+        public getRotationY (): number
 
         /**
          * Returns the scale factor of the node.
@@ -590,21 +590,21 @@ declare module cc {
          * @function
          * @return {Number} The scale factor
          */
-        public getScale():number;
+        public getScale (): number
 
         /**
          * Returns the scale factor on X axis of this node
          * @function
          * @return {Number} The scale factor on X axis.
          */
-        public getScaleX():number;
+        public getScaleX (): number
 
         /**
          * Returns the scale factor on Y axis of this node
          * @function
          * @return {Number} The scale factor on Y axis.
          */
-        public getScaleY():number;
+        public getScaleY (): number
 
         /**
          *
@@ -613,7 +613,7 @@ declare module cc {
          * @function
          * @return {cc.Scheduler} A CCScheduler object.
          */
-        public getScheduler():Scheduler;
+        public getScheduler (): Scheduler
 
         /**
          * Return the shader program currently used for this node
@@ -622,7 +622,7 @@ declare module cc {
          *
          * TODO: Uncomment once GLProgram is defined.
          */
-        //getShaderProgram():GLProgram;
+        // getShaderProgram():GLProgram;
 
         /**
          * Returns the skew degrees in X
@@ -634,7 +634,7 @@ declare module cc {
          * @function
          * @return {Number} The X skew angle of the node in degrees.
          */
-        public getSkewX():number;
+        public getSkewX (): number
 
         /**
          * Returns the skew degrees in Y
@@ -646,7 +646,7 @@ declare module cc {
          * @function
          * @return {Number} The Y skew angle of the node in degrees.
          */
-        public getSkewY():number;
+        public getSkewY (): number
 
         /**
          * Returns a tag that is used to identify the node easily.
@@ -674,7 +674,7 @@ declare module cc {
          *     }
          * }
          */
-        public getTag():number;
+        public getTag (): number
 
         /**
          *
@@ -684,7 +684,7 @@ declare module cc {
          * @function
          * @return {object}  A custom user data pointer
          */
-        public getUserData():any;
+        public getUserData (): any
 
         /**
          * Returns a user assigned cocos2d object.
@@ -692,21 +692,21 @@ declare module cc {
          * @function
          * @return {object} A user assigned CCObject
          */
-        public getUserObject():any;
+        public getUserObject (): any
 
         /**
          * Returns WebGL Z vertex of this node.
          * @function
          * @return {Number} WebGL Z vertex of this node
          */
-        public getVertexZ():number;
+        public getVertexZ (): number
 
         /**
          * Returns the inverse world affine transform matrix. The matrix is in Pixels.
          * @function
          * @return {cc.AffineTransform}
          */
-        public getWorldToNodeTransform():AffineTransform;
+        public getWorldToNodeTransform (): AffineTransform
 
         /**
          * Returns z order of this node
@@ -714,7 +714,7 @@ declare module cc {
          * @return {Number}
          * @deprecated since 3.0, please use getLocalZOrder instead
          */
-        public getZOrder():number;
+        public getZOrder (): number
 
         /**
          *
@@ -726,21 +726,21 @@ declare module cc {
          * @function
          * @param {Boolean} newValue true if anchor point will be ignored when you position this node
          */
-        public ignoreAnchorPointForPosition(newValue:boolean):boolean;
+        public ignoreAnchorPointForPosition (newValue: boolean): boolean
 
         /**
          * Returns whether node's color value affect its child nodes.
          * @function
          * @returns {boolean}
          */
-        public isCascadeColorEnabled():boolean;
+        public isCascadeColorEnabled (): boolean
 
         /**
          * Returns whether node's opacity value affect its child nodes.
          * @function
          * @returns {boolean}
          */
-        public isCascadeOpacityEnabled():boolean;
+        public isCascadeOpacityEnabled (): boolean
 
         /**
          * Returns whether the anchor point will be ignored when you position this node.
@@ -749,14 +749,14 @@ declare module cc {
          * @see cc.Node#ignoreAnchorPointForPosition
          * @return {Boolean} true if the anchor point will be ignored when you position this node.
          */
-        public isIgnoreAnchorPointForPosition():boolean;
+        public isIgnoreAnchorPointForPosition (): boolean
 
         /**
          * Get whether color should be changed with the opacity value
          * @function
          * @return {Boolean}
          */
-        public isOpacityModifyRGB():boolean;
+        public isOpacityModifyRGB (): boolean
 
         /**
          *
@@ -766,7 +766,7 @@ declare module cc {
          * @function
          * @return {Boolean} Whether or not the node is running.
          */
-        public isRunning():boolean;
+        public isRunning (): boolean
 
         /**
          * Returns if the node is visible
@@ -774,7 +774,7 @@ declare module cc {
          * @see cc.Node#setVisible
          * @return {Boolean} true if the node is visible, false if the node is hidden.
          */
-        public isVisible():boolean;
+        public isVisible (): boolean
 
         /**
          * Returns the matrix that transform the node's (local) space coordinates into the parent's space coordinates.
@@ -783,13 +783,13 @@ declare module cc {
          * @return {cc.AffineTransform}
          * @deprecated since v3.0, please use getNodeToParentTransform instead
          */
-        public nodeToParentTransform():AffineTransform;
+        public nodeToParentTransform (): AffineTransform
 
         /**
          * @function
          * @deprecated since v3.0, please use getNodeToWorldTransform instead
          */
-        public nodeToWorldTransform():AffineTransform;
+        public nodeToWorldTransform (): AffineTransform
 
         /**
          *
@@ -800,7 +800,7 @@ declare module cc {
          *
          * @function
          */
-        public onEnter():void;
+        public onEnter (): void
 
         /**
          *
@@ -810,7 +810,7 @@ declare module cc {
          *
          * @function
          */
-        public onEnterTransitionDidFinish():void;
+        public onEnterTransitionDidFinish (): void
 
         /**
          *
@@ -821,7 +821,7 @@ declare module cc {
          *
          * @function
          */
-        public onExit():void;
+        public onExit (): void
 
         /**
          * callback that is called every time the cc.Node leaves the 'stage'.
@@ -829,20 +829,20 @@ declare module cc {
          * If you override onExitTransitionDidStart, you shall call its parent's onExitTransitionDidStart with this._super()
          * @function
          */
-        public onExitTransitionDidStart():void;
+        public onExitTransitionDidStart (): void
 
         /**
          * @function
          * @deprecated since v3.0, please use getParentToNodeTransform instead
          */
-        public parentToNodeTransform():AffineTransform;
+        public parentToNodeTransform (): AffineTransform
 
         /**
          * Pauses all scheduled selectors and actions.
          * This method is called internally by onExit
          * @function
          */
-        public pause():void;
+        public pause (): void
 
         /**
          * Pauses all scheduled selectors and actions.
@@ -850,7 +850,7 @@ declare module cc {
          * @deprecated since v3.0, please use pause instead
          * @function
          */
-        public pauseSchedulerAndActions():void;
+        public pauseSchedulerAndActions (): void
 
         /**
          * Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,
@@ -865,7 +865,7 @@ declare module cc {
          * @function
          * @see cc.Node#retain
          */
-        public release():void;
+        public release (): void
 
         /**
          * Removes all children from the container and do a cleanup all running actions depending on the cleanup parameter.
@@ -873,7 +873,7 @@ declare module cc {
          * @function
          * @param {Boolean} [cleanup=true] true if all running actions on all children nodes should be cleanup, false otherwise.
          */
-        public removeAllChildren(cleanup?:boolean):void;
+        public removeAllChildren (cleanup?: boolean): void
 
         /**
          * TODO: This method makes no sense. How is it any different than just calling Node::removeAllChildren()?
@@ -882,13 +882,13 @@ declare module cc {
          * Removes all children from the container and do a cleanup all running actions depending on the cleanup parameter.
          * @param {Boolean} [cleanup=true]
          */
-        public removeAllChildrenWithCleanup(cleanup?:boolean):void;
+        public removeAllChildrenWithCleanup (cleanup?: boolean): void
 
         /**
          * Removes all components of cc.Node, it called when cc.Node is exiting from stage.
          * @function
          */
-        public removeAllComponents():void;
+        public removeAllComponents (): void
 
         /** Removes a child from the container. It will also cleanup all running actions depending on the cleanup parameter.
          * If the cleanup parameter is not passed, it will force a cleanup.
@@ -899,7 +899,7 @@ declare module cc {
          * @param {cc.Node} child  The child node which will be removed.
          * @param {Boolean} [cleanup=true]  true if all running actions and callbacks on the child node will be cleanup, false otherwise.
          */
-        public removeChild(child:Node, cleanup?:boolean):void;
+        public removeChild (child: Node, cleanup?: boolean): void
 
         /**
          * Removes a child from the container by tag value. It will also cleanup all running actions depending on the cleanup parameter.
@@ -909,7 +909,7 @@ declare module cc {
          * @param {Boolean} [cleanup=true] true if all running actions and callbacks on the child node will be cleanup, false otherwise.
          * @see cc.Node#removeChildByTag
          */
-        public removeChildByTag(tag:number, cleanup?:boolean):void;
+        public removeChildByTag (tag: number, cleanup?: boolean): void
 
         /**
          * Removes a component identified by the given name or removes the component object given
@@ -918,14 +918,14 @@ declare module cc {
          *
          * TODO: Uncomment once Component is defined.
          */
-        //removeComponent(component:Component):void;
+        // removeComponent(component:Component):void;
 
         /**
          * Removes a component identified by the given name or removes the component object given
          * @function
          * @param {String} name
          */
-        public removeComponent(name:string):void;
+        public removeComponent (name: string): void
 
         /**
          * Remove itself from its parent node. If cleanup is true, then also remove all actions and callbacks.
@@ -935,7 +935,7 @@ declare module cc {
          * @param {Boolean} [cleanup=true] true if all actions and callbacks on this node should be removed, false otherwise.
          * @see cc.Node#removeFromParentAndCleanup
          */
-        public removeFromParent(cleanup?:boolean):void;
+        public removeFromParent (cleanup?: boolean): void
 
         /**
          * Removes this node itself from its parent node.
@@ -943,7 +943,7 @@ declare module cc {
          * @deprecated since v3.0, please use removeFromParent() instead
          * @param {Boolean} [cleanup=true] true if all actions and callbacks on this node should be removed, false otherwise.
          */
-        public removeFromParentAndCleanup(cleanup:boolean):void;
+        public removeFromParentAndCleanup (cleanup: boolean): void
 
         /** Reorders a child according to a new z value.
          * The child MUST be already added.
@@ -951,13 +951,13 @@ declare module cc {
          * @param {cc.Node} child An already added child node. It MUST be already added.
          * @param {Number} zOrder Z order for drawing priority. Please refer to setZOrder(int)
          */
-        public reorderChild(child:Node, zOrder:number):void;
+        public reorderChild (child: Node, zOrder: number): void
 
         /**
          * Resumes all scheduled selectors and actions.
          * This method is called internally by onEnter
          */
-        public resume():void;
+        public resume (): void
 
         /**
          * Resumes all scheduled selectors and actions.
@@ -965,7 +965,7 @@ declare module cc {
          * @function
          * @deprecated since v3.0, please use resume() instead
          */
-        public resumeSchedulerAndActions():void;
+        public resumeSchedulerAndActions (): void
 
         /**
          * Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,
@@ -980,7 +980,7 @@ declare module cc {
          * @function
          * @see cc.Node#release
          */
-        public retain():void;
+        public retain (): void
 
         /**
          * Executes an action, and returns the action that is executed.
@@ -990,7 +990,7 @@ declare module cc {
          * @param {cc.Action} action
          * @return {cc.Action} An Action pointer
          */
-        public runAction(action:Action):Action;
+        public runAction (action: Action): Action
 
         /**
          *Sets the additional transform.
@@ -1041,7 +1041,7 @@ declare module cc {
          * // Sets the additional transform to spriteB, spriteB's rotation will based on its pseudo parent i.e. spriteA.
          * spriteB.setAdditionalTransform(t);
          */
-        public setAdditionalTransform(xform:AffineTransform):void;
+        public setAdditionalTransform (xform: AffineTransform): void
 
         /**
          * Schedules a custom selector.
@@ -1053,7 +1053,7 @@ declare module cc {
          * @param {Number} delay     The amount of time that the first tick will wait before execution.
          * @param {String} key The only string identifying the callback
          */
-        public schedule(callback:(arg?:any) => void, interval:number, repeat:boolean, delay:number, key:String):void;
+        public schedule (callback: (arg?: any) => void, interval: number, repeat: boolean, delay: number, key: String): void
 
         /**
          * Schedules a callback function that runs only once, with a delay of 0 or larger
@@ -1063,7 +1063,7 @@ declare module cc {
          * @param {Number} delay  The amount of time that the first tick will wait before execution.
          * @param {String} key The only string identifying the callback
          */
-        public scheduleOnce(callback:(arg?:any) => void, delay:number, key?:string):void;
+        public scheduleOnce (callback: (arg?: any) => void, delay: number, key?: string): void
 
         /**
          * schedules the "update" method.
@@ -1072,7 +1072,7 @@ declare module cc {
          * Only one "update" method could be scheduled per node.
          * @function
          */
-        public scheduleUpdate():void;
+        public scheduleUpdate (): void
 
         /**
          *
@@ -1084,7 +1084,7 @@ declare module cc {
          * @function
          * @param {Number} priority
          */
-        public scheduleUpdateWithPriority(priority:number):void;
+        public scheduleUpdateWithPriority (priority: number): void
 
         /**
          * Sets the cc.ActionManager object that is used by all actions.
@@ -1092,7 +1092,7 @@ declare module cc {
          * @warning If you set a new CCActionManager, then previously created actions will be removed.
          * @param {cc.ActionManager} actionManager A CCActionManager object that is used by all actions.
          */
-        public setActionManager(actionManager:ActionManager):void;
+        public setActionManager (actionManager: ActionManager): void
 
         /**
          *
@@ -1108,21 +1108,20 @@ declare module cc {
          * @param {cc.Point} point The anchor point of node or The x axis anchor of node.
          * @param {Number} [y] The y axis anchor of node.
          */
-        public setAnchorPoint(point:Point|number, y?:number):void;
-
+        public setAnchorPoint (point: Point|number, y?: number): void
 
         /**
          * Enable or disable cascade color, if cascade enabled, child nodes' opacity will be the cascade value of parent color and its own color.
          * @param {boolean} cascadeColorEnabled
          */
-        public setCascadeColorEnabled(cascadeColorEnabled:boolean):void;
+        public setCascadeColorEnabled (cascadeColorEnabled: boolean): void
 
         /**
          * Enable or disable cascade opacity, if cascade enabled, child nodes' opacity will be the multiplication of parent opacity and its own opacity.
          * @function
          * @param {boolean} cascadeOpacityEnabled
          */
-        public setCascadeOpacityEnabled(cascadeOpacityEnabled:boolean):void;
+        public setCascadeOpacityEnabled (cascadeOpacityEnabled: boolean): void
 
         /**
          * Sets the color of Node.
@@ -1131,7 +1130,7 @@ declare module cc {
          * @function
          * @param {cc.Color} color The new color given
          */
-        public setColor(color:Color):void;
+        public setColor (color: Color): void
 
         /**
          *
@@ -1144,7 +1143,7 @@ declare module cc {
          * @param {Number} size The untransformed size's width of the node.
          * @param {Number} [height] The untransformed size's height of the node.
          */
-        public setContentSize(size:Size|number, height?:number):void;
+        public setContentSize (size: Size|number, height?: number): void
 
         /**
          * Defines the oder in which the nodes are renderer.
@@ -1162,7 +1161,7 @@ declare module cc {
          * @function
          * @param {Number} globalZOrder
          */
-        public setGlobalZOrder(globalZOrder:number):void;
+        public setGlobalZOrder (globalZOrder: number): void
 
         /**
          * Sets the state of OpenGL server side.
@@ -1170,7 +1169,7 @@ declare module cc {
          * @param {Number} state The state of OpenGL server side.
          * @deprecated since v3.0, no need anymore
          */
-        public setGLServerState(state:number):void;
+        public setGLServerState (state: number): void
 
         /**
          *  LocalZOrder is the 'key' used to sort the node relative to its siblings.
@@ -1186,19 +1185,19 @@ declare module cc {
          * @function
          * @param {Number} localZOrder
          */
-        public setLocalZOrder(localZOrder:number):void;
+        public setLocalZOrder (localZOrder: number): void
 
         /**
          * Changes the name that is used to identify the node easily.
          * @function
          * @param {String} name
          */
-        public setName(name:string):void;
+        public setName (name: string): void
 
         /**
          * TODO: Update this with an explanation of this method's purpose/functionality.
          */
-        public setNodeDirty():void;
+        public setNodeDirty (): void
 
         /**
          *
@@ -1208,7 +1207,7 @@ declare module cc {
          *
          * @param {cc.Point} pos
          */
-        public setNormalizedPosition(pos:Point):void;
+        public setNormalizedPosition (pos: Point): void
 
         /**
          *
@@ -1219,14 +1218,14 @@ declare module cc {
          * @param {Number} x
          * @param {Number} y
          */
-        public setNormalizedPosition(x:number, y:number):void;
+        public setNormalizedPosition (x: number, y: number): void
 
         /**
          * Sets the opacity of Node
          * @function
          * @param {Number} opacity
          */
-        public setOpacity(opacity:number):void;
+        public setOpacity (opacity: number): void
 
         /**
          * Set whether color should be changed with the opacity value,
@@ -1234,7 +1233,7 @@ declare module cc {
          * @function
          * @param {Boolean} opacityValue
          */
-        public setOpacityModifyRGB(opacityValue:boolean):void;
+        public setOpacityModifyRGB (opacityValue: boolean): void
 
         /**
          *
@@ -1247,13 +1246,13 @@ declare module cc {
          * @warning This method is used internally for zOrder sorting, don't change this manually
          * @param {Number} order  The arrival order.
          */
-        public setOrderOfArrival(order:number):void;
+        public setOrderOfArrival (order: number): void
 
         /**
          * Sets the parent node
          * @param {cc.Node} parent A reference to the parent node
          */
-        public setParent(parent:Node):void;
+        public setParent (parent: Node): void
 
         /**
          *
@@ -1269,21 +1268,21 @@ declare module cc {
          *    var size = cc.winSize;
          *    node.setPosition(size.width/2, size.height/2);
          */
-        public setPosition(point:Point|number, y?:number):void;
+        public setPosition (point: Point|number, y?: number): void
 
         /**
          * Sets the x axis position of the node in cocos2d coordinates.
          * @function
          * @param {Number} x The new position in x axis
          */
-        public setPositionX(x:number):void;
+        public setPositionX (x: number): void
 
         /**
          * Sets the y axis position of the node in cocos2d coordinates.
          * @function
          * @param {Number} y The new position in y axis
          */
-        public setPositionY(y:number):void;
+        public setPositionY (y: number): void
 
         /**
          *
@@ -1295,7 +1294,7 @@ declare module cc {
          * @function
          * @param {Number} degrees The rotation of the node in degrees.
          */
-        public setRotation(degrees:number):void;
+        public setRotation (degrees: number): void
 
         /**
          *
@@ -1306,7 +1305,7 @@ declare module cc {
          *
          * @param {Number} degrees The X rotation in degrees which performs a horizontal rotational skew.
          */
-        public setRotationX(degrees:number):void;
+        public setRotationX (degrees: number): void
 
         /**
          *
@@ -1317,14 +1316,14 @@ declare module cc {
          *
          * @param degrees The Y rotation in degrees.
          */
-        public setRotationY(degrees:number):void;
+        public setRotationY (degrees: number): void
 
         /**
          * Uniformly modifies both the X and Y scale values. 1.0 is the default scale factor.
          * @function
          * @param {Number} scale
          */
-        public setScale(scale:number):void;
+        public setScale (scale: number): void
 
         /**
          * Sets the scale factor of the node. 1.0 is the default scale factor. This function can modify the X and Y scale at the same time.
@@ -1332,7 +1331,7 @@ declare module cc {
          * @param {Number} scaleX
          * @param {Number} scaleY
          */
-        public setScale(scaleX:number, scaleY:number):void;
+        public setScale (scaleX: number, scaleY: number): void
 
         /**
          *
@@ -1342,7 +1341,7 @@ declare module cc {
          * @function
          * @param {Number} scale The scale factor on X axis.
          */
-        public setScaleX(scale:number):void;
+        public setScaleX (scale: number): void
 
         /**
          *
@@ -1352,7 +1351,7 @@ declare module cc {
          * @function
          * @param {Number} scale The scale factor on Y axis.
          */
-        public setScaleY(scale:number):void;
+        public setScaleY (scale: number): void
 
         /**
          *
@@ -1363,7 +1362,7 @@ declare module cc {
          * @warning If you set a new CCScheduler, then previously created timers/update are going to be removed.
          * @param scheduler A cc.Scheduler object that is used to schedule all "update" and timers.
          */
-        public setScheduler(scheduler:Scheduler):void;
+        public setScheduler (scheduler: Scheduler): void
 
         /**
          *
@@ -1379,7 +1378,7 @@ declare module cc {
          *
          * TODO: Uncomment once GLProgram is defined.
          */
-        //setShaderProgram(newShaderProgram:GLProgram):void;
+        // setShaderProgram(newShaderProgram:GLProgram):void;
 
         /**
          *
@@ -1392,7 +1391,7 @@ declare module cc {
          * @function
          * @param {Number} angle The X skew angle of the node in degrees.
          */
-        public setSkewX(angle:number):void;
+        public setSkewX (angle: number): void
 
         /**
          *
@@ -1405,7 +1404,7 @@ declare module cc {
          * @function
          * @param {Number} angle The Y skew angle of the node in degrees.
          */
-        public setSkewY(angle:number):void;
+        public setSkewY (angle: number): void
 
         /**
          * Changes the tag that is used to identify the node easily.
@@ -1414,7 +1413,7 @@ declare module cc {
          * @see cc.Node#getTag
          * @param {Number} tag A integer that identifies the node.
          */
-        public setTag(tag:number):void;
+        public setTag (tag: number): void
 
         /**
          *
@@ -1425,7 +1424,7 @@ declare module cc {
          * @warning Don't forget to release the memory manually in JSB, especially before you change this data pointer, and before this node is autoreleased.
          * @param {object} data A custom user data
          */
-        public setUserData(data:any):void;
+        public setUserData (data: any): void
 
         /**
          *
@@ -1436,7 +1435,7 @@ declare module cc {
          *
          * @param {object} obj A user cocos2d object
          */
-        public setUserObject(obj:any):void;
+        public setUserObject (obj: any): void
 
         /**
          *
@@ -1452,7 +1451,7 @@ declare module cc {
          * @function
          * @param {Number} angle
          */
-        public setVertexZ(angle:number):void;
+        public setVertexZ (angle: number): void
 
         /**
          * Sets whether the node is visible
@@ -1460,7 +1459,7 @@ declare module cc {
          * @function
          * @param {Boolean} visible Pass true to make the node visible, false to hide the node.
          */
-        public setVisible(visible:boolean):void;
+        public setVisible (visible: boolean): void
 
         /**
          *
@@ -1475,7 +1474,7 @@ declare module cc {
          * @param {Number} z Z order of this node.
          * @deprecated since 3.0, please use setLocalZOrder instead
          */
-        public setZOrder(z:number):void;
+        public setZOrder (z: number): void
 
         /**
          *
@@ -1485,27 +1484,27 @@ declare module cc {
          * @function
          * @note Don't call this manually unless a child added needs to be removed in the same frame
          */
-        public sortAllChildren():void;
+        public sortAllChildren (): void
 
         /**
          * Stops and removes an action from the running action list.
          * @function
          * @param {cc.Action} action An action object to be removed.
          */
-        public stopAction(action:Action):void;
+        public stopAction (action: Action): void
 
         /**
          * Removes an action from the running action list by its tag.
          * @function
          * @param {Number} tag A tag that indicates the action to be removed.
          */
-        public stopActionByTag(tag:number):void;
+        public stopActionByTag (tag: number): void
 
         /**
          * Stops and removes all actions from the running action list .
          * @function
          */
-        public stopAllActions():void;
+        public stopAllActions (): void
 
         /**
          * Performs view-matrix transformation based on position, scale, rotation and other attributes.
@@ -1513,13 +1512,13 @@ declare module cc {
          * @param {cc.Node.RenderCmd} parentCmd parent's render command
          * @param {boolean} recursive whether call its children's transform
          */
-        public transform(parentCmd:Node.RenderCmd, recursive:boolean):void;
+        public transform (parentCmd: Node.RenderCmd, recursive: boolean): void
 
         // TODO: The comments say to never call this externally, but it's not marked as private (no '_' prefix).
         //       Determine whether or not this should be exposed, and if not, remove it.
         //       For now though, leave it commented out.
         // Internal use only, do not call it by yourself,
-        //transformAncestors():void;
+        // transformAncestors():void;
 
         /**
          * unschedules a custom callback function.
@@ -1527,21 +1526,21 @@ declare module cc {
          * @see cc.Node#schedule
          * @param {function} callback_fn  A function wrapped as a selector
          */
-        public unschedule(callback_fn:(arg?:any) => void):void;
+        public unschedule (callback_fn: (arg?: any) => void): void
 
         /**
          * unschedule all scheduled callback functions: custom callback functions, and the 'update' callback function.
          * Actions are not affected by this method.
          * @function
          */
-        public unscheduleAllCallbacks():void;
+        public unscheduleAllCallbacks (): void
 
         /**
          * Unschedules the "update" method.
          * @function
          * @see cc.Node#scheduleUpdate
          */
-        public unscheduleUpdate():void;
+        public unscheduleUpdate (): void
 
         /**
          * Update will be called automatically every frame if "scheduleUpdate" is called when the node is "live".
@@ -1550,21 +1549,21 @@ declare module cc {
          * @function
          * @param {Number} dt Delta time since last update
          */
-        public update(dt:number):void;
+        public update (dt: number): void
 
         /**
          * Update the displayed color of Node
          * @function
          * @param {cc.Color} parentColor
          */
-        public updateDisplayedColor(parentColor:Color):void;
+        public updateDisplayedColor (parentColor: Color): void
 
         /**
          * Update displayed opacity
          * @function
          * @param {Number} parentOpacity
          */
-        public updateDisplayedOpacity(parentOpacity:number):void;
+        public updateDisplayedOpacity (parentOpacity: number): void
 
         /**
          *
@@ -1576,22 +1575,21 @@ declare module cc {
          *
          * @function
          */
-        public updateTransform():void;
+        public updateTransform (): void
 
         /**
          * Recursive method that visit its children and draw them
          * @function
          * @param {cc.Node.RenderCmd} parentCmd
          */
-        public visit(parentCmd:Node.RenderCmd):void;
+        public visit (parentCmd: Node.RenderCmd): void
 
         /**
          * @function
          * @deprecated since v3.0, please use getWorldToNodeTransform instead
          */
-        public worldToNodeTransform():AffineTransform;
+        public worldToNodeTransform (): AffineTransform
     }
-
 
     // +--------------------------------------------------------------------------------
     // + File: cocos2d/core/base-nodes/CCAtlasNode.js
@@ -1620,9 +1618,9 @@ declare module cc {
      * @property {Number}           quadsToDraw     - Number of quads to draw
      */
     export class AtlasNode extends Node {
-        public texture:Texture2D;
-        public textureAtlas:TextureAtlas;
-        public quadsToDraw:number;
+        public texture: Texture2D
+        public textureAtlas: TextureAtlas
+        public quadsToDraw: number
 
         /**
          * <p>Constructor function, override it to extend the construction behavior, remember to call "this._super()" in the extended "ctor" function.</p>
@@ -1631,22 +1629,22 @@ declare module cc {
          * @param {Number} tileHeight
          * @param {Number} itemsToRender
          */
-        public constructor(tile:string, tileWidth:number, tileHeight:number, itemsToRender:number);
-        //public ctor(tile?:string, tileWidth?:number, tileHeight?:number, itemsToRender?:number):void;
+        public constructor (tile: string, tileWidth: number, tileHeight: number, itemsToRender: number);
+        // public ctor(tile?:string, tileWidth?:number, tileHeight?:number, itemsToRender?:number):void;
 
         /**
          * Updates the Atlas (indexed vertex array).
          * Empty implementation, shall be overridden in subclasses
          * @function
          */
-        public updateAtlasValues():void;
+        public updateAtlasValues (): void
 
         /**
          * Get node's blend function
          * @function
          * @return {cc.BlendFunc}
          */
-        public getBlendFunc():BlendFunc;
+        public getBlendFunc (): BlendFunc
 
         /**
          * Set node's blend function
@@ -1655,35 +1653,35 @@ declare module cc {
          * @param {Number | cc.BlendFunc} src
          * @param {Number} dst
          */
-        public setBlendFunc(src:BlendFunc|number, dst?:number):void;
+        public setBlendFunc (src: BlendFunc|number, dst?: number): void
 
         /**
          * Set the atlas texture
          * @function
          * @param {cc.TextureAtlas} value The texture
          */
-        public setTextureAtlas(value:TextureAtlas):void;
+        public setTextureAtlas (value: TextureAtlas): void
 
         /**
          * Get the atlas texture
          * @function
          * @return {cc.TextureAtlas}
          */
-        public getTextureAtlas():TextureAtlas;
+        public getTextureAtlas (): TextureAtlas
 
         /**
          * Get the number of quads to be rendered
          * @function
          * @return {Number}
          */
-        public getQuadsToDraw():number;
+        public getQuadsToDraw (): number
 
         /**
          * Set the number of quads to be rendered
          * @function
          * @param {Number} quadsToDraw
          */
-        public setQuadsToDraw(quadsToDraw:number):void;
+        public setQuadsToDraw (quadsToDraw: number): void
 
         /**
          * Initializes an cc.AtlasNode object with an atlas texture file name, the width, the height of each tile and the quantity of tiles to render
@@ -1694,7 +1692,7 @@ declare module cc {
          * @param {Number} itemsToRender    The quantity of tiles to be rendered
          * @return {Boolean}
          */
-        public initWithTileFile(tile:string, tileWidth:number, tileHeight:number, itemsToRender:number):boolean;
+        public initWithTileFile (tile: string, tileWidth: number, tileHeight: number, itemsToRender: number): boolean
 
         /**
          * Initializes an CCAtlasNode with an atlas texture, the width, the height of each tile and the quantity of tiles to render
@@ -1705,20 +1703,20 @@ declare module cc {
          * @param {Number} itemsToRender    The quantity of tiles to be rendered
          * @return {Boolean}
          */
-        public initWithTexture(texture:Texture2D, tileWidth:number, tileHeight:number, itemsToRender:number):boolean;
+        public initWithTexture (texture: Texture2D, tileWidth: number, tileHeight: number, itemsToRender: number): boolean
 
         /**
          * Get the current texture
          * @function
          * @return {cc.Texture2D}
          */
-        public getTexture():Texture2D;
+        public getTexture (): Texture2D
 
         /**
          * Replace the current texture with a new one
          * @function
          * @param {cc.Texture2D} texture    The new texture
          */
-        public setTexture(texture:Texture2D):void;
+        public setTexture (texture: Texture2D): void
     }
 }

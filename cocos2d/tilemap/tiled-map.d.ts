@@ -4,7 +4,7 @@ declare namespace cc {
   // +--------------------------------------------------------------------------------
   // + File: cocos2d/tilemap/CCTMXTiledMap.js
   // +--------------------------------------------------------------------------------
-    
+
   /**
    Orthogonal orientation
   * @const {number} TMX_ORIENTATION_ORTHO
@@ -23,7 +23,7 @@ declare namespace cc {
    * @const {number} TMX_ORIENTATION_ISO
    */
   export const TMX_ORIENTATION_ISO: number
-  
+
   /**
    * <p>cc.TMXTiledMap knows how to parse and render a TMX map.</p>
    *
@@ -62,7 +62,7 @@ declare namespace cc {
      * @member {any[]} properties
      */
     properties: any[]
-    
+
     /**
      * Map orientation
      * @member {number} mapOrientation
@@ -105,31 +105,31 @@ declare namespace cc {
      * @param {string} tmxFile tmxFile fileName or content string
      * @param {string} resourcePath   If tmxFile is a file name ,it is not required.If tmxFile is content string ,it is must required.
      */
-    constructor(tmxFile: string, resourcePath?: string)
+    constructor (tmxFile: string, resourcePath?: string)
 
     /**
      * Gets the map size.
      * @return {cc.Size}
      */
-    getMapSize(): Size
+    getMapSize (): Size
 
     /**
      * Set the map size.
      * @param {cc.Size} Var
      */
-    setMapSize(Var: Size): void
-    
+    setMapSize (Var: Size): void
+
     /**
      * Gets the tile size.
      * @return {cc.Size}
      */
-    getTileSize(): Size
+    getTileSize (): Size
 
     /**
      * Set the tile size
      * @param {cc.Size} Var
      */
-    setTileSize(Var: Size): void
+    setTileSize (Var: Size): void
 
     /**
      * Initializes the instance of cc.TMXTiledMap with tmxFile
@@ -140,7 +140,7 @@ declare namespace cc {
      * var map = new cc.TMXTiledMap()
      * map.initWithTMXFile("hello.tmx");
      */
-    initWithTMXFile(tmxFile: string): boolean
+    initWithTMXFile (tmxFile: string): boolean
 
     /**
      * Initializes the instance of cc.TMXTiledMap with tmxString
@@ -148,40 +148,40 @@ declare namespace cc {
      * @param {string} resourcePath
      * @return {boolean} Whether the initialization was successful.
      */
-    initWithXML(tmxString: string, resourcePath: string): boolean
-    
+    initWithXML (tmxString: string, resourcePath: string): boolean
+
     /**
      * Return All layers array.
      * @returns {TMXLayer[]}
      */
-    allLayers(): TMXLayer[]
+    allLayers (): TMXLayer[]
 
     /**
      * return the TMXLayer for the specific layer
      * @param {string} layerName
      * @return {cc.TMXLayer}
      */
-    getLayer(layerName: string): TMXLayer
+    getLayer (layerName: string): TMXLayer
 
     /**
      * Return the TMXObjectGroup for the specific group
      * @param {string} groupName
      * @return {cc.TMXObjectGroup}
      */
-    getObjectGroup(groupName: string): TMXObjectGroup
+    getObjectGroup (groupName: string): TMXObjectGroup
 
     /**
      * Return the value for the specific property name
      * @param {string} propertyName
      * @return {string}
      */
-    getProperty(propertyName: string): string
+    getProperty (propertyName: string): string
 
     /**
      * Return properties dictionary for tile GID
      * @param {number} GID
      * @return {any}
      */
-    getPropertiesForGID(GID: number): any
-  }  
+    getPropertiesForGID (GID: number): any
+  }
 }

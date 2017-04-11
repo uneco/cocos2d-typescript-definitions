@@ -39,20 +39,19 @@ declare namespace cc.math {
 // + File: cocos2d/kazmath/utility.js
 // +--------------------------------------------------------------------------------
 
-//cc.kmPIOver180 = 0.017453;       please use cc.RAD
+// cc.kmPIOver180 = 0.017453;       please use cc.RAD
 
-//cc.kmPIUnder180 = 57.295779;     please use cc.DEG
+// cc.kmPIUnder180 = 57.295779;     please use cc.DEG
 
-    export const EPSILON:number;         //cc.kmEpsilon
+    export const EPSILON: number         // cc.kmEpsilon
 
     /**
      * Returns the square of s (e.g. s*s)
      * @param {Number} s
      */
-    export function square(s:number):number;
+    export function square (s: number): number
 
-    export function almostEqual(lhs:number, rhs:number):void;
-
+    export function almostEqual (lhs: number, rhs: number): void
 
 // +--------------------------------------------------------------------------------
 // + File: cocos2d/kazmath/vec2.js

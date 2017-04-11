@@ -1,6 +1,5 @@
 /// <reference path="../cocos2d-lib.d.ts" />
 
-
 declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/event-manager/CCEvent.js
@@ -16,104 +15,103 @@ declare namespace cc {
          * @constant
          * @type {number}
          */
-        public static TOUCH:number;
+        public static TOUCH: number
 
         /**
          * The type code of Keyboard event.
          * @constant
          * @type {number}
          */
-        public static KEYBOARD:number;
+        public static KEYBOARD: number
 
         /**
          * The type code of Acceleration event.
          * @constant
          * @type {number}
          */
-        public static ACCELERATION:number;
+        public static ACCELERATION: number
 
         /**
          * The type code of Mouse event.
          * @constant
          * @type {number}
          */
-        public static MOUSE:number;
+        public static MOUSE: number
 
         /**
          * The type code of UI focus event.
          * @constant
          * @type {number}
          */
-        public static FOCUS:number;
+        public static FOCUS: number
 
         /**
          * The type code of Custom event.
          * @constant
          * @type {number}
          */
-        public static CUSTOM:number;
+        public static CUSTOM: number
 
-        public constructor(type:number);
+        public constructor (type: number);
 
         /**
          * Gets the event type
          * @function
          * @returns {Number}
          */
-        public getType():number;
+        public getType (): number
 
         /**
          * Stops propagation for current event
          * @function
          */
-        public stopPropagation():void;
+        public stopPropagation (): void
 
         /**
          * Checks whether the event has been stopped
          * @function
          * @returns {boolean}
          */
-        public isStopped():boolean;
+        public isStopped (): boolean
 
         /**
-         * 
-         *     Gets current target of the event                                                            
-         *     note: It only be available when the event listener is associated with node.                
+         *
+         *     Gets current target of the event
+         *     note: It only be available when the event listener is associated with node.
          *          It returns 0 when the listener is associated with fixed priority.
-         * 
+         *
          * @function
          * @returns {cc.Node}  The target with which the event associates.
          */
-        public getCurrentTarget():Node;
+        public getCurrentTarget (): Node
     }
-
 
     /**
      * The Custom event
      * @class
      * @extends cc.Event
      */
-    //cc.EventCustom = cc.Event.extend(/** @lends cc.EventCustom# */{
+    // cc.EventCustom = cc.Event.extend(/** @lends cc.EventCustom# */{
     export class EventCustom extends Event {
-        public constructor(eventName:string);
+        public constructor (eventName: string);
 
         /**
          * Sets user data
          * @param {*} data
          */
-        public setUserData(data:any):void;
+        public setUserData (data: any): void
 
         /**
          * Gets user data
          * @returns {*}
          */
-        public getUserData():any;
+        public getUserData (): any
 
         /**
          * Gets event name
          * @returns {String}
          */
-        public getEventName():string;
+        public getEventName (): string
     }
 
     /**
@@ -127,170 +125,169 @@ declare namespace cc {
          * @constant
          * @type {number}
          */
-        public static NONE:number;
+        public static NONE: number
         /**
          * The event type code of mouse down event.
          * @constant
          * @type {number}
          */
-        public static DOWN:number;
+        public static DOWN: number
         /**
          * The event type code of mouse up event.
          * @constant
          * @type {number}
          */
-        public static UP:number;
+        public static UP: number
         /**
          * The event type code of mouse move event.
          * @constant
          * @type {number}
          */
-        public static MOVE:number;
+        public static MOVE: number
         /**
          * The event type code of mouse scroll event.
          * @constant
          * @type {number}
          */
-        public static SCROLL:number;
+        public static SCROLL: number
 
         /**
          * The tag of Mouse left button
          * @constant
          * @type {Number}
          */
-        public static BUTTON_LEFT:number;
+        public static BUTTON_LEFT: number
 
         /**
          * The tag of Mouse right button  (The right button number is 2 on browser)
          * @constant
          * @type {Number}
          */
-        public static BUTTON_RIGHT:number;
+        public static BUTTON_RIGHT: number
 
         /**
          * The tag of Mouse middle button  (The right button number is 1 on browser)
          * @constant
          * @type {Number}
          */
-        public static BUTTON_MIDDLE:number;
+        public static BUTTON_MIDDLE: number
 
         /**
          * The tag of Mouse button 4
          * @constant
          * @type {Number}
          */
-        public static BUTTON_4:number;
+        public static BUTTON_4: number
 
         /**
          * The tag of Mouse button 5
          * @constant
          * @type {Number}
          */
-        public static BUTTON_5:number;
+        public static BUTTON_5: number
 
         /**
          * The tag of Mouse button 6
          * @constant
          * @type {Number}
          */
-        public static BUTTON_6:number;
+        public static BUTTON_6: number
 
         /**
          * The tag of Mouse button 7
          * @constant
          * @type {Number}
          */
-        public static BUTTON_7:number;
+        public static BUTTON_7: number
 
         /**
          * The tag of Mouse button 8
          * @constant
          * @type {Number}
          */
-        public static BUTTON_8:number;
+        public static BUTTON_8: number
 
-
-        public constructor(eventType:number);
+        public constructor (eventType: number);
 
         /**
          * Sets scroll data
          * @param {number} scrollX
          * @param {number} scrollY
          */
-        public setScrollData(scrollX:number, scrollY:number):void;
+        public setScrollData (scrollX: number, scrollY: number): void
 
         /**
          * Returns the x axis scroll value
          * @returns {number}
          */
-        public getScrollX():number;
+        public getScrollX (): number
 
         /**
          * Returns the y axis scroll value
          * @returns {number}
          */
-        public getScrollY():number;
+        public getScrollY (): number
 
         /**
          * Sets cursor location
          * @param {number} x
          * @param {number} y
          */
-        public setLocation(x:number, y:number):void;
+        public setLocation (x: number, y: number): void
 
         /**
          * Returns cursor location
          * @return {cc.Point} location
          */
-        public getLocation():Point;
+        public getLocation (): Point
 
         /**
          * Returns the current cursor location in screen coordinates
          * @return {cc.Point}
          */
-        public getLocationInView():Point;
+        public getLocationInView (): Point
 
         /**
          * Returns the delta distance from the previous location to current location
          * @return {cc.Point}
          */
-        public getDelta():Point;
+        public getDelta (): Point
 
         /**
          * Returns the X axis delta distance from the previous location to current location
          * @return {Number}
          */
-        public getDeltaX():number;
+        public getDeltaX (): number
 
         /**
          * Returns the Y axis delta distance from the previous location to current location
          * @return {Number}
          */
-        public getDeltaY():number;
+        public getDeltaY (): number
 
         /**
          * Sets mouse button
          * @param {number} button
          */
-        public setButton(button:number):void;
+        public setButton (button: number): void
 
         /**
          * Returns mouse button
          * @returns {number}
          */
-        public getButton():number;
+        public getButton (): number
 
         /**
          * Returns location X axis data
          * @returns {number}
          */
-        public getLocationX():number;
+        public getLocationX (): number
 
         /**
          * Returns location Y axis data
          * @returns {number}
          */
-        public getLocationY():number;
+        public getLocationY (): number
     }
 
     /**
@@ -298,18 +295,18 @@ declare namespace cc {
      * @class
      * @extends cc.Event
      */
-    //cc.EventTouch = cc.Event.extend(/** @lends cc.EventTouch# */{
-    //enum EventCode {
+    // cc.EventTouch = cc.Event.extend(/** @lends cc.EventTouch# */{
+    // enum EventCode {
     //    BEGAN = 0,
     //    MOVED = 1,
     //    ENDED = 2,
     //    CANCELLED = 3
-    //}
-        export interface EventCodeMap {
-            BEGAN:number;
-        MOVED:number;
-        ENDED:number;
-        CANCELLED:number
+    // }
+    export interface EventCodeMap {
+            BEGAN: number
+        MOVED: number
+        ENDED: number
+        CANCELLED: number
     }
 
     export class EventTouch extends Event {
@@ -318,23 +315,23 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        public static MAX_TOUCHES:number;
+        public static MAX_TOUCHES: number
 
-        public static EventCode:EventCodeMap;
+        public static EventCode: EventCodeMap
 
-        public constructor(arr:Touch[]);
+        public constructor (arr: Touch[]);
 
         /**
          * Returns event code
          * @returns {number}
          */
-        public getEventCode():number;
+        public getEventCode (): number
 
         /**
          * Returns touches of event
          * @returns {Array}
          */
-        public getTouches():Touch[];
+        public getTouches (): Touch[]
     }
 
     // TODO: Uncomment this class when ccui.Widget is defined.
@@ -343,14 +340,14 @@ declare namespace cc {
     // * @class
     // * @extends cc.Event
     // */
-    //export class EventFocus extends Event {
+    // export class EventFocus extends Event {
     //    /**
     //     * Constructor function.
     //     * @param {ccui.Widget} widgetLoseFocus
     //     * @param {ccui.Widget} widgetGetFocus
     //     */
     //    public constructor(widgetLoseFocus:ccui.Widget, widgetGetFocus:ccui.Widget);
-    //}
+    // }
 
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/event-manager/CCEventExtension.js
@@ -360,9 +357,9 @@ declare namespace cc {
      * @class
      * @extends cc.Event
      */
-    //cc.EventAcceleration = cc.Event.extend(/** @lends cc.EventAcceleration# */{
+    // cc.EventAcceleration = cc.Event.extend(/** @lends cc.EventAcceleration# */{
     export class EventAcceleration extends Event {
-        public constructor(acc:number);
+        public constructor (acc: number);
     }
 
     /**
@@ -370,9 +367,9 @@ declare namespace cc {
      * @class
      * @extends cc.Event
      */
-    //cc.EventKeyboard = cc.Event.extend(/** @lends cc.EventKeyboard# */{
+    // cc.EventKeyboard = cc.Event.extend(/** @lends cc.EventKeyboard# */{
     export class EventKeyboard extends Event {
-        public constructor(keyCode:number, isPressed:boolean);
+        public constructor (keyCode: number, isPressed: boolean);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -380,12 +377,12 @@ declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
 // The event helper
     export class EventHelper extends Class {
-        public apply(object:any):void;
+        public apply (object: any): void
 
-        //public addEventListener(type:string, listener:EventListener, target:Node):void;
-        public addEventListener(type:string, listener:EventListener, target:Node):void;
+        // public addEventListener(type:string, listener:EventListener, target:Node):void;
+        public addEventListener (type: string, listener: EventListener, target: Node): void
 
-        public hasEventListener(type:string, listener:EventListener, target:Node):boolean;
+        public hasEventListener (type: string, listener: EventListener, target: Node): boolean
 
         //    if ( this._listeners === undefined )
         //        return false;
@@ -399,9 +396,9 @@ declare namespace cc {
         //        }
         //    }
         //    return false;
-        //},
+        // },
 
-        public removeEventListener(type:string, target:Node):void;
+        public removeEventListener (type: string, target: Node): void
 
         //    if ( this._listeners === undefined )
         //        return;
@@ -418,21 +415,21 @@ declare namespace cc {
         //                i++
         //        }
         //    }
-        //},
+        // },
 
-        public dispatchEvent(event:Event, clearAfterDispatch:boolean):void;
+        public dispatchEvent (event: Event, clearAfterDispatch: boolean): void
     }
 
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/event-manager/CCEventListener.js
     ////////////////////////////////////////////////////////////////////////////////
     /**
-     * 
-     *     The base class of event listener.                                                                        
-     *     If you need custom listener which with different callback, you need to inherit this class.               
-     *     For instance, you could refer to EventListenerAcceleration, EventListenerKeyboard,                       
+     *
+     *     The base class of event listener.
+     *     If you need custom listener which with different callback, you need to inherit this class.
+     *     For instance, you could refer to EventListenerAcceleration, EventListenerKeyboard,
      *      EventListenerTouchOneByOne, EventListenerCustom.
-     * 
+     *
      * @class
      * @extends cc.Class
      */
@@ -443,63 +440,63 @@ declare namespace cc {
          * @constant
          * @type {number}
          */
-        public static UNKNOWN:number;
+        public static UNKNOWN: number
 
         /**
          * The type code of one by one touch event listener.
          * @constant
          * @type {number}
          */
-        public static TOUCH_ONE_BY_ONE:number;
+        public static TOUCH_ONE_BY_ONE: number
 
         /**
          * The type code of all at once touch event listener.
          * @constant
          * @type {number}
          */
-        public static TOUCH_ALL_AT_ONCE:number;
+        public static TOUCH_ALL_AT_ONCE: number
 
         /**
          * The type code of keyboard event listener.
          * @constant
          * @type {number}
          */
-        public static KEYBOARD:number;
+        public static KEYBOARD: number
 
         /**
          * The type code of mouse event listener.
          * @constant
          * @type {number}
          */
-        public static MOUSE:number;
+        public static MOUSE: number
 
         /**
          * The type code of acceleration event listener.
          * @constant
          * @type {number}
          */
-        public static ACCELERATION:number;
+        public static ACCELERATION: number
 
         ///**
         // * The type code of focus event listener.
         // * @constant
         // * @type {number}
         // */
-        //public static ACCELERATION:number;
+        // public static ACCELERATION:number;
 
         /**
          * The type code of custom event listener.
          * @constant
          * @type {number}
          */
-        public static CUSTOM:number;
+        public static CUSTOM: number
 
         /**
          * The type code of Focus change event listener.
          * @constant
          * @type {number}
          */
-        public static FOCUS:number;
+        public static FOCUS: number
 
         /**
          * Initializes event with type and callback function
@@ -507,19 +504,19 @@ declare namespace cc {
          * @param {string} listenerID
          * @param {function} callback
          */
-        public constructor(type:number, listenerID:string, callback:()=>void);
+        public constructor (type: number, listenerID: string, callback: () => void);
 
         /**
          * Checks whether the listener is available.
          * @returns {boolean}
          */
-        public checkAvailable():boolean;
+        public checkAvailable (): boolean
 
         /**
          * Clones the listener, its subclasses have to override this method.
          * @returns {cc.EventListener}
          */
-        public clone():EventListener;
+        public clone (): EventListener
 
         /**
          *  Enables or disables the listener
@@ -529,13 +526,13 @@ declare namespace cc {
          *          paused state is always false when it is a fixed priority listener.
          * @param {boolean} enabled
          */
-        public setEnabled(enabled:boolean):void;
+        public setEnabled (enabled: boolean): void
 
         /**
          * Checks whether the listener is enabled
          * @returns {boolean}
          */
-        public isEnabled():boolean;
+        public isEnabled (): boolean
 
         /**
          * Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,
@@ -550,7 +547,7 @@ declare namespace cc {
          * @function
          * @see cc.EventListener#release
          */
-        retain():void;
+        retain (): void
 
         /**
          * Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,
@@ -565,7 +562,7 @@ declare namespace cc {
          * @function
          * @see cc.EventListener#retain
          */
-        public release():void;
+        public release (): void
 
         /**
          * Create a EventListener object by json object
@@ -584,49 +581,49 @@ declare namespace cc {
          *       }
          *    });
          */
-        public static create(obj:any):EventListener;
+        public static create (obj: any): EventListener
     }
 
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/event-manager/CCEventManager.js
     ////////////////////////////////////////////////////////////////////////////////
     /**
-     * 
-     *  cc.eventManager is a singleton object which manages event listener subscriptions and event dispatching. 
-     *                                                                                                              
-     *  The EventListener list is managed in such way so that event listeners can be added and removed          
+     *
+     *  cc.eventManager is a singleton object which manages event listener subscriptions and event dispatching.
+     *
+     *  The EventListener list is managed in such way so that event listeners can be added and removed
      *  while events are being dispatched.
-     * 
+     *
      * @class
      * @name cc.eventManager
      */
     export class EventManager extends Class {
-        //Priority dirty flag
-        public static DIRTY_NONE:number;
-        public static DIRTY_FIXED_PRIORITY:number;
-        public static DIRTY_SCENE_GRAPH_PRIORITY:number;
-        public static DIRTY_ALL:number;
+        // Priority dirty flag
+        public static DIRTY_NONE: number
+        public static DIRTY_FIXED_PRIORITY: number
+        public static DIRTY_SCENE_GRAPH_PRIORITY: number
+        public static DIRTY_ALL: number
 
         /**
          * Pauses all listeners which are associated the specified target.
          * @param {cc.Node} node
          * @param {Boolean} [recursive=false]
          */
-        public pauseTarget(node:Node, recursive:boolean):void;
+        public pauseTarget (node: Node, recursive: boolean): void
 
         /**
          * Resumes all listeners which are associated the specified target.
          * @param {cc.Node} node
          * @param {Boolean} [recursive=false]
          */
-        public resumeTarget(node:Node, recursive:boolean):void;
+        public resumeTarget (node: Node, recursive: boolean): void
 
         /**
-         * 
-         * Adds a event listener for a specified event.                                                                                                            
-         * if the parameter "nodeOrPriority" is a node, it means to add a event listener for a specified event with the priority of scene graph.                   
-         * if the parameter "nodeOrPriority" is a Number, it means to add a event listener for a specified event with the fixed priority.                          
-         * 
+         *
+         * Adds a event listener for a specified event.
+         * if the parameter "nodeOrPriority" is a node, it means to add a event listener for a specified event with the priority of scene graph.
+         * if the parameter "nodeOrPriority" is a Number, it means to add a event listener for a specified event with the fixed priority.
+         *
          * @param {cc.EventListener|Object} listener The listener of a specified event or a object of some event parameters.
          * @param {cc.Node|Number} nodeOrPriority The priority of the listener is based on the draw order of this node or fixedPriority The fixed priority of the listener.
          * @note  The priority of scene graph will be fixed value 0. So the order of listener item in the vector will be ' <0, scene graph (0 priority), >0'.
@@ -635,7 +632,7 @@ declare namespace cc {
          *         except calls removeAllListeners().
          * @return {cc.EventListener} Return the listener. Needed in order to remove the event from the dispatcher.
          */
-        public addListener(listener:EventListener, nodeOrPriority:Node|number):EventListener;
+        public addListener (listener: EventListener, nodeOrPriority: Node|number): EventListener
 
         /**
          * Adds a Custom event listener. It will use a fixed priority of 1.
@@ -643,66 +640,66 @@ declare namespace cc {
          * @param {function} callback
          * @return {cc.EventListener} the generated event. Needed in order to remove the event from the dispatcher
          */
-        public addCustomListener(eventName:string, callback:()=>void):cc.EventListener;
+        public addCustomListener (eventName: string, callback: () => void): cc.EventListener
 
         /**
          * Remove a listener
          * @param {cc.EventListener} listener an event listener or a registered node target
          */
-        public removeListener(listener:EventListener):void;
+        public removeListener (listener: EventListener): void
 
         /**
          * Removes all listeners with the same event listener type or removes all listeners of a node
          * @param {Number|cc.Node} listenerType listenerType or a node
          * @param {Boolean} [recursive=false]
          */
-        public removeListeners(listenerType:Node|number, recursive?:boolean):void;
+        public removeListeners (listenerType: Node|number, recursive?: boolean): void
 
         /**
          * Removes all custom listeners with the same event name
          * @param {string} customEventName
          */
-        public removeCustomListeners(customEventName:string):void;
+        public removeCustomListeners (customEventName: string): void
 
         /**
          * Removes all listeners
          */
-        public removeAllListeners():void;
+        public removeAllListeners (): void
 
         /**
          * Sets listener's priority with fixed value.
          * @param {cc.EventListener} listener
          * @param {Number} fixedPriority
          */
-        public setPriority(listener:EventListener, fixedPriority:number):void;
+        public setPriority (listener: EventListener, fixedPriority: number): void
 
         /**
          * Whether to enable dispatching events
          * @param {boolean} enabled
          */
-        public setEnabled(enabled:boolean):void;
+        public setEnabled (enabled: boolean): void
 
         /**
          * Checks whether dispatching events is enabled
          * @returns {boolean}
          */
-        public isEnabled():boolean;
+        public isEnabled (): boolean
 
         /**
          * Dispatches the event, also removes all EventListeners marked for deletion from the event dispatcher list.
          * @param {cc.Event} event
          */
-        public dispatchEvent(event:Event):void;
+        public dispatchEvent (event: Event): void
 
         /**
          * Dispatches a Custom Event with a event name an optional user data
          * @param {string} eventName
          * @param {*} optionalUserData
          */
-        public dispatchCustomEvent(eventName:string, optionalUserData:any):void;
+        public dispatchCustomEvent (eventName: string, optionalUserData: any): void
     }
 
-    export const eventManager:EventManager;
+    export const eventManager: EventManager
 
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/event-manager/CCTouch.js
@@ -718,67 +715,67 @@ declare namespace cc {
      * @param {Number} id
      */
     export class Touch extends Class {
-        public constructor(x:number, y:number, id:number);
+        public constructor (x: number, y: number, id: number);
 
         /**
          * Returns the current touch location in OpenGL coordinates
          * @return {cc.Point}
          */
-        public getLocation():Point;
+        public getLocation (): Point
 
         /**
          * Returns X axis location value
          * @returns {number}
          */
-        public getLocationX():number;
+        public getLocationX (): number
 
         /**
          * Returns Y axis location value
          * @returns {number}
          */
-        public getLocationY():number;
+        public getLocationY (): number
 
         /**
          * Returns the previous touch location in OpenGL coordinates
          * @return {cc.Point}
          */
-        public getPreviousLocation():Point;
+        public getPreviousLocation (): Point
 
         /**
          * Returns the start touch location in OpenGL coordinates
          * @returns {cc.Point}
          */
-        public getStartLocation():Point;
+        public getStartLocation (): Point
 
         /**
          * Returns the delta distance from the previous touche to the current one in screen coordinates
          * @return {cc.Point}
          */
-        public getDelta():Point;
+        public getDelta (): Point
 
         /**
          * Returns the current touch location in screen coordinates
          * @return {cc.Point}
          */
-        public getLocationInView():Point;
+        public getLocationInView (): Point
 
         /**
          * Returns the previous touch location in screen coordinates
          * @return {cc.Point}
          */
-        public getPreviousLocationInView():Point;
+        public getPreviousLocationInView (): Point
 
         /**
          * Returns the start touch location in screen coordinates
          * @return {cc.Point}
          */
-        public getStartLocationInView():Point;
+        public getStartLocationInView (): Point
 
         /**
          * Returns the id of cc.Touch
          * @return {Number}
          */
-        public getID():number;
+        public getID (): number
 
         /**
          * Sets information to touch
@@ -786,6 +783,6 @@ declare namespace cc {
          * @param  {Number} x
          * @param  {Number} y
          */
-        public setTouchInfo(id:number, x:number, y:number):void;
+        public setTouchInfo (id: number, x: number, y: number): void
     }
 }
