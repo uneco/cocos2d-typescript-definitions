@@ -141,7 +141,7 @@ declare namespace cc {
          * @param {cc.Node} target
          */
         public constructor(callback:string|ccMenuItemCallback, target:Node);
-        public ctor(callback?:string|ccMenuItemCallback, target?:Node);
+        public ctor(callback?:string|ccMenuItemCallback, target?:Node):void;
 
         /**
          * return whether MenuItem is selected
@@ -583,8 +583,8 @@ declare namespace cc {
          */
         //public constructor(...args:MenuItem[]);
         public constructor();
-        public ctor(...args:MenuItem[]);
-        public ctor();
+        public ctor(...args:MenuItem[]):void;
+        public ctor():void;
 
         /**
          * initializes a cc.MenuItemToggle with items

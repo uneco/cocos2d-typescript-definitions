@@ -66,7 +66,7 @@ declare namespace cc {
          * Stops propagation for current event
          * @function
          */
-        public stopPropagation();
+        public stopPropagation():void;
 
         /**
          * Checks whether the event has been stopped
@@ -643,7 +643,7 @@ declare namespace cc {
          * @param {function} callback
          * @return {cc.EventListener} the generated event. Needed in order to remove the event from the dispatcher
          */
-        public addCustomListener(eventName:string, callback:()=>void);
+        public addCustomListener(eventName:string, callback:()=>void):cc.EventListener;
 
         /**
          * Remove a listener
@@ -656,7 +656,7 @@ declare namespace cc {
          * @param {Number|cc.Node} listenerType listenerType or a node
          * @param {Boolean} [recursive=false]
          */
-        public removeListeners(listenerType:Node|number, recursive?:boolean);
+        public removeListeners(listenerType:Node|number, recursive?:boolean):void;
 
         /**
          * Removes all custom listeners with the same event name

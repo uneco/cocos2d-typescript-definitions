@@ -131,7 +131,7 @@ declare namespace cc {
          * and the ugly workaround is to use retain/release. So, these 2 methods were added to be compatible with JSB. <br/>
          * This is a hack, and should be removed once JSB fixes the retain/release bug.
          */
-        public release();
+        public release():void;
     }
 
     /**

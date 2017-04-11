@@ -17,7 +17,7 @@ declare namespace cc {
      * @param {String}   getterName Name of getter function for the property
      * @param {String}   setterName Name of setter function for the property
      */
-    export function defineGetterSetter(proto, prop, getter, setter, getterName, setterName): void;
+    export function defineGetterSetter(proto:{}, prop:string, getter:() => any, setter: (val:any) => void, getterName:string, setterName:string): void;
 
     // TODO: Can restrict clone() to overloaded declarations that take a cc.Class and and Array, instead of an Any?
     /**
@@ -194,7 +194,7 @@ declare namespace cc {
      * 
      * @function
      */
-    export function disableDefaultGLStates();
+    export function disableDefaultGLStates():void;
 
     /**
      * 
@@ -396,7 +396,7 @@ declare namespace cc {
      * Check webgl error.Error will be shown in console if exists.
      * @function
      */
-    export function checkGLErrorDebug();
+    export function checkGLErrorDebug():void;
 
 //Possible device orientations
     /**
@@ -741,42 +741,42 @@ declare namespace cc {
      * @constant
      * @type Number
      */
-    export var TEXT_ALIGNMENT_LEFT;
+    export var TEXT_ALIGNMENT_LEFT:number;
 
     /**
      * text alignment : center
      * @constant
      * @type Number
      */
-    export var TEXT_ALIGNMENT_CENTER;
+    export var TEXT_ALIGNMENT_CENTER:number;
 
     /**
      * text alignment : right
      * @constant
      * @type Number
      */
-    export var TEXT_ALIGNMENT_RIGHT;
+    export var TEXT_ALIGNMENT_RIGHT:number;
 
     /**
      * text alignment : top
      * @constant
      * @type Number
      */
-    export var VERTICAL_TEXT_ALIGNMENT_TOP;
+    export var VERTICAL_TEXT_ALIGNMENT_TOP:number;
 
     /**
      * text alignment : center
      * @constant
      * @type Number
      */
-    export var VERTICAL_TEXT_ALIGNMENT_CENTER;
+    export var VERTICAL_TEXT_ALIGNMENT_CENTER:number;
 
     /**
      * text alignment : bottom
      * @constant
      * @type Number
      */
-    export var VERTICAL_TEXT_ALIGNMENT_BOTTOM;
+    export var VERTICAL_TEXT_ALIGNMENT_BOTTOM:number;
 
     //+---------- Function definitions ----------+//
     /**
@@ -835,7 +835,7 @@ declare namespace cc {
      * @param {cc.Color} color2
      * @return {Boolean}  true if both ccColor3B are equal. Otherwise it returns false.
      */
-    export function colorEqual(color1:Color, color2:Color);
+    export function colorEqual(color1:Color, color2:Color):boolean;
 
     /**
      * convert Color to a string of color for style.
@@ -958,26 +958,26 @@ declare namespace cc {
      * @class cc.FontDefinition
      */
     export class FontDefinition {
-        public fontName;
-        public fontSize;
-        public textAlign;
-        public verticalAlign;
-        public fillStyle;
-        public boundingWidth;
-        public boundingHeight;
+        public fontName:string;
+        public fontSize:number;
+        public textAlign:number;
+        public verticalAlign:number;
+        public fillStyle:cc.Color;
+        public boundingWidth:number;
+        public boundingHeight:number;
 
-        public strokeEnabled;
-        public strokeStyle;
-        public lineWidth;
-        public lineHeight;
-        public fontStyle;
-        public fontWeight;
+        public strokeEnabled:boolean;
+        public strokeStyle:cc.Color;
+        public lineWidth:number;
+        public lineHeight:number;
+        public fontStyle:string;
+        public fontWeight:string;
 
-        public shadowEnabled;
-        public shadowOffsetX;
-        public shadowOffsetY;
-        public shadowBlur;
-        public shadowOpacity;
+        public shadowEnabled:boolean;
+        public shadowOffsetX:number;
+        public shadowOffsetY:number;;
+        public shadowBlur:number;
+        public shadowOpacity:number;
 
         /**
          * TODO: Define type for properties arg in c'tor. Figure out what the structure for props is and make a class (or more likely, an interface).
@@ -1404,7 +1404,7 @@ declare namespace cc {
         /**
          * Force destroying EGL view, subclass must implement this method.
          */
-        public end();
+        public end():void;
 
         /**
          * Get whether render system is ready(no matter opengl or canvas),
@@ -1471,7 +1471,7 @@ declare namespace cc {
         /**
          * Empty function
          */
-        public centerWindow();
+        public centerWindow():void;
 
         /**
          * Returns the visible area size of the view port.
@@ -1601,7 +1601,7 @@ declare namespace cc {
          * Returns the view port rectangle.
          * @return {cc.Rect}
          */
-        public getViewPortRect(rect:Rect);
+        public getViewPortRect(rect:Rect):cc.Rect;
 
         /**
          * Returns scale factor of the horizontal direction (X axis).
@@ -1640,6 +1640,21 @@ declare namespace cc {
      * @extends cc.Class
      */
     export class ContainerStrategy extends Class {
+
+        /**
+         * Strategy that scale proportionally the container's size to frame's size
+         */
+        static PROPORTION_TO_FRAME: ContainerStrategy;
+
+        /**
+         * Strategy that makes the container's size equals to the frame's size
+         */
+        static EQUAL_TO_FRAME: ContainerStrategy;
+
+        /**
+         * Strategy that keeps the original container's size
+         */
+        static ORIGINAL_CONTAINER: ContainerStrategy;
         /**
          * Manipulation before appling the strategy
          * @param {cc.view} view The target view
@@ -1668,11 +1683,37 @@ declare namespace cc {
      * @extends cc.Class
      */
     export class ContentStrategy extends Class {
+
+        /**
+         * Strategy to scale the content's size to container's size, non proportional
+         */
+        static EXACT_FIT: ContentStrategy;
+
+        /**
+         * Strategy to scale the content's size proportionally to maximum size and keeps the whole content area to be visible
+         */
+        static SHOW_ALL: ContentStrategy;
+
+        /**
+         * Strategy to scale the content's size proportionally to fill the whole container area
+         */
+        static NO_BORDER: ContentStrategy;
+
+        /**
+         * Strategy to scale the content's height to container's height and proportionally scale its width
+         */
+        static FIXED_HEIGHT: ContentStrategy;
+
+        /**
+         * Strategy to scale the content's width to container's width and proportionally scale its height
+         */
+        static FIXED_WIDTH: ContentStrategy;
+
         /**
          * Manipulation before applying the strategy
          * @param {cc.view} view The target view
          */
-        public preApply(view:View);
+        public preApply(view:View):void;
 
         /**
          * Function to apply this strategy
@@ -1714,7 +1755,7 @@ declare namespace cc {
      * @extends EqualToFrame
      */
     export class EqualToWindow extends EqualToFrame {
-        public preApply(view:View);
+        public preApply(view:View):void;
         public apply(view:View, designedResolution:Size):any;
     }
 
@@ -1723,7 +1764,7 @@ declare namespace cc {
      * @extends ProportionalToFrame
      */
     export class ProportionalToWindow extends ProportionalToFrame {
-        public preApply(view:View);
+        public preApply(view:View):void;
 
         public apply(view:View, designedResolution:Size):any;
     }
@@ -1875,7 +1916,7 @@ declare namespace cc {
          * Manipulation before applying the resolution policy
          * @param {cc.view} view The target view
          */
-        public preApply(view:View);
+        public preApply(view:View):void;
 
         /**
          * Function to apply this resolution policy
