@@ -1,5 +1,5 @@
 
-declare module cc {
+declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/cocoa/CCAffineTransform.js
     ////////////////////////////////////////////////////////////////////////////////
@@ -14,7 +14,7 @@ declare module cc {
      * @param {cc.AffineTransform} rhs The transform object to concatenate
      * @return {cc.AffineTransform} The result of concatenation
      */
-    export function affineTransformConcat(lhs:AffineTransform, rhs:AffineTransform):AffineTransform;
+    export function affineTransformConcat (lhs: AffineTransform, rhs: AffineTransform): AffineTransform
 
     /**
      * Concatenate a transform matrix to another
@@ -25,7 +25,7 @@ declare module cc {
      * @param {cc.AffineTransform} rhs The transform object to concatenate
      * @return {cc.AffineTransform} The result of concatenation
      */
-    export function affineTransformConcatIn(lhs:AffineTransform, rhs:AffineTransform):AffineTransform;
+    export function affineTransformConcatIn (lhs: AffineTransform, rhs: AffineTransform): AffineTransform
 
     /**
      * Return true if an affine transform equals to another, false otherwise.
@@ -34,7 +34,7 @@ declare module cc {
      * @param {cc.AffineTransform} rhs The second transform to compare
      * @return {Boolean}
      */
-    export function affineTransformEqualToTransform(lhs:AffineTransform, rhs:AffineTransform):boolean;
+    export function affineTransformEqualToTransform (lhs: AffineTransform, rhs: AffineTransform): boolean
 
     /**
      * Create a identity transformation matrix:
@@ -46,7 +46,7 @@ declare module cc {
      * @deprecated since v3.0, please use cc.affineTransformMakeIdentity() instead
      * @see cc.affineTransformMakeIdentity
      */
-    export function affineTransformIdentity():AffineTransform;
+    export function affineTransformIdentity (): AffineTransform
 
     /**
      * Get the invert transform of an AffineTransform object
@@ -54,7 +54,7 @@ declare module cc {
      * @param {cc.AffineTransform} xform The source transform
      * @return {cc.AffineTransform} The inverted transform object
      */
-    export function affineTransformInvert(xform:AffineTransform):AffineTransform;
+    export function affineTransformInvert (xform: AffineTransform): AffineTransform
 
     /**
      * Create a cc.AffineTransform object with all contents in the matrix
@@ -68,8 +68,8 @@ declare module cc {
      * @param {number} ty
      * @return {cc.AffineTransform}
      */
-    export function affineTransformMake(a:number, b:number, c:number, d:number,
-                                        tx:number, ty:number):AffineTransform;
+    export function affineTransformMake (a: number, b: number, c: number, d: number,
+                                         tx: number, ty: number): AffineTransform
 
     /**
      * Create a identity transformation matrix:
@@ -79,7 +79,7 @@ declare module cc {
      *
      * @return {cc.AffineTransform}
      */
-    export function affineTransformMakeIdentity():AffineTransform;
+    export function affineTransformMakeIdentity (): AffineTransform
 
     /**
      * Create a new affine transformation with a base transformation matrix and a rotation based on it.
@@ -88,7 +88,7 @@ declare module cc {
      * @param {number} angle The angle to rotate
      * @return {cc.AffineTransform}
      */
-    export function affineTransformRotate(xform:AffineTransform, angle:number):AffineTransform;
+    export function affineTransformRotate (xform: AffineTransform, angle: number): AffineTransform
 
     /**
      * Create a new affine transformation with a base transformation matrix and a scale based on it.
@@ -98,7 +98,7 @@ declare module cc {
      * @param {number} sy The scale on y axis
      * @return {cc.AffineTransform}
      */
-    export function affineTransformScale(xform:AffineTransform, sx:number, sy:number):AffineTransform;
+    export function affineTransformScale (xform: AffineTransform, sx: number, sy: number): AffineTransform
 
     /**
      * Create a new affine transformation with a base transformation matrix and a translation based on it.
@@ -109,7 +109,7 @@ declare module cc {
      * @param {number} ty The translation on y axis
      * @return {cc.AffineTransform}
      */
-    export function affineTransformTranslate(xform:AffineTransform, tx:number, ty:number):AffineTransform;
+    export function affineTransformTranslate (xform: AffineTransform, tx: number, ty: number): AffineTransform
 
     /**
      * Apply the affine transformation on a point.
@@ -119,7 +119,7 @@ declare module cc {
      * @param {cc.AffineTransform|number} xform transform matrix
      * @return {cc.Point}
      */
-    export function pointApplyAffineTransform(point:Point, xform:AffineTransform):Point;
+    export function pointApplyAffineTransform (point: Point, xform: AffineTransform): Point
 
     /**
      * Apply the affine transformation on a point.
@@ -130,7 +130,7 @@ declare module cc {
      * @param {cc.AffineTransform} xform
      * @return {cc.Point}
      */
-    export function pointApplyAffineTransform(x:number, y:number, xform:AffineTransform):Point;
+    export function pointApplyAffineTransform (x: number, y: number, xform: AffineTransform): Point
 
     /**
      * Apply the affine transformation on a rect.
@@ -140,7 +140,7 @@ declare module cc {
      * @param {cc.AffineTransform} xform
      * @return {cc.Rect}
      */
-    export function rectApplyAffineTransform(rect:Rect, xform:AffineTransform):Rect;
+    export function rectApplyAffineTransform (rect: Rect, xform: AffineTransform): Rect
 
     /**
      * Apply the affine transformation on a size.
@@ -150,9 +150,9 @@ declare module cc {
      * @param {cc.AffineTransform} xform
      * @return {cc.Size}
      */
-    export function sizeApplyAffineTransformfunction(size:Size, xform:AffineTransform):Size;
+    export function sizeApplyAffineTransformfunction (size: Size, xform: AffineTransform): Size
 
-    //+---------- Class Definitions ----------+//
+    // +---------- Class Definitions ----------+//
 
     /**
      * cc.AffineTransform class represent an affine transform matrix. It's composed basically by translation, rotation, scale transformations.<br/>
@@ -168,7 +168,7 @@ declare module cc {
      * @see cc.affineTransformMake
      */
     export class AffineTransform {
-        constructor(a:number, b:number, c:number, d:number, tx:number, ty:number);
+        constructor (a: number, b: number, c: number, d: number, tx: number, ty: number);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -188,7 +188,7 @@ declare module cc {
      * var point3 = cc.p(point2);
      * var point4 = cc.p({x: 100, y: 100});
      */
-    export function p(x:number, y:number):Point;
+    export function p (x: number, y: number): Point
 
     /**
      * Check whether a point's value equals to another
@@ -197,7 +197,7 @@ declare module cc {
      * @param {cc.Point} rhs The second Point to compare
      * @return {Boolean}
      */
-    export function pointEqualToPoint(lhs:Point, rhs:Point):boolean;
+    export function pointEqualToPoint (lhs: Point, rhs: Point): boolean
 
     /**
      * Helper function that creates a cc.Rect.
@@ -213,8 +213,8 @@ declare module cc {
      * var rect3 = cc.rect(rect2);
      * var rect4 = cc.rect({x: 100, y: 100, width: 100, height: 100});
      */
-    export function rect(x:Rect):Rect;
-    export function rect(x:number, y:number, width:number, height:number):Rect;
+    export function rect (x: Rect): Rect
+    export function rect (x: number, y: number, width: number, height: number): Rect
 
     /**
      * Check whether a rect contains a point
@@ -223,7 +223,7 @@ declare module cc {
      * @param {cc.Point} point The point to check
      * @return {Boolean}
      */
-    export function rectContainsPoint(rect:Rect, point:Point):boolean;
+    export function rectContainsPoint (rect: Rect, point: Point): boolean
 
     /**
      * Check whether the rect1 contains rect2
@@ -232,7 +232,7 @@ declare module cc {
      * @param {cc.Rect} inner The inner rect to compare
      * @return {Boolean}
      */
-    export function rectContainsRect(outer:Rect, inner:Rect):boolean;
+    export function rectContainsRect (outer: Rect, inner: Rect): boolean
 
     /**
      * Returns the rightmost x-value of a rect
@@ -240,7 +240,7 @@ declare module cc {
      * @param {cc.Rect} rect The source rect
      * @return {number} The rightmost x value
      */
-    export function rectGetMaxX(rect:Rect):boolean;
+    export function rectGetMaxX (rect: Rect): boolean
 
     /**
      * Return the topmost y-value of a rect
@@ -248,7 +248,7 @@ declare module cc {
      * @param {cc.Rect} rect The source rect
      * @return {number} The topmost y value
      */
-    export function rectGetMaxY(rect:Rect):boolean;
+    export function rectGetMaxY (rect: Rect): boolean
 
     /**
      * Return the midpoint x-value of a rect
@@ -256,7 +256,7 @@ declare module cc {
      * @param {cc.Rect} rect The source rect
      * @return {number} The midpoint x value
      */
-    export function rectGetMidX(rect:Rect):boolean;
+    export function rectGetMidX (rect: Rect): boolean
 
     /**
      * Return the midpoint y-value of `rect'
@@ -264,7 +264,7 @@ declare module cc {
      * @param {cc.Rect} rect The source rect
      * @return {number} The midpoint y value
      */
-    export function rectGetMidY(rect:Rect):boolean;
+    export function rectGetMidY (rect: Rect): boolean
 
     /**
      * Returns the leftmost x-value of a rect
@@ -272,7 +272,7 @@ declare module cc {
      * @param {cc.Rect} rect
      * @return {number} The leftmost x value
      */
-    export function rectGetMinX(rect:Rect):boolean;
+    export function rectGetMinX (rect: Rect): boolean
 
     /**
      * Return the bottommost y-value of a rect
@@ -280,7 +280,7 @@ declare module cc {
      * @param {cc.Rect} rect
      * @return {number} The bottommost y value
      */
-    export function rectGetMinY(rect:Rect):boolean;
+    export function rectGetMinY (rect: Rect): boolean
 
     /**
      * Check whether a rect's value equals to another
@@ -289,7 +289,7 @@ declare module cc {
      * @param {cc.Rect} rhs Second rectangle to compare
      * @return {Boolean}
      */
-    export function rectEqualToRect(lhs:Rect, rhs:Rect):boolean;
+    export function rectEqualToRect (lhs: Rect, rhs: Rect): boolean
 
     /**
      * Returns the overlapping portion of 2 rectangles
@@ -298,7 +298,7 @@ declare module cc {
      * @param {cc.Rect} rhs The second Rect to intersect
      * @return {cc.Rect}
      */
-    export function rectIntersection(lhs:Rect, rhs:Rect):Rect;
+    export function rectIntersection (lhs: Rect, rhs: Rect): Rect
 
     /**
      * Check whether a rect intersect with another
@@ -307,7 +307,7 @@ declare module cc {
      * @param {cc.Rect} rhs
      * @return {Boolean}
      */
-    export function rectIntersectsRect(lhs:Rect, rhs:Rect):boolean;
+    export function rectIntersectsRect (lhs: Rect, rhs: Rect): boolean
 
     /**
      * Check whether a rect overlaps another
@@ -316,7 +316,7 @@ declare module cc {
      * @param {cc.Rect} rhs The second Rect to compare
      * @return {Boolean}
      */
-    export function rectOverlapsRect(lhs:Rect, rhs:Rect):boolean;
+    export function rectOverlapsRect (lhs: Rect, rhs: Rect): boolean
 
     /**
      * Returns the smallest rectangle that contains the two source rectangles.
@@ -325,7 +325,7 @@ declare module cc {
      * @param {cc.Rect} rhs The second Rect to union
      * @return {cc.Rect}
      */
-    export function rectUnion(lhs:Rect, rhs:Rect):Rect;
+    export function rectUnion (lhs: Rect, rhs: Rect): Rect
 
 ///**
 // * Check whether all fields of a rect are 0
@@ -333,7 +333,7 @@ declare module cc {
 // * @param {cc.Rect} rect Rectangle to compare
 // * @return {Boolean}
 // */
-//export function _rectEqualToZero(rect: Rect): boolean;
+// export function _rectEqualToZero(rect: Rect): boolean;
 
     /**
      * Helper function that creates a cc.Size.
@@ -347,7 +347,7 @@ declare module cc {
      * var size3 = cc.size(size2);
      * var size4 = cc.size({width: 100, height: 100});
      */
-    export function size(width:number, height:number):Size;
+    export function size (width: number, height: number): Size
 
     /**
      * Check whether a Size's value equals to another
@@ -356,7 +356,7 @@ declare module cc {
      * @param {cc.Size} rhs Second size to compare
      * @return {Boolean}
      */
-    export function sizeEqualToSize(lhs:Size, rhs:Size):boolean;
+    export function sizeEqualToSize (lhs: Size, rhs: Size): boolean
 
 // Class Definitions
     /**
@@ -367,10 +367,10 @@ declare module cc {
      * @see cc.p
      */
     export class Point {
-        public x:number;
-        public y:number;
+        public x: number
+        public y: number
 
-        constructor(x:number, y:number);
+        constructor (x: number, y: number);
     }
 
     /**
@@ -381,12 +381,12 @@ declare module cc {
      * @see cc.rect
      */
     export class Rect {
-        public x:number;
-        public y:number;
-        public width:number;
-        public height:number;
+        public x: number
+        public y: number
+        public width: number
+        public height: number
 
-        constructor(x:number, y:number, width:number, height:number);
+        constructor (x: number, y: number, width: number, height: number);
     }
 
     /**
@@ -397,9 +397,9 @@ declare module cc {
      * @see cc.size
      */
     export class Size {
-        public width:number;
-        public height:number;
+        public width: number
+        public height: number
 
-        constructor(width:number, height:number);
+        constructor (width: number, height: number);
     }
 }

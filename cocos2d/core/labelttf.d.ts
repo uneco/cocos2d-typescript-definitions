@@ -44,44 +44,44 @@ declare namespace cc {
      * @property {Number}       shadowOpacity   - The opacity of shadow
      * @property {Number}       shadowBlur      - The blur size of shadow
      */
-    export class LabelTTF extends Sprite implements Label {
+    export class LabelTTF extends Sprite implements ILabel {
         ///** @expose */
-        public string:string;
+        public string: string
         /** @expose */
-        public textAlign:number;
+        public textAlign: number
         /** @expose */
-        public verticalAlign:number;
+        public verticalAlign: number
         /** @expose */
-        public fontSize:number;
+        public fontSize: number
         /** @expose */
-        public fontName:string;
+        public fontName: string
         /** @expose */
-        public font:string;
+        public font: string
         /** @expose */
-        public boundingSize:number;
+        public boundingSize: number
         /** @expose */
-        public boundingWidth:number;
+        public boundingWidth: number
         /** @expose */
-        public boundingHeight:number;
+        public boundingHeight: number
         /** @expose */
-        public fillStyle:Color;
+        public fillStyle: Color
         /** @expose */
-        public strokeStyle:Color;
+        public strokeStyle: Color
         /** @expose */
-        public lineWidth:number;
+        public lineWidth: number
         /** @expose */
-        public shadowOffset:number;
+        public shadowOffset: number
         /** @expose */
-        public shadowOffsetX:number;
+        public shadowOffsetX: number
         /** @expose */
-        public shadowOffsetY:number;
+        public shadowOffsetY: number
         /** @expose */
-        public shadowOpacity:number;
+        public shadowOpacity: number
         /** @expose */
-        public shadowBlur:number;
+        public shadowBlur: number
 
-        public constructor(label:string, fontName:string, fontSize:number, dimensions?:Size, hAlignment?:number, vAlignment?:number);
-        //public ctor(label?:string, fontName?:string, fontSize?:number, dimensions?:Size, hAlignment?:number, vAlignment?:number):boolean;
+        public constructor (label: string, fontName: string, fontSize: number, dimensions?: Size, hAlignment?: number, vAlignment?: number);
+        // public ctor(label?:string, fontName?:string, fontSize?:number, dimensions?:Size, hAlignment?:number, vAlignment?:number):boolean;
 
         /**
          * Initializes the cc.LabelTTF with a font name, alignment, dimension and font size, do not call it by yourself,
@@ -94,48 +94,48 @@ declare namespace cc {
          * @param {Number} [vAlignment=]
          * @return {Boolean} return false on error
          */
-        public initWithString(label:string, fontName:string, fontSize:number, dimensions?:Size, hAlignment?:number, vAlignment?:number):boolean;
+        public initWithString (label: string, fontName: string, fontSize: number, dimensions?: Size, hAlignment?: number, vAlignment?: number): boolean
 
-        public getLineHeight():number;
+        public getLineHeight (): number
 
-        public setLineHeight(lineHeight:number):void;
+        public setLineHeight (lineHeight: number): void
 
         /**
          * Returns the text of the label
          * @return {String}
          */
-        public getString():string;
+        public getString (): string
 
         /**
          * Returns Horizontal Alignment of cc.LabelTTF
          * @return {cc.TEXT_ALIGNMENT_LEFT|cc.TEXT_ALIGNMENT_CENTER|cc.TEXT_ALIGNMENT_RIGHT}
          */
-        public getHorizontalAlignment():number;
+        public getHorizontalAlignment (): number
 
         /**
          * Returns Vertical Alignment of cc.LabelTTF
          * @return {cc.VERTICAL_TEXT_ALIGNMENT_TOP|cc.VERTICAL_TEXT_ALIGNMENT_CENTER|cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM}
          */
-        public getVerticalAlignment():number;
+        public getVerticalAlignment (): number
 
         /**
          * Returns the dimensions of cc.LabelTTF, the dimension is the maximum size of the label, set it so that label will automatically change lines when necessary.
          * @see cc.LabelTTF#setDimensions, cc.LabelTTF#boundingWidth and cc.LabelTTF#boundingHeight
          * @return {cc.Size}
          */
-        public getDimensions():Size;
+        public getDimensions (): Size
 
         /**
          * Returns font size of cc.LabelTTF
          * @return {Number}
          */
-        public getFontSize():number;
+        public getFontSize (): number
 
         /**
          * Returns font name of cc.LabelTTF
          * @return {String}
          */
-        public getFontName():string;
+        public getFontName (): string
 
         /**
          * Initializes the CCLabelTTF with a font name, alignment, dimension and font size, do not call it by yourself, you should pass the correct arguments in constructor to initialize the label.
@@ -143,19 +143,19 @@ declare namespace cc {
          * @param {cc.FontDefinition} textDefinition
          * @return {Boolean}
          */
-        public initWithStringAndTextDefinition(text:string, textDefinition:FontDefinition):boolean;
+        public initWithStringAndTextDefinition (text: string, textDefinition: FontDefinition): boolean
 
         /**
          * Sets the text definition used by this label
          * @param {cc.FontDefinition} theDefinition
          */
-        public setTextDefinition(theDefinition:FontDefinition):void;
+        public setTextDefinition (theDefinition: FontDefinition): void
 
         /**
          * Extract the text definition used by this label
          * @return {cc.FontDefinition}
          */
-        public getTextDefinition():FontDefinition;
+        public getTextDefinition (): FontDefinition
 
         /**
          * Enable or disable shadow for the label
@@ -169,76 +169,76 @@ declare namespace cc {
          *   new:
          *     labelttf.enableShadow(shadowColor, offset, blurRadius);
          */
-        public enableShadow(a:Color|number, b:Size|number, c:number, d?:number):void;
+        public enableShadow (a: Color|number, b: Size|number, c: number, d?: number): void
 
         /**
          * Disable shadow rendering
          */
-        public disableShadow():void;
+        public disableShadow (): void
 
         /**
          * Enable label stroke with stroke parameters
          * @param {cc.Color} strokeColor The color of stroke
          * @param {Number} strokeSize The size of stroke
          */
-        public enableStroke(strokeColor:Color, strokeSize:number):void;
+        public enableStroke (strokeColor: Color, strokeSize: number): void
 
         /**
          * Disable label stroke
          */
-        public disableStroke():void;
+        public disableStroke (): void
 
         /**
          * Sets the text fill color
          * @function
          * @param {cc.Color} fillColor The fill color of the label
          */
-        public setFontFillColor(fillColor:Color):void;
+        public setFontFillColor (fillColor: Color): void
 
         /**
          * Changes the text content of the label
          * @warning Changing the string is as expensive as creating a new cc.LabelTTF. To obtain better performance use cc.LabelAtlas
          * @param {String} text Text content for the label
          */
-        public setString(text:string):void;
+        public setString (text: string): void
 
         /**
          * Sets Horizontal Alignment of cc.LabelTTF
          * @param {cc.TEXT_ALIGNMENT_LEFT|cc.TEXT_ALIGNMENT_CENTER|cc.TEXT_ALIGNMENT_RIGHT} alignment Horizontal Alignment
          */
-        public setHorizontalAlignment(alignment:number):void;
+        public setHorizontalAlignment (alignment: number): void
 
         /**
          * Sets Vertical Alignment of cc.LabelTTF
          * @param {cc.VERTICAL_TEXT_ALIGNMENT_TOP|cc.VERTICAL_TEXT_ALIGNMENT_CENTER|cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM} verticalAlignment
          */
-        public setVerticalAlignment(verticalAlignment:number):void;
+        public setVerticalAlignment (verticalAlignment: number): void
 
         /**
          * Set Dimensions of cc.LabelTTF, the dimension is the maximum size of the label, set it so that label will automatically change lines when necessary.
          * @param {cc.Size|Number} dim dimensions or width of dimensions
          * @param {Number} [height] height of dimensions
          */
-        public setDimensions(dim:Size|number, height?:number):void;
+        public setDimensions (dim: Size|number, height?: number): void
 
         /**
          * Sets font size of cc.LabelTTF
          * @param {Number} fontSize
          */
-        public setFontSize(fontSize:number):void;
+        public setFontSize (fontSize: number): void
 
         /**
          * Sets font name of cc.LabelTTF
          * @param {String} fontName
          */
-        public setFontName(fontName:number):void;
+        public setFontName (fontName: number): void
 
-        public setTextureRect(rect:Rect, rotated:boolean, untrimmedSize:Size):boolean;
+        public setTextureRect (rect: Rect, rotated: boolean, untrimmedSize: Size): boolean
 
         /**
          * set Target to draw on
          * @param {boolean} onCacheMode
          */
-        public setDrawMode(onCacheMode:boolean):void;
+        public setDrawMode (onCacheMode: boolean): void
     }
 }

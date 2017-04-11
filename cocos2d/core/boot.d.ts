@@ -25,7 +25,6 @@
  THE SOFTWARE.
  ****************************************************************************/
 
-
 /**
  * The main namespace of Cocos2d-JS, all engine core classes, functions, properties and constants are defined in this namespace
  * @namespace
@@ -33,22 +32,22 @@
  */
 declare namespace cc {
 
-    type LoadJsonCallback = (error:Error, json:{}) => void;
+    type LoadJsonCallback = (error: Error, json: {}) => void
 
-    export interface ConfigKey {
-        engineDir:string;
-        dependencies:string;
-        debugMode:string;
-        showFPS:string;
-        frameRate:string;
-        id:string;
-        renderMode:string;
-        jsList:string;
-        classReleaseMode:string;
+    export interface IConfigKey {
+        engineDir: string
+        dependencies: string
+        debugMode: string
+        showFPS: string
+        frameRate: string
+        id: string
+        renderMode: string
+        jsList: string
+        classReleaseMode: string
     }
 
     // +-------------------- Variable Definitions --------------------+ //
-    //export const director:Director;
+    // export const director:Director;
 
     // +-------------------- Function Definitions --------------------+ //
 
@@ -59,17 +58,17 @@ declare namespace cc {
      *      cc.formatStr(a, b, c);
      * @returns {String}
      */
-    export function formatStr(...args:any[]):string;
+    export function formatStr (...args: any[]): string
 
-    export function log(...args:any[]):void;
+    export function log (...args: any[]): void
 
-    export function warn(...args:any[]):void;
+    export function warn (...args: any[]): void
 
-    export function error(...args:any[]):void;
+    export function error (...args: any[]): void
 
-    export function assert(test:boolean, msg:string):void;
+    export function assert (test: boolean, msg: string): void
 
-    export function newElement(x:string):HTMLElement;
+    export function newElement (x: string): HTMLElement
 
     // export function _addEventListener(element, type, listener, useCapture);
 
@@ -79,7 +78,7 @@ declare namespace cc {
      * @param {function} iterator
      * @param {object} [context]
      */
-    export function each(obj:any, iterator:(ctx:any, prop:any, index:number) => boolean, context:any):void;
+    export function each (obj: any, iterator: (ctx: any, prop: any, index: number) => boolean, context: any): void
 
     /**
      * Copy all of the properties in source objects to target object and return the target object.
@@ -87,56 +86,56 @@ declare namespace cc {
      * @param {object|Array} sources
      * @returns {object}
      */
-    export function extend(target:any):any;
+    export function extend (target: any): any
 
     /**
      * Check the obj whether is function or not
      * @param {any} obj
      * @returns {boolean}
      */
-    export function isFunction(obj:any):boolean;
+    export function isFunction (obj: any): boolean
 
     /**
      * Check the obj whether is number or not
      * @param {any} obj
      * @returns {boolean}
      */
-    export function isNumber(obj:any):boolean;
+    export function isNumber (obj: any): boolean
 
     /**
      * Check the obj whether is string or not
      * @param {any} obj
      * @returns {boolean}
      */
-    export function isString(obj:any):boolean;
+    export function isString (obj: any): boolean
 
     /**
      * Check the obj whether is array or not
      * @param {any} obj
      * @returns {boolean}
      */
-    export function isArray(obj:any):boolean;
+    export function isArray (obj: any): boolean
 
     /**
      * Check the obj whether is undefined or not
      * @param {any} obj
      * @returns {boolean}
      */
-    export function isUndefined(obj:any):boolean
+    export function isUndefined (obj: any): boolean
 
     /**
      * Check the obj whether is object or not
      * @param {*} obj
      * @returns {boolean}
      */
-    export function isObject(obj:any):boolean;
+    export function isObject (obj: any): boolean
 
     /**
      * Check the url whether cross origin
      * @param {String} url
      * @returns {boolean}
      */
-    export function isCrossOrigin(url:string):boolean;
+    export function isCrossOrigin (url: string): boolean
 
     // +-------------------- Class Definitions --------------------+ //
 
@@ -150,13 +149,13 @@ declare namespace cc {
      * @constructor
      */
     export class AsyncPool {
-        constructor(srcObj:any, limit:number, iterator:() => void, onEnd:() => void, target:any);
+        constructor (srcObj: any, limit: number, iterator: () => void, onEnd: () => void, target: any);
 
-        onIterator(iterator:any, target:any):void;
+        public onIterator (iterator: any, target: any): void
 
-        onEnd(endCb:any, endCbTarget:any):void;
+        public onEnd (endCb: any, endCbTarget: any): void
 
-        flow():void;
+        public flow (): void
     }
 
     /**
@@ -170,7 +169,7 @@ declare namespace cc {
          * @param {Object} [target]
          * @return {cc.AsyncPool}
          */
-        export function series(tasks:any, cb:any, target:any):AsyncPool;
+        export function series (tasks: any, cb: any, target: any): AsyncPool
 
         /**
          * Do tasks parallel.
@@ -179,7 +178,7 @@ declare namespace cc {
          * @param {Object} [target]
          * @return {cc.AsyncPool}
          */
-        export function parallel(tasks:any, cb:any, target:any):AsyncPool;
+        export function parallel (tasks: any, cb: any, target: any): AsyncPool
 
         /**
          * Do tasks waterfall.
@@ -188,7 +187,7 @@ declare namespace cc {
          * @param {Object} [target]
          * @return {cc.AsyncPool}
          */
-        export function waterfall(tasks:any, cb:any, target:any):AsyncPool;
+        export function waterfall (tasks: any, cb: any, target: any): AsyncPool
 
         /**
          * Do tasks by iterator.
@@ -198,7 +197,7 @@ declare namespace cc {
          * @param {Object} [target]
          * @return {cc.AsyncPool}
          */
-        export function map(tasks:any, iterator:any, callback:any, target:any):AsyncPool;
+        export function map (tasks: any, iterator: any, callback: any, target: any): AsyncPool
 
         /**
          * Do tasks by iterator limit.
@@ -208,7 +207,7 @@ declare namespace cc {
          * @param {function} cb callback
          * @param {AsyncPool} [target]
          */
-        export function mapLimit(tasks:any, limit:any, iterator:any, cb:any, target:any):AsyncPool;
+        export function mapLimit (tasks: any, limit: any, iterator: any, cb: any, target: any): AsyncPool
     }
 
     /**
@@ -217,119 +216,118 @@ declare namespace cc {
     export namespace path {
 
         // Is there a built-in RegEx type in TypeScript
-        //normalizeRE: /[^\.\/]+\/\.\.\//,
-
+        // normalizeRE: /[^\.\/]+\/\.\.\//,
 
         /**
          * Join strings to be a path.
          * @example
-         cc.path.join("a", "b.png");//-->"a/b.png"
-         cc.path.join("a", "b", "c.png");//-->"a/b/c.png"
-         cc.path.join("a", "b");//-->"a/b"
-         cc.path.join("a", "b", "/");//-->"a/b/"
-         cc.path.join("a", "b/", "/");//-->"a/b/"
+         * cc.path.join("a", "b.png");//-->"a/b.png"
+         * cc.path.join("a", "b", "c.png");//-->"a/b/c.png"
+         * cc.path.join("a", "b");//-->"a/b"
+         * cc.path.join("a", "b", "/");//-->"a/b/"
+         * cc.path.join("a", "b/", "/");//-->"a/b/"
          * @returns {string}
          */
-        export function join():string;
+        export function join (): string
 
         /**
          * Get the ext name of a path.
          * @example
-         cc.path.extname("a/b.png");//-->".png"
-         cc.path.extname("a/b.png?a=1&b=2");//-->".png"
-         cc.path.extname("a/b");//-->null
-         cc.path.extname("a/b?a=1&b=2");//-->null
+         * cc.path.extname("a/b.png");//-->".png"
+         * cc.path.extname("a/b.png?a=1&b=2");//-->".png"
+         * cc.path.extname("a/b");//-->null
+         * cc.path.extname("a/b?a=1&b=2");//-->null
          * @param {string} pathStr
          * @returns {*}
          */
-        export function extname(pathStr:string):string;
+        export function extname (pathStr: string): string
 
         /**
          * Get the main name of a file name
          * @param {string} fileName
          * @returns {string}
          */
-        export function mainFileName(fileName:string):string;
+        export function mainFileName (fileName: string): string
 
         /**
          * Get the file name of a file path.
          * @example
-         cc.path.basename("a/b.png");//-->"b.png"
-         cc.path.basename("a/b.png?a=1&b=2");//-->"b.png"
-         cc.path.basename("a/b.png", ".png");//-->"b"
-         cc.path.basename("a/b.png?a=1&b=2", ".png");//-->"b"
-         cc.path.basename("a/b.png", ".txt");//-->"b.png"
+         * cc.path.basename("a/b.png");//-->"b.png"
+         * cc.path.basename("a/b.png?a=1&b=2");//-->"b.png"
+         * cc.path.basename("a/b.png", ".png");//-->"b"
+         * cc.path.basename("a/b.png?a=1&b=2", ".png");//-->"b"
+         * cc.path.basename("a/b.png", ".txt");//-->"b.png"
          * @param {string} pathStr
          * @param {string} [extname]
          * @returns {*}
          */
-        export function basename(pathStr:string, extname:string):string;
+        export function basename (pathStr: string, extname: string): string
 
         /**
          * Get dirname of a file path.
          * @example
          * unix
-         cc.path.driname("a/b/c.png");//-->"a/b"
-         cc.path.driname("a/b/c.png?a=1&b=2");//-->"a/b"
-         cc.path.dirname("a/b/");//-->"a/b"
-         cc.path.dirname("c.png");//-->""
+         * cc.path.driname("a/b/c.png");//-->"a/b"
+         * cc.path.driname("a/b/c.png?a=1&b=2");//-->"a/b"
+         * cc.path.dirname("a/b/");//-->"a/b"
+         * cc.path.dirname("c.png");//-->""
          * windows
-         cc.path.driname("a\\b\\c.png");//-->"a\b"
-         cc.path.driname("a\\b\\c.png?a=1&b=2");//-->"a\b"
+         * cc.path.driname("a\\b\\c.png");//-->"a\b"
+         * cc.path.driname("a\\b\\c.png?a=1&b=2");//-->"a\b"
          * @param {string} pathStr
          * @returns {*}
          */
-        export function dirname(pathStr:string):string;
+        export function dirname (pathStr: string): string
 
         /**
          * Change extname of a file path.
          * @example
-         cc.path.changeExtname("a/b.png", ".plist");//-->"a/b.plist"
-         cc.path.changeExtname("a/b.png?a=1&b=2", ".plist");//-->"a/b.plist?a=1&b=2"
+         * cc.path.changeExtname("a/b.png", ".plist");//-->"a/b.plist"
+         * cc.path.changeExtname("a/b.png?a=1&b=2", ".plist");//-->"a/b.plist?a=1&b=2"
          * @param {string} pathStr
          * @param {string} [extname]
          * @returns {string}
          */
-        export function changeExtname(pathStr:string, extname:string):string;
+        export function changeExtname (pathStr: string, extname: string): string
 
         /**
          * Change file name of a file path.
          * @example
-         cc.path.changeBasename("a/b/c.plist", "b.plist");//-->"a/b/b.plist"
-         cc.path.changeBasename("a/b/c.plist?a=1&b=2", "b.plist");//-->"a/b/b.plist?a=1&b=2"
-         cc.path.changeBasename("a/b/c.plist", ".png");//-->"a/b/c.png"
-         cc.path.changeBasename("a/b/c.plist", "b");//-->"a/b/b"
-         cc.path.changeBasename("a/b/c.plist", "b", true);//-->"a/b/b.plist"
+         * cc.path.changeBasename("a/b/c.plist", "b.plist");//-->"a/b/b.plist"
+         * cc.path.changeBasename("a/b/c.plist?a=1&b=2", "b.plist");//-->"a/b/b.plist?a=1&b=2"
+         * cc.path.changeBasename("a/b/c.plist", ".png");//-->"a/b/c.png"
+         * cc.path.changeBasename("a/b/c.plist", "b");//-->"a/b/b"
+         * cc.path.changeBasename("a/b/c.plist", "b", true);//-->"a/b/b.plist"
          * @param {String} pathStr
          * @param {String} basename
          * @param {Boolean} [isSameExt]
          * @returns {string}
          */
-        export function changeBasename(pathStr:string, basename:string, isSameExt:boolean):string;
+        export function changeBasename (pathStr: string, basename: string, isSameExt: boolean): string
     }
 
     /**
      * Loader for resource loading process. It's a singleton object.
      * @class
      */
-        //export class loader {
+        // export class loader {
     export namespace loader {
-        //_jsCache: {},//cache for js
-        //_register: {},//register of loaders
-        //_langPathCache: {},//cache for lang path
-        //_aliases: {},//aliases for res url
+        // _jsCache: {},//cache for js
+        // _register: {},//register of loaders
+        // _langPathCache: {},//cache for lang path
+        // _aliases: {},//aliases for res url
         //
-        //resPath: "",//root path of resource
-        //audioPath: "",//root path of audio
-        //cache: {},//cache for data loaded
+        // resPath: "",//root path of resource
+        // audioPath: "",//root path of audio
+        // cache: {},//cache for data loaded
 
         /**
          * Get XMLHttpRequest.
          * @returns {XMLHttpRequest}
          */
-        export function getXMLHttpRequest():XMLHttpRequest;
+        export function getXMLHttpRequest (): XMLHttpRequest
 
-        //@MODE_BEGIN DEV
+        // @MODE_BEGIN DEV
 
         /**
          * Load js files.
@@ -340,7 +338,7 @@ declare namespace cc {
          * @param {function} [cb]  Callback function
          * @returns {*}
          */
-        export function loadJs(baseDir:string, jsList:string[], cb:any):void;
+        export function loadJs (baseDir: string, jsList: string[], cb: any): void
 
         /**
          * Load js width loading image.
@@ -349,23 +347,23 @@ declare namespace cc {
          * @param {array} jsList
          * @param {function} [cb]
          */
-        export function loadJsWithImg(baseDir:string, jsList:string[], cb:any):void;
+        export function loadJsWithImg (baseDir: string, jsList: string[], cb: any): void
 
         /**
          * Load a single resource as txt.
          * @param {string} url
          * @param {function} [cb] arguments are : err, txt
          */
-        export function loadTxt(url:string, cb:any):void;
+        export function loadTxt (url: string, cb: any): void
 
-        export function loadCsb(url:string, cb:any):void;
+        export function loadCsb (url: string, cb: any): void
 
         /**
          * Load a single resource as json.
          * @param {string} url
          * @param {LoadJsonCallback} [cb] arguments are : err, json
          */
-        export function loadJson(url:string, cb?:LoadJsonCallback):void;
+        export function loadJson (url: string, cb?: LoadJsonCallback): void
 
         /**
          * TODO: Uncomment this when Image is defined
@@ -375,7 +373,7 @@ declare namespace cc {
          * @param {function} callback
          * @returns {Image}
          */
-        //loadImg(url:string, option:any, callback:any):Image;
+        // loadImg(url:string, option:any, callback:any):Image;
 
         /**
          * Get url with basePath.
@@ -383,7 +381,7 @@ declare namespace cc {
          * @param {string} [url]
          * @returns {*}
          */
-        export function getUrl(basePath:string, url:string):string;
+        export function getUrl (basePath: string, url: string): string
 
         /**
          * Load resources then call the callback.
@@ -392,7 +390,7 @@ declare namespace cc {
          * @param {function|Object} [loadCallback]
          * @return {cc.AsyncPool}
          */
-        export function load(resources:string, option:any, loadCallback:any):AsyncPool;
+        export function load (resources: string, option: any, loadCallback: any): AsyncPool
 
         /**
          * <p>
@@ -423,34 +421,33 @@ declare namespace cc {
          * @param {String} url  The plist file name.
          * @param {Function} [callback]
          */
-        export function loadAliases(url:string, callback:any):void;
+        export function loadAliases (url: string, callback: any): void
 
         /**
          * Register a resource loader into loader.
          * @param {string} extNames
          * @param {function} loader
          */
-        export function register(extNames:string, loader:any):void;
+        export function register (extNames: string, loader: any): void
 
         /**
          * Get resource data by url.
          * @param url
          * @returns {*}
          */
-        export function getRes(url:string):any;
+        export function getRes (url: string): any
 
         /**
          * Release the cache of resource by url.
          * @param url
          */
-        export function release(url:string):void;
+        export function release (url: string): void
 
         /**
          * Resource cache of all resources.
          */
-        export function releaseAll():void;
+        export function releaseAll (): void
     }
-
 
     /**
      * create a webgl context
@@ -458,7 +455,7 @@ declare namespace cc {
      * @param {Object} opt_attribs
      * @return {WebGLRenderingContext}
      */
-    export function create3DContext(canvas:HTMLCanvasElement, opt_attribs:any):WebGLRenderingContext;
+    export function create3DContext (canvas: HTMLCanvasElement, options: any): WebGLRenderingContext
 
     /**
      * System variables
@@ -473,7 +470,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_ENGLISH:string;
+        export const LANGUAGE_ENGLISH: string
 
         /**
          * Chinese language code
@@ -482,7 +479,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_CHINESE:string;
+        export const LANGUAGE_CHINESE: string
 
         /**
          * French language code
@@ -491,7 +488,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_FRENCH:string;
+        export const LANGUAGE_FRENCH: string
 
         /**
          * Italian language code
@@ -500,7 +497,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_ITALIAN:string;
+        export const LANGUAGE_ITALIAN: string
 
         /**
          * German language code
@@ -509,7 +506,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_GERMAN:string;
+        export const LANGUAGE_GERMAN: string
 
         /**
          * Spanish language code
@@ -518,7 +515,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_SPANISH:string;
+        export const LANGUAGE_SPANISH: string
 
         /**
          * Spanish language code
@@ -527,7 +524,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_DUTCH:string;
+        export const LANGUAGE_DUTCH: string
 
         /**
          * Russian language code
@@ -536,7 +533,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_RUSSIAN:string;
+        export const LANGUAGE_RUSSIAN: string
 
         /**
          * Korean language code
@@ -545,7 +542,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_KOREAN:string;
+        export const LANGUAGE_KOREAN: string
 
         /**
          * Japanese language code
@@ -554,7 +551,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_JAPANESE:string;
+        export const LANGUAGE_JAPANESE: string
 
         /**
          * Hungarian language code
@@ -563,7 +560,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_HUNGARIAN:string;
+        export const LANGUAGE_HUNGARIAN: string
 
         /**
          * Portuguese language code
@@ -572,7 +569,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_PORTUGUESE:string;
+        export const LANGUAGE_PORTUGUESE: string
 
         /**
          * Arabic language code
@@ -581,7 +578,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_ARABIC:string;
+        export const LANGUAGE_ARABIC: string
 
         /**
          * Norwegian language code
@@ -590,7 +587,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_NORWEGIAN:string;
+        export const LANGUAGE_NORWEGIAN: string
 
         /**
          * Polish language code
@@ -599,7 +596,7 @@ declare namespace cc {
          * @constant
          * @type {Number}
          */
-        export const LANGUAGE_POLISH:string;
+        export const LANGUAGE_POLISH: string
 
         /**
          * @memberof cc.sys
@@ -607,7 +604,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_IOS:string;
+        export const OS_IOS: string
 
         /**
          * @memberof cc.sys
@@ -615,7 +612,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_ANDROID:string;
+        export const OS_ANDROID: string
 
         /**
          * @memberof cc.sys
@@ -623,7 +620,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_WINDOWS:string;
+        export const OS_WINDOWS: string
 
         /**
          * @memberof cc.sys
@@ -631,7 +628,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_MARMALADE:string;
+        export const OS_MARMALADE: string
 
         /**
          * @memberof cc.sys
@@ -639,7 +636,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_LINUX:string;
+        export const OS_LINUX: string
 
         /**
          * @memberof cc.sys
@@ -647,7 +644,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_BADA:string;
+        export const OS_BADA: string
 
         /**
          * @memberof cc.sys
@@ -655,7 +652,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_BLACKBERRY:string;
+        export const OS_BLACKBERRY: string
 
         /**
          * @memberof cc.sys
@@ -663,7 +660,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_OSX:string;
+        export const OS_OSX: string
 
         /**
          * @memberof cc.sys
@@ -671,7 +668,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_WP8:string;
+        export const OS_WP8: string
 
         /**
          * @memberof cc.sys
@@ -679,7 +676,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_WINRT:string;
+        export const OS_WINRT: string
 
         /**
          * @memberof cc.sys
@@ -687,7 +684,7 @@ declare namespace cc {
          * @constant
          * @type {string}
          */
-        export const OS_UNKNOWN:string;
+        export const OS_UNKNOWN: string
 
         /**
          * @memberof cc.sys
@@ -696,7 +693,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const UNKNOWN:number;
+        export const UNKNOWN: number
 
         /**
          * @memberof cc.sys
@@ -705,7 +702,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const WIN32:number;
+        export const WIN32: number
 
         /**
          * @memberof cc.sys
@@ -714,7 +711,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const LINUX:number;
+        export const LINUX: number
 
         /**
          * @memberof cc.sys
@@ -723,7 +720,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const MACOS:number;
+        export const MACOS: number
 
         /**
          * @memberof cc.sys
@@ -732,7 +729,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const ANDROID:number;
+        export const ANDROID: number
 
         /**
          * @memberof cc.sys
@@ -741,7 +738,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const IPHONE:number;
+        export const IPHONE: number
 
         /**
          * @memberof cc.sys
@@ -750,7 +747,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const IPAD:number;
+        export const IPAD: number
 
         /**
          * @memberof cc.sys
@@ -759,7 +756,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const BLACKBERRY:number;
+        export const BLACKBERRY: number
 
         /**
          * @memberof cc.sys
@@ -768,7 +765,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const NACL:number;
+        export const NACL: number
 
         /**
          * @memberof cc.sys
@@ -777,7 +774,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const EMSCRIPTEN:number;
+        export const EMSCRIPTEN: number
 
         /**
          * @memberof cc.sys
@@ -786,7 +783,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const TIZEN:number;
+        export const TIZEN: number
 
         /**
          * @memberof cc.sys
@@ -795,7 +792,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const WINRT:number;
+        export const WINRT: number
 
         /**
          * @memberof cc.sys
@@ -804,7 +801,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const WP8:number;
+        export const WP8: number
 
         /**
          * @memberof cc.sys
@@ -813,7 +810,7 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const MOBILE_BROWSER:number;
+        export const MOBILE_BROWSER: number
 
         /**
          * @memberof cc.sys
@@ -822,28 +819,28 @@ declare namespace cc {
          * @default
          * @type {Number}
          */
-        export const DESKTOP_BROWSER:number;
+        export const DESKTOP_BROWSER: number
 
-        export const BROWSER_TYPE_WECHAT:string;
-        export const BROWSER_TYPE_ANDROID:string;
-        export const BROWSER_TYPE_IE:string;
-        export const BROWSER_TYPE_QQ:string;
-        export const BROWSER_TYPE_MOBILE_QQ:string;
-        export const BROWSER_TYPE_UC:string;
-        export const BROWSER_TYPE_360:string;
-        export const BROWSER_TYPE_BAIDU_APP:string;
-        export const BROWSER_TYPE_BAIDU:string;
-        export const BROWSER_TYPE_MAXTHON:string;
-        export const BROWSER_TYPE_OPERA:string;
-        export const BROWSER_TYPE_OUPENG:string;
-        export const BROWSER_TYPE_MIUI:string;
-        export const BROWSER_TYPE_FIREFOX:string;
-        export const BROWSER_TYPE_SAFARI:string;
-        export const BROWSER_TYPE_CHROME:string;
-        export const BROWSER_TYPE_LIEBAO:string;
-        export const BROWSER_TYPE_QZONE:string;
-        export const BROWSER_TYPE_SOUGOU:string;
-        export const BROWSER_TYPE_UNKNOWN:string;
+        export const BROWSER_TYPE_WECHAT: string
+        export const BROWSER_TYPE_ANDROID: string
+        export const BROWSER_TYPE_IE: string
+        export const BROWSER_TYPE_QQ: string
+        export const BROWSER_TYPE_MOBILE_QQ: string
+        export const BROWSER_TYPE_UC: string
+        export const BROWSER_TYPE_360: string
+        export const BROWSER_TYPE_BAIDU_APP: string
+        export const BROWSER_TYPE_BAIDU: string
+        export const BROWSER_TYPE_MAXTHON: string
+        export const BROWSER_TYPE_OPERA: string
+        export const BROWSER_TYPE_OUPENG: string
+        export const BROWSER_TYPE_MIUI: string
+        export const BROWSER_TYPE_FIREFOX: string
+        export const BROWSER_TYPE_SAFARI: string
+        export const BROWSER_TYPE_CHROME: string
+        export const BROWSER_TYPE_LIEBAO: string
+        export const BROWSER_TYPE_QZONE: string
+        export const BROWSER_TYPE_SOUGOU: string
+        export const BROWSER_TYPE_UNKNOWN: string
 
         /**
          * Is native ? This is set to be true in jsb auto.
@@ -851,7 +848,7 @@ declare namespace cc {
          * @name isNative
          * @type {Boolean}
          */
-        export const isNative:boolean;
+        export const isNative: boolean
 
         /**
          * Indicate whether system is mobile system
@@ -859,7 +856,7 @@ declare namespace cc {
          * @name isMobile
          * @type {Boolean}
          */
-        export const isMobile:boolean;
+        export const isMobile: boolean
 
         /**
          * Indicate the running platform
@@ -867,7 +864,7 @@ declare namespace cc {
          * @name platform
          * @type {Number}
          */
-        export const platform:number;
+        export const platform: number
 
         /**
          * Indicate the current language of the running system
@@ -875,7 +872,7 @@ declare namespace cc {
          * @name language
          * @type {String}
          */
-        export const language:string;
+        export const language: string
 
         /**
          * Indicate the running os name
@@ -883,7 +880,7 @@ declare namespace cc {
          * @name os
          * @type {String}
          */
-        export const os:string;
+        export const os: string
 
         /**
          * Indicate the running browser type
@@ -891,7 +888,7 @@ declare namespace cc {
          * @name browserType
          * @type {String}
          */
-        export const browserType:string;
+        export const browserType: string
 
         /**
          * Indicate the running browser version
@@ -899,7 +896,7 @@ declare namespace cc {
          * @name browserVersion
          * @type {Number}
          */
-        export const browserVersion:number;
+        export const browserVersion: number
 
         /**
          * Indicate the real pixel resolution of the whole game window
@@ -907,13 +904,13 @@ declare namespace cc {
          * @name windowPixelResolution
          * @type {Number}
          */
-        export const windowPixelResolution:number;
+        export const windowPixelResolution: number
 
         export namespace localStorage {
-            export function getItem(name:string):string;
-            export function setItem(name:string, value:string):void;
-            export function removeItem(name:string):void;
-            export function clear():void;
+            export function getItem (name: string): string
+            export function setItem (name: string, value: string): void
+            export function removeItem (name: string): void
+            export function clear (): void
 
             ///**
             // * cc.sys.localStorage is a local storage component.
@@ -921,12 +918,12 @@ declare namespace cc {
             // * @name localStorage
             // * @type {Object}
             // */
-            //try {
+            // try {
             //    var localStorage = sys.localStorage = win.localStorage;
             //    localStorage.setItem("storage", "");
             //    localStorage.removeItem("storage");
             //    localStorage = null;
-            //} catch (e) {
+            // } catch (e) {
             //    var warn = function () {
             //        cc.warn("Warning: localStorage isn't enabled. Please confirm browser cookie or privacy option");
             //    }
@@ -939,16 +936,16 @@ declare namespace cc {
         }
 
         export namespace capabilities {
-            //var capabilities = sys.capabilities = {"canvas": true};
-            //if (cc._renderType === cc._RENDER_TYPE_WEBGL)
+            // var capabilities = sys.capabilities = {"canvas": true};
+            // if (cc._renderType === cc._RENDER_TYPE_WEBGL)
             //    capabilities["opengl"] = true;
-            //if (docEle['ontouchstart'] !== undefined || doc['ontouchstart'] !== undefined || nav.msPointerEnabled)
+            // if (docEle['ontouchstart'] !== undefined || doc['ontouchstart'] !== undefined || nav.msPointerEnabled)
             //    capabilities["touches"] = true;
-            //if (docEle['onmouseup'] !== undefined)
+            // if (docEle['onmouseup'] !== undefined)
             //    capabilities["mouse"] = true;
-            //if (docEle['onkeyup'] !== undefined)
+            // if (docEle['onkeyup'] !== undefined)
             //    capabilities["keyboard"] = true;
-            //if (win.DeviceMotionEvent || win.DeviceOrientationEvent)
+            // if (win.DeviceMotionEvent || win.DeviceOrientationEvent)
             //    capabilities["accelerometer"] = true;
         }
 
@@ -958,7 +955,7 @@ declare namespace cc {
          * @name garbageCollect
          * @function
          */
-        export function garbageCollect():void;
+        export function garbageCollect (): void
 
         /**
          * Dumps rooted objects, only available in JSB
@@ -966,7 +963,7 @@ declare namespace cc {
          * @name dumpRoot
          * @function
          */
-        export function dumpRoot():void;
+        export function dumpRoot (): void
 
         /**
          * Restart the JS VM, only available in JSB
@@ -974,7 +971,7 @@ declare namespace cc {
          * @name restartVM
          * @function
          */
-        export function restartVM():void;
+        export function restartVM (): void
 
         /**
          * Clean a script in the JS VM, only available in JSB
@@ -983,7 +980,7 @@ declare namespace cc {
          * @param {String} jsfile
          * @function
          */
-        export function cleanScript(jsfile:string):void;
+        export function cleanScript (jsfile: string): void
 
         /**
          * Check whether an object is valid,
@@ -995,7 +992,7 @@ declare namespace cc {
          * @return {boolean} Validity of the object
          * @function
          */
-        export function isObjectValid(obj:any):boolean;
+        export function isObjectValid (obj: any): boolean
 
         /**
          * Dump system informations
@@ -1003,7 +1000,7 @@ declare namespace cc {
          * @name dump
          * @function
          */
-        export function dump():void;
+        export function dump (): void
 
         /**
          * Open a url in browser
@@ -1011,7 +1008,7 @@ declare namespace cc {
          * @name openURL
          * @param {String} url
          */
-        export function openURL(url:string):void;
+        export function openURL (url: string): void
     }
 
 // +++++++++++++++++++++++++something about sys end+++++++++++++++++++++++++++++
@@ -1023,47 +1020,47 @@ declare namespace cc {
      * @constant
      * @type {Number}
      */
-    export const ORIENTATION_PORTRAIT:number;
+    export const ORIENTATION_PORTRAIT: number
 
     /**
      * Device oriented vertically, home button on the top
      * @constant
      * @type {Number}
      */
-    export const ORIENTATION_PORTRAIT_UPSIDE_DOWN:number;
+    export const ORIENTATION_PORTRAIT_UPSIDE_DOWN: number
 
     /**
      * Device oriented horizontally, home button on the right
      * @constant
      * @type {Number}
      */
-    export const ORIENTATION_LANDSCAPE_LEFT:number;
+    export const ORIENTATION_LANDSCAPE_LEFT: number
 
     /**
      * Device oriented horizontally, home button on the left
      * @constant
      * @type {Number}
      */
-    export const ORIENTATION_LANDSCAPE_RIGHT:number;
+    export const ORIENTATION_LANDSCAPE_RIGHT: number
 
     /**
      * @type {cc.EGLView}
      * @name cc.view
      * cc.view is the shared view object.
      */
-    export const view:EGLView;
+    export const view: EGLView
 
     /**
      * @type {cc.Director}
      * @name cc.director
      */
-    export const director:Director;
+    export const director: Director
     /**
      * @type {cc.Size}
      * @name cc.winSize
      * cc.winSize is the alias object for the size of the current game window.
      */
-    export const winSize:Size;
+    export const winSize: Size
 
     // Parsers
     /**
@@ -1071,99 +1068,99 @@ declare namespace cc {
      * @name cc.plistParser
      * A SAX Parser
      */
-    export const saxParser:SAXParser;
+    export const saxParser: SAXParser
 
     /**
      * @type {cc.PlistParser}
      * @name cc.plistParser
      * A Plist Parser
      */
-    export const plistParser:PlistParser;
+    export const plistParser: PlistParser
 
     /**
      * An object to boot the game.
      * @class
      * @name cc.game
      */
-    //cc.game = /** @lends cc.game# */{
+    // cc.game = /** @lends cc.game# */{
     export namespace game {
-        export const DEBUG_MODE_NONE:number;
-        export const DEBUG_MODE_INFO:number;
-        export const DEBUG_MODE_WARN:number;
-        export const DEBUG_MODE_ERROR:number;
-        export const DEBUG_MODE_INFO_FOR_WEB_PAGE:number;
-        export const DEBUG_MODE_WARN_FOR_WEB_PAGE:number;
-        export const DEBUG_MODE_ERROR_FOR_WEB_PAGE:number;
+        export const DEBUG_MODE_NONE: number
+        export const DEBUG_MODE_INFO: number
+        export const DEBUG_MODE_WARN: number
+        export const DEBUG_MODE_ERROR: number
+        export const DEBUG_MODE_INFO_FOR_WEB_PAGE: number
+        export const DEBUG_MODE_WARN_FOR_WEB_PAGE: number
+        export const DEBUG_MODE_ERROR_FOR_WEB_PAGE: number
 
-        export const EVENT_HIDE:string;
-        export const EVENT_SHOW:string;
-        export const EVENT_RESIZE:string;
+        export const EVENT_HIDE: string
+        export const EVENT_SHOW: string
+        export const EVENT_RESIZE: string
 
         ///**
         // * Key of config
         // * @constant
         // * @type {Object}
         // */
-        export const CONFIG_KEY:ConfigKey;
+        export const CONFIG_KEY: IConfigKey
 
         ///**
         // * Config of game
         // * @type {Object}
         // */
-        //config: null,
+        // config: null,
 
         /**
          * Callback when the scripts of engine have been load.
          * @type {Function}
          */
-        export function onStart():void;
+        export function onStart (): void
 
         /**
          * Callback when game exits.
          * @type {Function}
          */
-        export function onStop():void;
+        export function onStop (): void
 
         /**
          * Set frameRate of game.
          * @param frameRate
          */
-        export function setFrameRate(frameRate:number):void;
+        export function setFrameRate (frameRate: number): void
 
         /**
          * Check whether the game is paused.
          */
-        export function isPaused(): boolean;
+        export function isPaused (): boolean
 
         /**
-         * Pause the game. 
+         * Pause the game.
          */
-        export function pause(): void;
+        export function pause (): void
 
         /**
          * Restart game.
          */
-        export function restart():void;
+        export function restart (): void
 
         /**
-        * Resume the game from pause.
-        */
-        export function resume(): void;
+         * Resume the game from pause.
+         */
+        export function resume (): void
 
         /**
          * Run game.
          */
-        export function run(id?:number):void;
+        export function run (id?: number): void
 
         /**
          * End game, it will close the game window.
          */
-        export function end(): void;
+        export function end (): void
 
         /**
          * Prepare game.
          * @param cb
          */
-        export function prepare(cb?:() => void):void;
+        export function prepare (cb?: () => void): void
     }
 }

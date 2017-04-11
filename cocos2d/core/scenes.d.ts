@@ -1,6 +1,6 @@
 /// <reference path="../cocos2d-lib.d.ts" />
 
-declare module cc {
+declare namespace cc {
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/core/scenes/CCLoaderScene.js
     ////////////////////////////////////////////////////////////////////////////////
@@ -24,10 +24,10 @@ declare module cc {
          * @example
          * //Example
          * cc.LoaderScene.preload(g_resources, function () {
-               cc.director.runScene(new HelloWorldScene());
-           }, this);
+         *     cc.director.runScene(new HelloWorldScene());
+         * }, this);
          */
-        static preload(resources:any[], cb:(target:Class) => void, target:Class):LoaderScene;
+        public static preload (resources: any[], cb: (target: Class) => void, target: Class): LoaderScene
 
         /**
          * init with resources
@@ -35,7 +35,7 @@ declare module cc {
          * @param {Function|String} cb
          * @param {Object} target
          */
-        initWithResources(resources:any[], cb:(target:Class) => void|string, target:Class):boolean;
+        public initWithResources (resources: any[], cb: (target: Class) => void|string, target: Class): boolean
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -57,4 +57,3 @@ declare module cc {
      */
     export class Scene extends Node {}
 }
-

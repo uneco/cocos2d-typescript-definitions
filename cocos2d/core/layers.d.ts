@@ -1,14 +1,14 @@
 /// <reference path="../cocos2d-lib.d.ts" />
 
-declare module cc {
+declare namespace cc {
 
     ////////////////////////////////////////////////////////////////////////////////
     // File: cocos2d/layers/CCLayer.js
     ////////////////////////////////////////////////////////////////////////////////
 
-    //+-------------------- Variable Definitions --------------------+//
-    //+-------------------- Function Definitions --------------------+//
-    //+-------------------- Class Definitions --------------------+//
+    // +-------------------- Variable Definitions --------------------+//
+    // +-------------------- Function Definitions --------------------+//
+    // +-------------------- Class Definitions --------------------+//
 
     /** cc.Layer is a subclass of cc.Node that implements the TouchEventsDelegate protocol.
      * All features from cc.Node are valid, plus the bake feature: Baked layer can cache a static layer to improve performance
@@ -19,7 +19,7 @@ declare module cc {
         /**
          * Constructor of cc.Layer, override it to extend the construction behavior, remember to call "this._super()" in the extended "ctor" function.
          */
-        constructor();
+        constructor ();
 
         /**
          * Sets the layer to cache all of children to a bake sprite, and draw itself by bake sprite. recommend using it in UI.
@@ -27,7 +27,7 @@ declare module cc {
          * @function
          * @see cc.Layer#unbake
          */
-        public bake():void;
+        public bake (): void
 
         /**
          * Cancel the layer to cache all of children to a bake sprite.
@@ -35,7 +35,7 @@ declare module cc {
          * @function
          * @see cc.Layer#bake
          */
-        public unbake():void;
+        public unbake (): void
     }
 
     /**
@@ -68,27 +68,27 @@ declare module cc {
          * @param {Number} [width=]
          * @param {Number} [height=]
          */
-        constructor(color:Color, width?:number, height?:number);
-        ctor(color?:Color, width?:number, height?:number):void;
+        constructor (color: Color, width?: number, height?: number);
+        public ctor (color?: Color, width?: number, height?: number): void
 
         /**
          * Returns the blend function
          * @return {cc.BlendFunc}
          */
-        public getBlendFunc():BlendFunc;
+        public getBlendFunc (): BlendFunc
 
         /**
          * Sets the blend func, you can pass either a cc.BlendFunc object or source and destination value separately
          * @param {cc.BlendFunc} func
          */
-        public setBlendFunc(func:BlendFunc):void;
+        public setBlendFunc (func: BlendFunc): void
 
         /**
          * Sets the blend func, you can pass either a cc.BlendFunc object or source and destination value separately
          * @param {Number} src
          * @param {Number} [dst]
          */
-        public setBlendFunc(src:number, dst:number):void;
+        public setBlendFunc (src: number, dst: number): void
     }
 
     /**
@@ -142,7 +142,7 @@ declare module cc {
          * //where p = A value between 0.0 and 1.0 that represents the position between start and end in a gradient
          *
          */
-        constructor(start:Color, end:Color, v:Point, stops?:any[]);
-        ctor(start?:Color, end?:Color|number, v?:Point|number, stops?:any[]):void;
+        constructor (start: Color, end: Color, v: Point, stops?: any[]);
+        public ctor (start?: Color, end?: Color|number, v?: Point|number, stops?: any[]): void
     }
 }

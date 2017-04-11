@@ -78,43 +78,43 @@ declare namespace cc {
      * The Properties.
      * @member {any[]} properties
      */
-    properties: any[]
+    public properties: any[]
 
     /**
      * @member {boolean} visible
      */
-    visible: boolean     
-     
+    public visible: boolean
+
     /**
      * @member {boolean} ownTiles
      */
-    ownTiles: boolean
-    
+    public ownTiles: boolean
+
     /**
      * @member {number} offset
      */
-    offset: number
+    public offset: number
 
-    constructor()
-    
+    constructor ()
+
     /**
      * @const {number} ATTRIB_NONE
      */
-    static ATTRIB_NONE: number
-    
+    public static ATTRIB_NONE: number
+
     /**
      * @const {number} ATTRIB_BASE64
      */
-    static ATTRIB_BASE64: number
+    public static ATTRIB_BASE64: number
 
     /**
-     * @const {number} ATTRIB_GZIP 
+     * @const {number} ATTRIB_GZIP
      */
-    static ATTRIB_GZIP: number
+    public static ATTRIB_GZIP: number
     /**
-     * @const {number} ATTRIB_ZLIB 
+     * @const {number} ATTRIB_ZLIB
      */
-    static ATTRIB_ZLIB: number    
+    public static ATTRIB_ZLIB: number
   }
 
   /**
@@ -142,46 +142,46 @@ declare namespace cc {
      * Tileset name
      * @member {string} name
      */
-    name: string
+    public name: string
 
     /**
      * First gid
      * @member {number} firstGid
      */
-    firstGid: number
+    public firstGid: number
 
     /**
      * Spacing
      * @member {number} spacing
      */
-    spacing: number
+    public spacing: number
 
     /**
      * Margin
      * @member {number} margin
      */
-    margin: number
+    public margin: number
 
     /**
      * Filename containing the tiles (should be sprite sheet / texture atlas)
      * @member {string} sourceImage
      */
-    sourceImage: string
+    public sourceImage: string
 
     /**
      * Size in pixels of the image
      * @member {cc.Size|null} imageSize
      */
-    imageSize: Size
+    public imageSize: Size
 
-    constructor()
+    constructor ()
 
     /**
      * Return rect
      * @param {number} gid
      * @return {cc.Rect}
      */
-    rectForGID(gid: number): Rect
+    public rectForGID (gid: number): Rect
   }
 
   /**
@@ -191,105 +191,104 @@ declare namespace cc {
    * @extends cc.Class
    */
   class SAXParser {}
-  
+
   /**
-    *
-    * cc.plistParser is a singleton object for parsing plist files
-    * @class
-    * @name cc.plistParser
-    * @extends cc.SAXParser
-    */
+   * cc.plistParser is a singleton object for parsing plist files
+   * @class
+   * @name cc.plistParser
+   * @extends cc.SAXParser
+   */
   class PlistParser extends SAXParser { }
 
   /**
    * <p>cc.TMXMapInfo contains the information about the map like: <br/>
-   *- Map orientation (hexagonal, isometric or orthogonal)<br/>
-  *- Tile size<br/>
-  *- Map size</p>
-  *
-  * <p>And it also contains: <br/>
-  * - Layers (an array of TMXLayerInfo objects)<br/>
-  * - Tilesets (an array of TMXTilesetInfo objects) <br/>
-  * - ObjectGroups (an array of TMXObjectGroupInfo objects) </p>
-  *
-  * <p>This information is obtained from the TMX file. </p>
-  * @class
-  * @extends cc.saxParser
-  *
-  * @property {any[]}    properties          - Properties of the map info.
-  * @property {number}   orientation         - Map orientation.
-  * @property {any}      parentElement       - Parent element.
-  * @property {number}   parentGID           - Parent GID.
-  * @property {any}      layerAttrs          - Layer attributes.
-  * @property {boolean}  storingCharacters   - Is reading storing characters stream.
-  * @property {string}   tmxFileName         - TMX file name.
-  * @property {string}   currentString       - Current string stored from characters stream.
-  * @property {number}   mapWidth            - Width of the map
-  * @property {number}   mapHeight           - Height of the map
-  * @property {number}   tileWidth           - Width of a tile
-  * @property {number}   tileHeight          - Height of a tile
-  *
-  * @param {string} tmxFile fileName or content string
-  * @param {string} resourcePath  If tmxFile is a file name ,it is not required.If tmxFile is content string ,it is must required.
-  * @example
-  * 1.
-  * //create a TMXMapInfo with file name
-  * var tmxMapInfo = new cc.TMXMapInfo("res/orthogonal-test1.tmx");
-  * 2.
-  * //create a TMXMapInfo with content string and resource path
-  * var resources = "res/TileMaps";
-  * var filePath = "res/TileMaps/orthogonal-test1.tmx";
-  * var xmlStr = cc.loader.getRes(filePath);
-  * var tmxMapInfo = new cc.TMXMapInfo(xmlStr, resources);
-  */
+   * - Map orientation (hexagonal, isometric or orthogonal)<br/>
+   * - Tile size<br/>
+   * - Map size</p>
+   *
+   * <p>And it also contains: <br/>
+   * - Layers (an array of TMXLayerInfo objects)<br/>
+   * - Tilesets (an array of TMXTilesetInfo objects) <br/>
+   * - ObjectGroups (an array of TMXObjectGroupInfo objects) </p>
+   *
+   * <p>This information is obtained from the TMX file. </p>
+   * @class
+   * @extends cc.saxParser
+   *
+   * @property {any[]}    properties          - Properties of the map info.
+   * @property {number}   orientation         - Map orientation.
+   * @property {any}      parentElement       - Parent element.
+   * @property {number}   parentGID           - Parent GID.
+   * @property {any}      layerAttrs          - Layer attributes.
+   * @property {boolean}  storingCharacters   - Is reading storing characters stream.
+   * @property {string}   tmxFileName         - TMX file name.
+   * @property {string}   currentString       - Current string stored from characters stream.
+   * @property {number}   mapWidth            - Width of the map
+   * @property {number}   mapHeight           - Height of the map
+   * @property {number}   tileWidth           - Width of a tile
+   * @property {number}   tileHeight          - Height of a tile
+   *
+   * @param {string} tmxFile fileName or content string
+   * @param {string} resourcePath  If tmxFile is a file name ,it is not required.If tmxFile is content string ,it is must required.
+   * @example
+   * 1.
+   * //create a TMXMapInfo with file name
+   * var tmxMapInfo = new cc.TMXMapInfo("res/orthogonal-test1.tmx");
+   * 2.
+   * //create a TMXMapInfo with content string and resource path
+   * var resources = "res/TileMaps";
+   * var filePath = "res/TileMaps/orthogonal-test1.tmx";
+   * var xmlStr = cc.loader.getRes(filePath);
+   * var tmxMapInfo = new cc.TMXMapInfo(xmlStr, resources);
+   */
   export class TMXMapInfo extends cc.SAXParser {
     /**
      * Properties of the map info.
      * @member {any[]} properties
      */
-    properties: any[]
+    public properties: any[]
 
     /**
      * Map orientation.
      * @member {number} orientation
      */
-    orientation: number
-    
+    public orientation: number
+
     /**
      * Parent element
      * @member {any} parentElement
      */
-    parentElement: any
-    
+    public parentElement: any
+
     /**
      * Parent GID
      * @member {number} parentGID
      */
-    parentGID: number
-    
+    public parentGID: number
+
     /**
      * Layer attributes.
      * @member {any} layerAttrs
      */
-    layerAttrs: any
-    
+    public layerAttrs: any
+
     /**
      * Is reading storing characters stream.
      * @member {boolean} storingCharacters
      */
-    storingCharacters: boolean
-    
+    public storingCharacters: boolean
+
     /**
      * TMX file name.
      * @member {string} tmxFileName
      */
-    tmxFileName: string
+    public tmxFileName: string
 
     /**
      * Current string stored from characters stream.
      * @member {string} currentString
      */
-    currentString: string
+    public currentString: string
 
     /**
      * Creates a TMX Format with a tmx file or content string                           <br/>
@@ -297,74 +296,74 @@ declare namespace cc {
      * @param {string} tmxFile fileName or content string
      * @param {string} resourcePath  If tmxFile is a file name ,it is not required.If tmxFile is content string ,it is must required.
      */
-    constructor(tmxFile: string, resourcePath: string)
-    
+    constructor (tmxFile: string, resourcePath: string)
+
     /**
      * Map width & height
      * @return {cc.Size}
      */
-    getMapSize(): Size
+    public getMapSize (): Size
 
     /**
      * Map width & height
      * @param {cc.Size} value
      */
-    setMapSize(value: Size): void
+    public setMapSize (value: Size): void
 
     /**
      * Tiles width & height
      * @return {cc.Size}
      */
-    getTileSize(): Size
+    public getTileSize (): Size
 
     /**
      * Tiles width & height
      * @param {cc.Size} value
      */
-    setTileSize(value: Size): void
+    public setTileSize (value: Size): void
 
     /**
      * Layers
      * @return {cc.TMXLayerInfo[]}
      */
-    getLayers(): TMXLayerInfo[]
+    public getLayers (): TMXLayerInfo[]
 
     /**
      * Layers
      * @param {cc.TMXLayerInfo} value
      */
-    setLayers(value: TMXLayerInfo): void
+    public setLayers (value: TMXLayerInfo): void
 
     /**
      * tilesets
      * @return {cc.TMXTilesetInfo[]}
      */
-    getTilesets(): TMXTilesetInfo[]
+    public getTilesets (): TMXTilesetInfo[]
 
     /**
      * tilesets
      * @param {cc.TMXTilesetInfo} value
      */
-    setTilesets(value: TMXTilesetInfo): void
+    public setTilesets (value: TMXTilesetInfo): void
 
     /**
      * ObjectGroups
      * @return {cc.TMXObjectGroup[]}
      */
-    getObjectGroups(): TMXObjectGroup[]
+    public getObjectGroups (): TMXObjectGroup[]
 
     /**
      * ObjectGroups
      * @param {cc.TMXObjectGroup} value
      */
-    setObjectGroups(value: TMXObjectGroup): void
+    public setObjectGroups (value: TMXObjectGroup): void
 
     /**
      * Initializes a TMX format with a  tmx file
      * @param {string} tmxFile
      * @return {Element}
      */
-    initWithTMXFile(tmxFile: string): Element
+    public initWithTMXFile (tmxFile: string): Element
 
     /**
      * initializes a TMX format with an XML string and a TMX resource path
@@ -372,56 +371,56 @@ declare namespace cc {
      * @param {string} resourcePath
      * @return {boolean}
      */
-    initWithXML(tmxString: string, resourcePath: string): boolean
+    public initWithXML (tmxString: string, resourcePath: string): boolean
 
     /** Initalises parsing of an XML file, either a tmx (Map) file or tsx (Tileset) file
      * @param {string} tmxFile
      * @param {boolean} [isXmlString=false]
      * @return {Element}
      */
-    parseXMLFile(tmxFile: string, isXmlString: boolean): Element
+    public parseXMLFile (tmxFile: string, isXmlString: boolean): Element
 
     /**
      * initializes parsing of an XML string, either a tmx (Map) string or tsx (Tileset) string
      * @param {string} xmlString
      * @return {boolean}
      */
-    parseXMLString(xmlString: string): boolean
+    public parseXMLString (xmlString: string): boolean
 
     /**
      * Gets the tile properties.
      * @return {any[]}
      */
-    getTileProperties(): any[]
+    public getTileProperties (): any[]
 
     /**
      * Set the tile properties.
      * @param {any} tileProperties
      */
-    setTileProperties(tileProperties: any): void
+    public setTileProperties (tileProperties: any): void
 
     /**
      * Width of the map
      * @member {number} mapWidth
      */
-    mapWidth: number             
+    public mapWidth: number
 
     /**
      * Height of the map
      * @member {number} mapHeight
      */
-    mapHeight: number             
+    public mapHeight: number
 
     /**
      * Width of a tile
      * @member {number} tileWidth
      */
-    tileWidth: number             
+    public tileWidth: number
 
     /**
      * Height of a tile
      * @member {number} tileHeight
      */
-    tileHeight: number             
+    public tileHeight: number
   }
 }
