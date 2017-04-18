@@ -1,335 +1,41 @@
 /// <reference path="../cocos2d-lib.d.ts" />
 
 declare namespace cc {
-    // NOTE:
-    //  I ignored the following files in the sprites directory, I do not believe they alter cc.Sprite's interface:
-    //      - CCSpriteBatchNodeCanvas
-    //      - CCSpriteBatchNodeWebGl
-    //      - CCSpriteBatchNodeRenderCmd
-
-    // +--------------------------------------------------------------------------------
-    // + File: cocos2d/core/sprites/CCAnimation.js
-    // +--------------------------------------------------------------------------------
-    /**
-     * <p>
-     *    cc.AnimationFrame
-     *    A frame of the animation. It contains information like:
-     *       - sprite frame name
-     *       - # of delay units.
-     *       - offset
-     * </p>
-     * @class
-     * @extends cc.Class
-     * @param spriteFrame
-     * @param delayUnits
-     * @param userInfo
-     * @returns {AnimationFrame}
-     */
     export class AnimationFrame extends Class {
-        public ctor (): void
-        public ctor (spriteFrame: SpriteFrame, delayUnits: number, userInfo: any): void
-
-        /**
-         * Create a new animation frame and copy all contents into it
-         * @returns {AnimationFrame}
-         */
-        public clone (): AnimationFrame
-
-        ///**
-        // * Create a new animation frame and copy all contents into it
-        // * @returns {AnimationFrame}
-        // */
-        // public copyWithZone(pZone:string):AnimationFrame;
-
-        /**
-         * Create a new animation frame and copy all contents into it
-         * @returns {AnimationFrame}
-         */
-        public copy (): AnimationFrame
-
-        /**
-         * initializes the animation frame with a spriteframe, number of delay units and a notification user info
-         * @param {cc.SpriteFrame} spriteFrame
-         * @param {Number} delayUnits
-         * @param {object} userInfo
-         */
-        public initWithSpriteFrame (spriteFrame: SpriteFrame, delayUnits: number, userInfo: any): boolean
-
-        /**
-         * Returns sprite frame to be used
-         * @return {cc.SpriteFrame}
-         */
+        public static create (spriteFrame: SpriteFrame, delayUnits: number, userInfo: any): AnimationFrame
         public getSpriteFrame (): SpriteFrame
-
-        /**
-         * Sets sprite frame to be used
-         * @param {cc.SpriteFrame} spriteFrame
-         */
         public setSpriteFrame (spriteFrame: SpriteFrame): void
-
-        /**
-         * Returns how many units of time the frame takes getter
-         * @return {Number}
-         */
         public getDelayUnits (): number
-
-        /**
-         * Sets how many units of time the frame takes setter
-         * @param delayUnits
-         */
         public setDelayUnits (delayUnits: number): void
-
-        /**
-         * Returns the user custom information
-         * @return {object}
-         */
         public getUserInfo (): any
-
-        /**
-         * Sets the user custom information
-         * @param {object} userInfo
-         */
         public setUserInfo (userInfo: any): void
+        public clone (): AnimationFrame
     }
 
-    /**
-     * <p>
-     *     A cc.Animation object is used to perform animations on the cc.Sprite objects.<br/>
-     *     <br/>
-     *      The cc.Animation object contains cc.SpriteFrame objects, and a possible delay between the frames. <br/>
-     *      You can animate a cc.Animation object by using the cc.Animate action.
-     * </p>
-     * @class
-     * @extends cc.Class
-     * @param {Array} frames
-     * @param {Number} delay
-     * @param {Number} [loops=1]
-     *
-     * @example
-     * // 1. Creates an empty animation
-     * var animation1 = new cc.Animation();
-     *
-     * // 2. Create an animation with sprite frames, delay and loops.
-     * var spriteFrames = [];
-     * var frame = cc.spriteFrameCache.getSpriteFrame("grossini_dance_01.png");
-     * spriteFrames.push(frame);
-     * var animation1 = new cc.Animation(spriteFrames);
-     * var animation2 = new cc.Animation(spriteFrames, 0.2);
-     * var animation2 = new cc.Animation(spriteFrames, 0.2, 2);
-     *
-     * // 3. Create an animation with animation frames, delay and loops.
-     * var animationFrames = [];
-     * var frame =  new cc.AnimationFrame();
-     * animationFrames.push(frame);
-     * var animation1 = new cc.Animation(animationFrames);
-     * var animation2 = new cc.Animation(animationFrames, 0.2);
-     * var animation3 = new cc.Animation(animationFrames, 0.2, 2);
-     *
-     * //create an animate with this animation
-     * var action = cc.animate(animation1);
-     *
-     * //run animate
-     * sprite.runAction(action);
-     */
     export class Animation extends Class {
-        public ctor (): void
-        public ctor (frames: SpriteFrame[], delay: number, loops: number): void
+        public static createWithAnimationFrames (animationFrames: AnimationFrame[], delayPerUnit: number, loops?: number): Animation
+        public static createWithSpriteFrames (spriteFrames: SpriteFrame[], delay?: number, loops?: number): Animation
 
-        /**
-         * Returns the array of animation frames
-         * @return {Array}
-         */
-        public getFrames (): SpriteFrame[]
-
-        /**
-         * Sets array of animation frames
-         * @param {Array} frames
-         */
-        public setFrames (frames: SpriteFrame[]): void
-
-        /**
-         * Adds a frame to a cc.Animation, the frame will be added with one "delay unit".
-         * @param {cc.SpriteFrame} frame
-         */
-        public addSpriteFrame (frame: SpriteFrame): void
-
-        /**
-         * Adds a frame with an image filename. Internally it will create a cc.SpriteFrame and it will add it. The frame will be added with one "delay unit".
-         * @param {String} fileName
-         */
-        public addSpriteFrameWithFile (fileName: string): void
-
-        /**
-         * Adds a frame with a texture and a rect. Internally it will create a cc.SpriteFrame and it will add it. The frame will be added with one "delay unit".
-         * @param {cc.Texture2D} texture
-         * @param {cc.Rect} rect
-         */
-        public addSpriteFrameWithTexture (texture: Texture2D, rect: Rect): void
-
-        /**
-         * Initializes a cc.Animation with cc.AnimationFrame, do not call this method yourself, please pass parameters to constructor to initialize.
-         * @param {Array} arrayOfAnimationFrames
-         * @param {Number} delayPerUnit
-         * @param {Number} [loops=1]
-         */
-        public initWithAnimationFrames (arrayOfAnimationFrames: AnimationFrame[], delayPerUnit: number, loops?: number): boolean
-
-        /**
-         * Clone the current animation
-         * @return {cc.Animation}
-         */
-        public clone (): Animation
-
-        ///**
-        // * Clone the current animation
-        // * @return {cc.Animation}
-        // */
-        // copyWithZone:function (pZone) {
-        //    var pCopy = new cc.Animation();
-        //    pCopy.initWithAnimationFrames(this._copyFrames(), this._delayPerUnit, this._loops);
-        //    pCopy.setRestoreOriginalFrame(this._restoreOriginalFrame);
-        //    return pCopy;
-        // },
-
-        /**
-         * Clone the current animation
-         * @returns {cc.Animation}
-         */
-        public copy (): Animation
-
-        /**
-         * Returns how many times the animation is going to loop. 0 means animation is not animated. 1, animation is executed one time, ...
-         * @return {Number}
-         */
         public getLoops (): number
-
-        /**
-         * Sets how many times the animation is going to loop. 0 means animation is not animated. 1, animation is executed one time, ...
-         * @param {Number} value
-         */
-        public setLoops (value: number): void
-
-        /**
-         * Sets whether or not it shall restore the original frame when the animation finishes
-         * @param {Boolean} restOrigFrame
-         */
-        public setRestoreOriginalFrame (restOrigFrame: boolean): void
-
-        /**
-         * Returns whether or not it shall restore the original frame when the animation finishes
-         * @return {Boolean}
-         */
-        public getRestoreOriginalFrame (): boolean
-
-        /**
-         * Returns duration in seconds of the whole animation. It is the result of totalDelayUnits * delayPerUnit
-         * @return {Number}
-         */
+        public setLoops (loops: number): void
         public getDuration (): number
-
-        /**
-         * Returns delay in seconds of the "delay unit"
-         * @return {Number}
-         */
+        public getFrames (): AnimationFrame[]
+        public setFrames (frames: AnimationFrame[]): void
         public getDelayPerUnit (): number
-
-        /**
-         * Sets delay in seconds of the "delay unit"
-         * @param {Number} delayPerUnit
-         */
         public setDelayPerUnit (delayPerUnit: number): void
-
-        /**
-         * Returns total delay units of the cc.Animation.
-         * @return {Number}
-         */
         public getTotalDelayUnits (): number
-
-        /**
-         * Initializes a cc.Animation with frames and a delay between frames, do not call this method yourself, please pass parameters to constructor to initialize.
-         * @param {Array} frames
-         * @param {Number} delay
-         * @param {Number} [loops=1]
-         */
-        public initWithSpriteFrames (frames: SpriteFrame[], delay: number, loops?: number): boolean
-
-        /**
-         * <p>Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,
-         * and the ugly workaround is to use retain/release. So, these 2 methods were added to be compatible with JSB.
-         * This is a hack, and should be removed once JSB fixes the retain/release bug<br/>
-         * You will need to retain an object if you created an engine object and haven't added it into the scene graph during the same frame.<br/>
-         * Otherwise, JSB's native autorelease pool will consider this object a useless one and release it directly,<br/>
-         * when you want to use it later, a "Invalid Native Object" error will be raised.<br/>
-         * The retain function can increase a reference count for the native object to avoid it being released,<br/>
-         * you need to manually invoke release function when you think this object is no longer needed, otherwise, there will be memory learks.<br/>
-         * retain and release function call should be paired in developer's game code.</p>
-         * @function
-         * @see cc.Animation#release
-         */
-        public retain (): void
-
-        /**
-         * <p>Currently JavaScript Bindings (JSB), in some cases, needs to use retain and release. This is a bug in JSB,
-         * and the ugly workaround is to use retain/release. So, these 2 methods were added to be compatible with JSB.
-         * This is a hack, and should be removed once JSB fixes the retain/release bug<br/>
-         * You will need to retain an object if you created an engine object and haven't added it into the scene graph during the same frame.<br/>
-         * Otherwise, JSB's native autorelease pool will consider this object a useless one and release it directly,<br/>
-         * when you want to use it later, a "Invalid Native Object" error will be raised.<br/>
-         * The retain function can increase a reference count for the native object to avoid it being released,<br/>
-         * you need to manually invoke release function when you think this object is no longer needed, otherwise, there will be memory learks.<br/>
-         * retain and release function call should be paired in developer's game code.</p>
-         * @function
-         * @see cc.Animation#retain
-         */
-        public release (): void
+        public getRestoreOriginalFrame (): boolean
+        public setRestoreOriginalFrame (restoreOriginalFrame: boolean): void
+        public addSpriteFrame (spriteFrame: SpriteFrame): void
+        public addSpriteFrameWithFile (filename: string): void
+        public addSpriteFrameWithTexture (texture: Texture2D, rect: Rect): void
+        public clone (): Animation
     }
 
-    // +--------------------------------------------------------------------------------
-    // + File: cocos2d/core/sprites/CCAnimationCache.js
-    // +--------------------------------------------------------------------------------
-    /**
-     * <p>
-     *     cc.animationCache is a singleton object that manages the Animations.<br/>
-     *     It saves in a cache the animations. You should use this class if you want to save your animations in a cache.<br/>
-     * <br/>
-     * example<br/>
-     * cc.animationCache.addAnimation(animation,"animation1");<br/>
-     * </p>
-     * @class
-     * @name cc.animationCache
-     */
     export namespace animationCache {
-        /**
-         * Adds a cc.Animation with a name.
-         * @param {cc.Animation} animation
-         * @param {String} name
-         */
         export function addAnimation (animation: Animation, name: string): void
-
-        /**
-         * Deletes a cc.Animation from the cache.
-         * @param {String} name
-         */
         export function removeAnimation (name: string): void
-
-        /**
-         * <p>
-         *     Returns a cc.Animation that was previously added.<br/>
-         *      If the name is not found it will return nil.<br/>
-         *      You should retain the returned copy if you are going to use it.</br>
-         * </p>
-         * @param {String} name
-         * @return {cc.Animation}
-         */
         export function getAnimation (name: string): Animation
-
-        /**
-         * <p>
-         *    Adds an animations from a plist file.<br/>
-         *    Make sure that the frames were previously loaded in the cc.SpriteFrameCache.
-         * </p>
-         * @param {String} plist
-         */
         export function addAnimations (plist: string): void
     }
 
