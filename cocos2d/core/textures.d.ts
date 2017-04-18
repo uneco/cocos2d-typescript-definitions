@@ -601,6 +601,7 @@ declare namespace cc {
 
     export class Texture2D extends Class {
         public isLoaded (): boolean
+        public setAliasTexParameters (): void
     }
 
     ////////////////////////////////////////////////////////////////////////////////
