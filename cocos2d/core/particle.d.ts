@@ -15,5 +15,7 @@ declare namespace cc {
 
     public setBatchNode (batchNode: SpriteBatchNode): void
     public setPositionType (positionType: number): void
+
+    public stopSystem (): void
   }
 }
