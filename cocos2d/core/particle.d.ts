@@ -16,6 +16,9 @@ declare namespace cc {
     public setBatchNode (batchNode: SpriteBatchNode): void
     public setPositionType (positionType: number): void
 
+    public isAutoRemoveOnFinish (): boolean
+    public setAutoRemoveOnFinish (autoRemoveOnFinish: boolean): void
+
     public stopSystem (): void
   }
 }
